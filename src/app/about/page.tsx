@@ -129,10 +129,6 @@ export default function About() {
               <div style={{ width: "50px" }}></div>
             </Flex>
 
-            <Flex gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
-            </Flex>
             {person.languages.length > 0 && (
               <Flex wrap gap="8">
                 {person.languages.map((language, index) => (
