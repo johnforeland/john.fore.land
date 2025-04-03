@@ -77,10 +77,10 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for
-        transforming complex challenges into simple, elegant design solutions.
-        Her work spans digital interfaces, interactive experiences, and the
-        convergence of design and technology.
+        John is as full-stack as you can get. You'll find him building solutions
+        with the end user in mind, wether that be customers or developers. With
+        a background in software engineering and a passion for design, he's
+        always looking for ways to improve the user experience.
       </>
     ),
   },
@@ -89,17 +89,22 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Sopra Steria",
+        timeframe: "2018 - Present",
+        role: "Manager Software Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20%
-            increase in user engagement and 30% faster load times.
+            Salesforce development & architecture for customers like Elvia, NAV
+            and Vinmonopolet.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows,
-            enabling designers to iterate 50% faster.
+            DevOps architecture (GitHub, BitBucket), CI/CD, GitHub Actions
+            plugin development.
+          </>,
+          <>Sales proposals and bids.</>,
+          <>
+            Interviewing graduates for the company and seniors for Salesforce
+            department.
           </>,
         ],
         images: [
@@ -113,18 +118,12 @@ const about = {
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Kristiansand Dyrepark",
+        timeframe: "2012 - 2018",
+        role: "Seasonal Manager IT",
         achievements: [
-          <>
-            Developed a design system that unified the brand across multiple
-            platforms, improving design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line,
-            contributing to a 15% increase in overall company revenue.
-          </>,
+          <>Manager for seasonal workers at the IT department.</>,
+          <>Worked off-season as part-time IT support.</>,
         ],
         images: [],
       },
@@ -135,12 +134,23 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "University of Agder",
+        timeframe: "2016 - 2018",
+        description: (
+          <>Master's degree in Industrial Economy and Technology Management.</>
+        ),
+        thesis:
+          "Managing Change When Implementing a New Project Management Methodology",
+        // TODO: change to modal
+        thesisUrl:
+          "https://uia.brage.unit.no/uia-xmlui/bitstream/handle/11250/2566847/F%C3%B8reland%20John%20Arne.pdf?sequence=1&isAllowed=y",
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "University of Agder",
+        timeframe: "2013 - 2016",
+        description: <>Bachelor's degree in Computer Software Engineering.</>,
+        thesis: "",
+        thesisUrl: "",
       },
     ],
   },

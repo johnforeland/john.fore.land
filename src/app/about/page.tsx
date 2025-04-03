@@ -7,6 +7,7 @@ import {
   Icon,
   IconButton,
   SmartImage,
+  SmartLink,
   Tag,
   Text,
 } from "@/once-ui/components";
@@ -337,15 +338,33 @@ export default function About() {
                     fillWidth
                     gap="4"
                   >
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
+                    <Flex
+                      fillWidth
+                      horizontal="space-between"
+                      vertical="end"
+                      marginBottom="4"
+                    >
+                      <Text id={institution.name} variant="heading-strong-l">
+                        {institution.name}
+                      </Text>
+                      <Text
+                        variant="heading-default-xs"
+                        onBackground="neutral-weak"
+                      >
+                        {institution.timeframe}
+                      </Text>
+                    </Flex>
                     <Text
                       variant="heading-default-xs"
                       onBackground="neutral-weak"
                     >
                       {institution.description}
                     </Text>
+                    {institution.thesis && (
+                      <SmartLink href={institution.thesisUrl} iconSize="xs">
+                        {institution.thesis}
+                      </SmartLink>
+                    )}
                   </Column>
                 ))}
               </Column>
