@@ -27,19 +27,19 @@ const social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
   {
+    name: "Source",
+    icon: "sourceCode",
+    link: "https://github.com/johnforeland/john.fore.land",
+  },
+  {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/johnforeland/john.fore.land",
+    link: "https://github.com/johnforeland",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/in/johnforeland/",
-  },
-  {
-    name: "Email",
-    icon: "email",
-    link: "mailto:example@gmail.com",
   },
 ];
 

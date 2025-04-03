@@ -33,12 +33,15 @@ import {
   PiImageDuotone,
 } from "react-icons/pi";
 
+import { GoRepoForked } from "react-icons/go";
+
 import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,
   chevronDown: HiChevronDown,
   chevronRight: HiChevronRight,
+  sourceCode: GoRepoForked,
   chevronLeft: HiChevronLeft,
   refresh: HiOutlineArrowPath,
   arrowUpRight: HiArrowUpRight,
