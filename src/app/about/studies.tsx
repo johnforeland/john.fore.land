@@ -1,5 +1,8 @@
+"use client";
+
 import { Column, Flex, Heading, Text, SmartLink } from "@/once-ui/components";
 import { about } from "@/app/resources/content";
+import ThesisModal from "./thesis-modal";
 
 export default function Studies() {
   return (
@@ -37,9 +40,10 @@ export default function Studies() {
                   {institution.description}
                 </Text>
                 {institution.thesis && (
-                  <SmartLink href={institution.thesisUrl} iconSize="xs">
-                    {institution.thesis}
-                  </SmartLink>
+                  <ThesisModal
+                    name={institution.thesis}
+                    url={institution.thesisUrl}
+                  />
                 )}
               </Column>
             ))}
