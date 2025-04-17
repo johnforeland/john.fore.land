@@ -15,12 +15,14 @@ type Metadata = {
   summary: string;
   image?: string;
   images: string[];
+  video?: string;
+  videoTitle?: string;
   tag?: string;
   team: Team[];
   link?: string;
 };
 
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
@@ -31,9 +33,9 @@ function getMDXFiles(dir: string) {
 }
 
 function readMDXFile(filePath: string) {
-    if (!fs.existsSync(filePath)) {
-        notFound();
-    }
+  if (!fs.existsSync(filePath)) {
+    notFound();
+  }
 
   const rawContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(rawContent);
@@ -42,6 +44,8 @@ function readMDXFile(filePath: string) {
     title: data.title || "",
     publishedAt: data.publishedAt,
     summary: data.summary || "",
+    video: data.video || "",
+    videoTitle: data.videoTitle || "",
     image: data.image || "",
     images: data.images || [],
     tag: data.tag || [],
