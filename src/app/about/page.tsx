@@ -13,6 +13,7 @@ import Contents from "./contents";
 import Photo from "./photo";
 import Intro from "./intro";
 import Work from "./work";
+import Studies from "./studies";
 
 export async function generateMetadata() {
   const title = about.title;
@@ -73,57 +74,10 @@ export default function About() {
         <Photo />
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Intro />
+
           <Work />
 
-          {about.studies.display && (
-            <>
-              <Heading
-                as="h2"
-                id={about.studies.title}
-                variant="display-strong-s"
-                marginBottom="m"
-              >
-                {about.studies.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.studies.institutions.map((institution, index) => (
-                  <Column
-                    key={`${institution.name}-${index}`}
-                    fillWidth
-                    gap="4"
-                  >
-                    <Flex
-                      fillWidth
-                      horizontal="space-between"
-                      vertical="end"
-                      marginBottom="4"
-                    >
-                      <Text id={institution.name} variant="heading-strong-l">
-                        {institution.name}
-                      </Text>
-                      <Text
-                        variant="heading-default-xs"
-                        onBackground="neutral-weak"
-                      >
-                        {institution.timeframe}
-                      </Text>
-                    </Flex>
-                    <Text
-                      variant="heading-default-xs"
-                      onBackground="neutral-weak"
-                    >
-                      {institution.description}
-                    </Text>
-                    {institution.thesis && (
-                      <SmartLink href={institution.thesisUrl} iconSize="xs">
-                        {institution.thesis}
-                      </SmartLink>
-                    )}
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
+          <Studies />
 
           {about.technical.display && (
             <>
