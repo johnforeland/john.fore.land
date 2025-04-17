@@ -17,6 +17,7 @@ import { person, about, social } from "@/app/resources/content";
 import Image from "next/image";
 import SkyAvatar from "../../../components/sky-avatar/sky-avatar";
 import Contents from "./contents";
+import Photo from "./photo";
 
 export async function generateMetadata() {
   const title = about.title;
@@ -74,40 +75,7 @@ export default function About() {
       />
       <Contents />
       <Flex fillWidth mobileDirection="column" horizontal="center">
-        {about.avatar.display && (
-          <Column
-            className={styles.avatar}
-            minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
-            gap="m"
-            flex={3}
-            horizontal="center"
-          >
-            <Flex
-              gap="128"
-              direction="column"
-              mobileDirection="row"
-              vertical="center"
-              horizontal="center"
-              fillWidth={true}
-            >
-              <div style={{ width: "50px" }}></div>
-              <SkyAvatar></SkyAvatar>
-              <div style={{ width: "50px" }}></div>
-            </Flex>
-
-            {person.languages.length > 0 && (
-              <Flex wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
-                    {language}
-                  </Tag>
-                ))}
-              </Flex>
-            )}
-          </Column>
-        )}
+        <Photo />
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
