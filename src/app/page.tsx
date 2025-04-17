@@ -13,8 +13,7 @@ import {
 import { Projects } from "@/components/work/Projects";
 
 import { baseURL, routes } from "@/app/resources";
-import { home, about, person, newsletter } from "@/app/resources/content";
-import { Mailchimp } from "@/components";
+import { home, about, person } from "@/app/resources/content";
 
 export async function generateMetadata() {
   const title = home.title;
@@ -125,7 +124,6 @@ export default function Home() {
       </RevealFx>
 
       <Projects range={[2]} />
-      {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );
 }
