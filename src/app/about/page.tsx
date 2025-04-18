@@ -15,6 +15,7 @@ import Intro from "./intro";
 import Work from "./work";
 import Studies from "./studies";
 import Skills from "./skills";
+import MountainBackground from "@/components/backgrounds/mountains/MountainBackground";
 
 export async function generateMetadata() {
   const title = about.title;
@@ -47,42 +48,44 @@ export async function generateMetadata() {
 
 export default function About() {
   return (
-    <Column maxWidth="m">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: person.name,
-            jobTitle: person.role,
-            description: about.intro.description,
-            url: `https://${baseURL}/about`,
-            image: `${baseURL}/images/${person.avatar}`,
-            sameAs: social
-              .filter((item) => item.link && !item.link.startsWith("mailto:")) // Filter out empty links and email links
-              .map((item) => item.link),
-            worksFor: {
-              "@type": "Organization",
-              name: about.work.experiences[0].company || "",
-            },
-          }),
-        }}
-      />
-      <Contents />
-      <Flex fillWidth mobileDirection="column" horizontal="center">
-        <Photo />
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
-          <Intro />
+    <MountainBackground>
+      <Column maxWidth="m">
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: person.name,
+              jobTitle: person.role,
+              description: about.intro.description,
+              url: `https://${baseURL}/about`,
+              image: `${baseURL}/images/${person.avatar}`,
+              sameAs: social
+                .filter((item) => item.link && !item.link.startsWith("mailto:")) // Filter out empty links and email links
+                .map((item) => item.link),
+              worksFor: {
+                "@type": "Organization",
+                name: about.work.experiences[0].company || "",
+              },
+            }),
+          }}
+        />
+        <Contents />
+        <Flex fillWidth mobileDirection="column" horizontal="center">
+          <Photo />
+          <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+            <Intro />
 
-          <Work />
+            <Work />
 
-          <Studies />
+            <Studies />
 
-          <Skills />
-        </Column>
-      </Flex>
-    </Column>
+            <Skills />
+          </Column>
+        </Flex>
+      </Column>
+    </MountainBackground>
   );
 }
