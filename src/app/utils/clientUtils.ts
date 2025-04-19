@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
-export function addPadding(): Boolean {
+export function isAboutPage(): Boolean {
   const pathname = usePathname() ?? "";
-  return !pathname.startsWith("/about");
+  return pathname.startsWith("/about");
 }
