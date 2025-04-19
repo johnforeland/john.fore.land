@@ -57,10 +57,6 @@ const about = {
   avatar: {
     display: true,
   },
-  calendar: {
-    display: false,
-    link: "https://cal.com",
-  },
   intro: {
     display: true,
     title: "Introduction",
