@@ -6,6 +6,7 @@ import { Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
 import { routes } from "@/app/resources";
+import React from "react";
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
@@ -32,26 +33,22 @@ export const Header = () => {
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
               {routes.map((route) => (
-                <>
+                <React.Fragment key={route.id}>
                   <ToggleButton
-                    key={route.id}
                     className="s-flex-show"
                     prefixIcon={route.icon}
                     href={route.path}
                     selected={pathname === route.path}
                   />
                   <ToggleButton
-                    key={route.id}
                     className="s-flex-hide"
                     prefixIcon={route.icon}
                     href={route.path}
                     label={route.label}
                     selected={pathname === route.path}
                   />
-                  {route.id == "home" && (
-                    <Line key={route.id} vert maxHeight="24" />
-                  )}
-                </>
+                  {route.id == "home" && <Line vert maxHeight="24" />}
+                </React.Fragment>
               ))}
             </Flex>
           </Flex>
