@@ -1,13 +1,21 @@
+"use client";
+
 import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components";
 import { person, social } from "@/app/resources/content";
 import styles from "./Footer.module.scss";
+import { isAboutPage } from "@/app/utils/clientUtils";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const isAbout = isAboutPage();
+
   return (
     <Flex
       as="footer"
+      style={{
+        backgroundColor: isAbout && "#40255b",
+      }}
       position="relative"
       fillWidth
       padding="8"
