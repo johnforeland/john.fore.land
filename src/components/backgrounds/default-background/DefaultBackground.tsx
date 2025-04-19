@@ -1,8 +1,19 @@
+"use client";
+
 import { effects } from "@/app/resources";
+import { isAboutPage } from "@/app/utils/clientUtils";
 import { Background } from "@/once-ui/components";
 
 export default function DefaultBackground() {
-  return (
+  const isAbout = isAboutPage();
+
+  return isAbout ? (
+    <Background
+      style={{
+        backgroundColor: "#BEEAF7",
+      }}
+    />
+  ) : (
     <Background
       mask={{
         cursor: effects.mask.cursor,
