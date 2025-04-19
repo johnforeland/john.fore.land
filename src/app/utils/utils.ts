@@ -78,7 +78,8 @@ export function getPosts(customPath = ["", "", "", ""]) {
 
 export async function generateMetadataObject(
   title: String,
-  description: String
+  description: String,
+  path: String = ""
 ): Promise<any> {
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
@@ -89,7 +90,7 @@ export async function generateMetadataObject(
       title,
       description,
       type: "website",
-      url: `https://${baseURL}`,
+      url: `https://${baseURL}/${path}`,
       images: [
         {
           url: ogImage,
