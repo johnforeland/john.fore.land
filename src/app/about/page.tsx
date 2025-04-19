@@ -17,33 +17,10 @@ import Studies from "./studies";
 import Skills from "./skills";
 import MountainBackground from "@/components/backgrounds/mountains/MountainBackground";
 
-export async function generateMetadata() {
-  const title = about.title;
-  const description = about.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+import { generateMetadataObject } from "@/app/utils/utils";
 
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: `https://${baseURL}/about`,
-      images: [
-        {
-          url: ogImage,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
+export async function generateMetadata() {
+  return generateMetadataObject(about.title, about.description, "about");
 }
 
 export default function About() {
