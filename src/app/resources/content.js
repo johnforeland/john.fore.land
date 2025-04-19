@@ -130,7 +130,6 @@ const about = {
         ),
         thesis:
           "Managing Change When Implementing a New Project Management Methodology",
-        // TODO: change to modal
         thesisUrl:
           "https://uia.brage.unit.no/uia-xmlui/bitstream/handle/11250/2566847/F%C3%B8reland%20John%20Arne.pdf",
       },
