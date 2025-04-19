@@ -1,20 +1,18 @@
 "use client";
 
-import { ParallaxProvider } from "react-scroll-parallax";
-import { usePathname } from "next/navigation";
 import { Flex } from "@/once-ui/components";
+import { addPadding } from "@/app/utils/clientUtils";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname() ?? "";
-  const isAboutPage = pathname.startsWith("/about");
+  const shouldAddPadding = addPadding();
 
   return (
     <Flex
       position="relative"
       zIndex={0}
       fillWidth
-      paddingY={isAboutPage ? "0" : "l"}
-      paddingX={isAboutPage ? "0" : "l"}
+      paddingY={shouldAddPadding && "l"}
+      paddingX={shouldAddPadding && "l"}
       horizontal="center"
       flex={1}
     >
