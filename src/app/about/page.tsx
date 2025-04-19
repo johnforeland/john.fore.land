@@ -9,7 +9,6 @@ import {
 import { baseURL } from "@/app/resources";
 import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
-import Contents from "./contents";
 import Photo from "./photo";
 import Intro from "./intro";
 import Work from "./work";
@@ -27,7 +26,6 @@ export default function About() {
   return (
     <MountainBackground>
       <Column maxWidth="m">
-        <Contents />
         <Flex fillWidth mobileDirection="column" horizontal="center">
           <Photo />
           <Column className={styles.blockAlign} flex={9} maxWidth={40}>
