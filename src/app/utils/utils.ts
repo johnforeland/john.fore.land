@@ -24,7 +24,6 @@ type Metadata = {
 };
 
 import { notFound } from "next/navigation";
-import { log } from "console";
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
@@ -78,14 +77,15 @@ export function getPosts(customPath = ["", "", "", ""]) {
 }
 
 export async function generateMetadataObject(
-  title: String,
-  description: String,
-  path: String = "",
-  root?: Object
-): Promise<Object> {
+  title: string,
+  description: string,
+  path: string = "",
+  extraFields?: Record<string, any>
+): Promise<any> {
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
+    ...extraFields,
     title,
     description,
     openGraph: {
