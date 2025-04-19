@@ -9,6 +9,7 @@ import DefaultBackground from "@/components/backgrounds/default-background/Defau
 import Root from "@/components/layout/Root";
 
 import { generateMetadataObjectLayout } from "@/app/utils/utils";
+import Padding from "@/components/layout/Padding";
 
 export async function generateMetadata() {
   return generateMetadataObjectLayout();
@@ -34,19 +35,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           <Header />
           <RouteGuard>
             <ParallaxProvider>
-              <Flex
-                position="relative"
-                zIndex={0}
-                fillWidth
-                paddingY="l"
-                paddingX="l"
-                horizontal="center"
-                flex={1}
-              >
-                <Flex horizontal="center" fillWidth minHeight="0">
-                  {children}
-                </Flex>
-              </Flex>
+              <Padding>{children}</Padding>
             </ParallaxProvider>
           </RouteGuard>
           <Footer />
