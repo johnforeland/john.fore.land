@@ -4,7 +4,7 @@ import "@/once-ui/tokens/index.scss";
 import { Footer, Header, RouteGuard } from "@/components";
 import { Column, Flex, ToastProvider } from "@/once-ui/components";
 
-import ParallaxProvider from "@/app/parallax-provider";
+import ParallaxProvider from "@/components/layout/parallax-provider";
 import DefaultBackground from "@/components/backgrounds/default-background/DefaultBackground";
 import Root from "@/components/layout/Root";
 
