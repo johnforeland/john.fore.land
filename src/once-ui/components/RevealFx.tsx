@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, forwardRef } from "react";
-import { SpacingToken } from "../types";
+import { SpacingToken } from "@/once-ui/types";
 import styles from "./RevealFx.module.scss";
 import { Flex } from ".";
 
@@ -29,7 +29,7 @@ const RevealFx = forwardRef<HTMLDivElement, RevealFxProps>(
       className,
       ...rest
     },
-    ref,
+    ref
   ) => {
     const [isRevealed, setIsRevealed] = useState(revealedByDefault);
 
@@ -84,13 +84,15 @@ const RevealFx = forwardRef<HTMLDivElement, RevealFxProps>(
         horizontal="center"
         ref={ref}
         style={revealStyle}
-        className={`${styles.revealFx} ${isRevealed ? styles.revealed : styles.hidden} ${className || ""}`}
+        className={`${styles.revealFx} ${
+          isRevealed ? styles.revealed : styles.hidden
+        } ${className || ""}`}
         {...rest}
       >
         {children}
       </Flex>
     );
-  },
+  }
 );
 
 RevealFx.displayName = "RevealFx";
