@@ -11,8 +11,8 @@ import {
   CommonProps,
   DisplayProps,
   ConditionalProps,
-} from "@/once-ui/interfaces";
-import { SpacingToken, ColorScheme, ColorWeight } from "@/once-ui/types";
+} from "../interfaces";
+import { SpacingToken, ColorScheme, ColorWeight } from "../types";
 
 interface ComponentProps
   extends GridProps,
@@ -30,7 +30,7 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       inline,
       columns,
       gap,
-      position,
+      position = "relative",
       aspectRatio,
       align,
       textVariant,
@@ -53,6 +53,8 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       marginBottom,
       marginX,
       marginY,
+      dark,
+      light,
       width,
       height,
       maxWidth,
@@ -103,23 +105,32 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       children,
       ...rest
     },
-    ref
+    ref,
   ) => {
-    const generateDynamicClass = (
-      type: string,
-      value: string | "-1" | undefined
-    ) => {
+    const generateDynamicClass = (type: string, value: string | "-1" | undefined) => {
       if (!value) return undefined;
+
+      if (value === "transparent") {
+        return `transparent-border`;
+      }
+
       if (value === "surface" || value === "page" || value === "transparent") {
         return `${value}-${type}`;
       }
+
+      const parts = value.split("-");
+      if (parts.includes("alpha")) {
+        const [scheme, , weight] = parts;
+        return `${scheme}-${type}-alpha-${weight}`;
+      }
+
       const [scheme, weight] = value.split("-") as [ColorScheme, ColorWeight];
       return `${scheme}-${type}-${weight}`;
     };
 
     const parseDimension = (
       value: number | SpacingToken | undefined,
-      type: "width" | "height"
+      type: "width" | "height",
     ): string | undefined => {
       if (value === undefined) return undefined;
       if (typeof value === "number") return `${value}rem`;
@@ -164,6 +175,9 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       columns && `columns-${columns}`,
       tabletColumns && `tablet-columns-${tabletColumns}`,
       mobileColumns && `mobile-columns-${mobileColumns}`,
+      overflow && `overflow-${overflow}`,
+      overflowX && `overflow-x-${overflowX}`,
+      overflowY && `overflow-y-${overflowY}`,
       padding && `p-${padding}`,
       paddingLeft && `pl-${paddingLeft}`,
       paddingRight && `pr-${paddingRight}`,
@@ -187,14 +201,13 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       generateDynamicClass("solid", solid),
       generateDynamicClass(
         "border",
-        border || borderTop || borderRight || borderBottom || borderLeft
+        border || borderTop || borderRight || borderBottom || borderLeft,
       ),
       (border || borderTop || borderRight || borderBottom || borderLeft) &&
         !borderStyle &&
         "border-solid",
       border && !borderWidth && `border-1`,
-      (borderTop || borderRight || borderBottom || borderLeft) &&
-        "border-reset",
+      (borderTop || borderRight || borderBottom || borderLeft) && "border-reset",
       borderTop && "border-top-1",
       borderRight && "border-right-1",
       borderBottom && "border-bottom-1",
@@ -219,7 +232,9 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       zIndex && `z-index-${zIndex}`,
       textType && `font-${textType}`,
       cursor && `cursor-${cursor}`,
-      className
+      dark && "dark-grid",
+      light && "light-grid",
+      className,
     );
 
     const combinedStyle: CSSProperties = {
@@ -239,7 +254,7 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
         {children}
       </Component>
     );
-  }
+  },
 );
 
 Grid.displayName = "Grid";
