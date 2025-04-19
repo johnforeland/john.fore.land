@@ -3,33 +3,10 @@ import MasonryGrid from "@/components/gallery/MasonryGrid";
 import { baseURL } from "@/app/resources";
 import { gallery, person } from "@/app/resources/content";
 
-export async function generateMetadata() {
-  const title = gallery.title;
-  const description = gallery.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+import { generateMetadataObject } from "@/app/utils/utils";
 
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: `https://${baseURL}/gallery`,
-      images: [
-        {
-          url: ogImage,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
+export async function generateMetadata() {
+  return generateMetadataObject(gallery.title, gallery.description, "gallery");
 }
 
 export default function Gallery() {
