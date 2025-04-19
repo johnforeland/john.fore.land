@@ -2,11 +2,10 @@
 
 import { usePathname } from "next/navigation";
 
-import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
+import { Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
-import { routes } from "@/app/resources";
-import { about, work, gallery } from "@/app/resources/content";
+import { menuItems } from "@/app/resources";
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
@@ -32,65 +31,28 @@ export const Header = () => {
             horizontal="center"
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
-              {routes["/"] && (
-                <ToggleButton
-                  prefixIcon="home"
-                  href="/"
-                  selected={pathname === "/"}
-                />
-              )}
-              <Line vert maxHeight="24" />
-              {routes["/about"] && (
+              {menuItems.map((item) => (
                 <>
                   <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="person"
-                    href="/about"
-                    label={about.label}
-                    selected={pathname === "/about"}
-                  />
-                  <ToggleButton
+                    key={item.id}
                     className="s-flex-show"
-                    prefixIcon="person"
-                    href="/about"
-                    selected={pathname === "/about"}
+                    prefixIcon={item.icon}
+                    href={item.path}
+                    selected={pathname === item.path}
                   />
-                </>
-              )}
-              {routes["/work"] && (
-                <>
                   <ToggleButton
+                    key={item.id}
                     className="s-flex-hide"
-                    prefixIcon="grid"
-                    href="/work"
-                    label={work.label}
-                    selected={pathname.startsWith("/work")}
+                    prefixIcon={item.icon}
+                    href={item.path}
+                    label={item.label}
+                    selected={pathname === item.path}
                   />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="grid"
-                    href="/work"
-                    selected={pathname.startsWith("/work")}
-                  />
+                  {item.id == "home" && (
+                    <Line key={item.id} vert maxHeight="24" />
+                  )}
                 </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    label={gallery.label}
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                </>
-              )}
+              ))}
             </Flex>
           </Flex>
         </Flex>
