@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 
 import { Flex, Line, ToggleButton } from "@/once-ui/components";
-import styles from "@/components/Header.module.scss";
+import styles from "@/components/layout/Header.module.scss";
 
 import { routes } from "@/app/resources";
 import React from "react";
