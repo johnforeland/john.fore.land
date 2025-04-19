@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { routes, protectedRoutes } from "@/app/resources";
+import { validRoutes, protectedRoutes } from "@/app/resources";
 import {
   Flex,
   Spinner,
@@ -37,13 +37,13 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
       const checkRouteEnabled = () => {
         if (!pathname) return false;
 
-        if (pathname in routes) {
-          return routes[pathname as keyof typeof routes];
+        if (pathname in validRoutes) {
+          return validRoutes[pathname as keyof typeof validRoutes];
         }
 
         const dynamicRoutes = ["/work"] as const;
         for (const route of dynamicRoutes) {
-          if (pathname?.startsWith(route) && routes[route]) {
+          if (pathname?.startsWith(route) && validRoutes[route]) {
             return true;
           }
         }

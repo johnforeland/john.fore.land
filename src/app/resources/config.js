@@ -2,7 +2,7 @@ import { about, work, gallery } from "@/app/resources/content";
 
 const baseURL = "john.fore.land";
 
-const routes = {
+const validRoutes = {
   "/": true,
   "/about": true,
   "/work": true,
@@ -94,4 +94,12 @@ const display = {
   time: true,
 };
 
-export { routes, menuItems, protectedRoutes, effects, style, display, baseURL };
+export {
+  validRoutes,
+  menuItems,
+  protectedRoutes,
+  effects,
+  style,
+  display,
+  baseURL,
+};
