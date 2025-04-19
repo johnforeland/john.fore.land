@@ -2,39 +2,16 @@ import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
 import { Footer, Header, RouteGuard } from "@/components";
-import { baseURL } from "@/app/resources";
-
-import { person, home } from "@/app/resources/content";
 import { Column, Flex, ToastProvider } from "@/once-ui/components";
+
 import ParallaxProvider from "@/app/parallax-provider";
 import DefaultBackground from "@/components/backgrounds/default-background/DefaultBackground";
 import Root from "@/app/root";
 
+import { generateMetadataObjectLayout } from "@/app/utils/utils";
+
 export async function generateMetadata() {
-  return {
-    metadataBase: new URL(`https://${baseURL}`),
-    title: home.title,
-    description: home.description,
-    openGraph: {
-      title: `${person.firstName}'s Portfolio`,
-      description: "Portfolio website showcasing my work.",
-      url: baseURL,
-      siteName: `${person.firstName}'s Portfolio`,
-      locale: "en_US",
-      type: "website",
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
-  };
+  return generateMetadataObjectLayout();
 }
 
 interface RootLayoutProps {

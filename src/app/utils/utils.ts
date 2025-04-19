@@ -24,6 +24,7 @@ type Metadata = {
 };
 
 import { notFound } from "next/navigation";
+import { log } from "console";
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
@@ -79,8 +80,9 @@ export function getPosts(customPath = ["", "", "", ""]) {
 export async function generateMetadataObject(
   title: String,
   description: String,
-  path: String = ""
-): Promise<any> {
+  path: String = "",
+  root?: Object
+): Promise<Object> {
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
@@ -105,4 +107,23 @@ export async function generateMetadataObject(
       images: [ogImage],
     },
   };
+}
+
+import { home } from "@/app/resources/content";
+
+export async function generateMetadataObjectLayout(): Promise<Object> {
+  return generateMetadataObject(home.title, home.description, "", {
+    metadataBase: new URL(`https://${baseURL}`),
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  });
 }
