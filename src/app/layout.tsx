@@ -6,7 +6,7 @@ import { Column, Flex, ToastProvider } from "@/once-ui/components";
 
 import ParallaxProvider from "@/app/parallax-provider";
 import DefaultBackground from "@/components/backgrounds/default-background/DefaultBackground";
-import Root from "@/app/root";
+import Root from "@/components/layout/Root";
 
 import { generateMetadataObjectLayout } from "@/app/utils/utils";
 
