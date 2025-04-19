@@ -11,7 +11,7 @@ import React, {
 import classNames from "classnames";
 import { Flex, Text } from ".";
 import styles from "./Input.module.scss";
-import useDebounce from "@/once-ui/hooks/useDebounce";
+import useDebounce from "../hooks/useDebounce";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
@@ -59,13 +59,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       validate,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(!!props.value);
-    const [validationError, setValidationError] = useState<ReactNode | null>(
-      null
-    );
+    const [validationError, setValidationError] = useState<ReactNode | null>(null);
     const debouncedValue = useDebounce(props.value, 1000);
 
     const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
@@ -111,41 +109,31 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const displayError = validationError || errorMessage;
 
-    const inputClassNames = classNames(
-      styles.input,
-      "font-body",
-      "font-default",
-      "font-m",
-      {
-        [styles.filled]: isFilled,
-        [styles.focused]: isFocused,
-        [styles.withPrefix]: hasPrefix,
-        [styles.withSuffix]: hasSuffix,
-        [styles.labelAsPlaceholder]: labelAsPlaceholder,
-        [styles.hasChildren]: children,
-        [styles.error]: displayError && debouncedValue !== "",
-      }
-    );
+    const inputClassNames = classNames(styles.input, "font-body", "font-default", "font-m", {
+      [styles.filled]: isFilled,
+      [styles.focused]: isFocused,
+      [styles.withPrefix]: hasPrefix,
+      [styles.withSuffix]: hasSuffix,
+      [styles.labelAsPlaceholder]: labelAsPlaceholder,
+      [styles.hasChildren]: children,
+      [styles.error]: displayError && debouncedValue !== "",
+    });
 
     return (
       <Flex
-        position="relative"
         direction="column"
         gap="8"
         style={style}
         fillWidth
         fitHeight
         className={classNames(className, {
-          [styles.error]:
-            (error || (displayError && debouncedValue !== "")) &&
-            props.value !== "",
+          [styles.error]: (error || (displayError && debouncedValue !== "")) && props.value !== "",
         })}
       >
         <Flex
           transition="micro-medium"
           border="neutral-medium"
           background="neutral-alpha-weak"
-          position="relative"
           overflow="hidden"
           vertical="stretch"
           className={classNames(
@@ -156,19 +144,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {
               [styles.m]: height === "m",
             },
-            radius === "none"
-              ? "radius-none"
-              : radius
-              ? `radius-l-${radius}`
-              : "radius-l"
+            radius === "none" ? "radius-none" : radius ? `radius-l-${radius}` : "radius-l",
           )}
         >
           {hasPrefix && (
-            <Flex paddingLeft="12" className={styles.prefix}>
+            <Flex paddingLeft="12" className={styles.prefix} position="static">
               {hasPrefix}
             </Flex>
           )}
-          <Flex fillWidth direction="column" position="relative">
+          <Flex fillWidth direction="column">
             <input
               {...props}
               ref={ref}
@@ -195,19 +179,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {children}
           </Flex>
           {hasSuffix && (
-            <Flex paddingRight="12" className={styles.suffix}>
+            <Flex paddingRight="12" className={styles.suffix} position="static">
               {hasSuffix}
             </Flex>
           )}
         </Flex>
         {displayError && errorMessage !== false && (
           <Flex paddingX="16">
-            <Text
-              as="span"
-              id={`${id}-error`}
-              variant="body-default-s"
-              onBackground="danger-weak"
-            >
+            <Text as="span" id={`${id}-error`} variant="body-default-s" onBackground="danger-weak">
               {validationError || errorMessage}
             </Text>
           </Flex>
@@ -226,7 +205,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
       </Flex>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

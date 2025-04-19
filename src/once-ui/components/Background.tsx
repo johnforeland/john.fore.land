@@ -1,15 +1,9 @@
 "use client";
 
-import React, {
-  CSSProperties,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { SpacingToken } from "@/once-ui/types";
+import React, { CSSProperties, forwardRef, useEffect, useRef, useState } from "react";
+import { SpacingToken } from "../types";
 import { Flex } from "./Flex";
-import { DisplayProps } from "@/once-ui/interfaces";
+import { DisplayProps } from "../interfaces";
 import styles from "./Background.module.scss";
 import classNames from "classnames";
 
@@ -59,10 +53,12 @@ interface LinesProps {
   display?: boolean;
   opacity?: DisplayProps["opacity"];
   size?: SpacingToken;
+  thickness?: number;
+  angle?: number;
+  color?: string;
 }
 
 interface BackgroundProps extends React.ComponentProps<typeof Flex> {
-  position?: CSSProperties["position"];
   gradient?: GradientProps;
   dots?: DotsProps;
   grid?: GridProps;
@@ -76,7 +72,6 @@ interface BackgroundProps extends React.ComponentProps<typeof Flex> {
 const Background = forwardRef<HTMLDivElement, BackgroundProps>(
   (
     {
-      position = "fixed",
       gradient = {},
       dots = {},
       grid = {},
@@ -87,7 +82,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
       style,
       ...rest
     },
-    forwardedRef
+    forwardedRef,
   ) => {
     const dotsColor = dots.color ?? "brand-on-background-weak";
     const dotsSize = "var(--static-space-" + (dots.size ?? "24") + ")";
@@ -171,24 +166,18 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
       inputMin: number,
       inputMax: number,
       outputMin: number,
-      outputMax: number
+      outputMax: number,
     ) => {
-      return (
-        ((value - inputMin) / (inputMax - inputMin)) * (outputMax - outputMin) +
-        outputMin
-      );
+      return ((value - inputMin) / (inputMax - inputMin)) * (outputMax - outputMin) + outputMin;
     };
 
-    const adjustedX =
-      gradient.x != null ? remap(gradient.x, 0, 100, 37.5, 62.5) : 50;
-    const adjustedY =
-      gradient.y != null ? remap(gradient.y, 0, 100, 37.5, 62.5) : 50;
+    const adjustedX = gradient.x != null ? remap(gradient.x, 0, 100, 37.5, 62.5) : 50;
+    const adjustedY = gradient.y != null ? remap(gradient.y, 0, 100, 37.5, 62.5) : 50;
 
     return (
       <Flex
         ref={backgroundRef}
         fill
-        position={position}
         className={classNames(mask && styles.mask, className)}
         top="0"
         left="0"
@@ -213,8 +202,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
                 gradient.width != null ? `${gradient.width / 4}%` : "25%",
               ["--gradient-height" as string]:
                 gradient.height != null ? `${gradient.height / 4}%` : "25%",
-              ["--gradient-tilt" as string]:
-                gradient.tilt != null ? `${gradient.tilt}deg` : "0deg",
+              ["--gradient-tilt" as string]: gradient.tilt != null ? `${gradient.tilt}deg` : "0deg",
               ["--gradient-color-start" as string]: gradient.colorStart
                 ? `var(--${gradient.colorStart})`
                 : "var(--brand-solid-strong)",
@@ -250,9 +238,23 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
             pointerEvents="none"
             className={styles.lines}
             opacity={lines.opacity}
-            style={{
-              backgroundImage: `repeating-linear-gradient(45deg, var(--brand-on-background-weak) 0, var(--brand-on-background-weak) 0.5px, var(--static-transparent) 0.5px, var(--static-transparent) ${dots.size})`,
-            }}
+            style={
+              {
+                "--lines-angle": `${lines.angle ?? 45}deg`,
+                "--lines-color": `var(--${lines.color ?? "brand-on-background-weak"})`,
+                "--lines-thickness": `${lines.thickness ?? 0.5}px`,
+                "--lines-spacing": `var(--static-space-${lines.size ?? "24"})`,
+                background: `
+                repeating-linear-gradient(
+                  var(--lines-angle),
+                  var(--static-transparent),
+                  var(--static-transparent) calc(var(--lines-spacing) - var(--lines-thickness)),
+                  var(--lines-color) calc(var(--lines-spacing) - var(--lines-thickness)),
+                  var(--lines-color) var(--lines-spacing)
+                )
+              `,
+              } as React.CSSProperties
+            }
           />
         )}
         {grid.display && (
@@ -275,18 +277,14 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
                   var(--${grid.color || "brand-on-background-weak"}) 0,
                   var(--${grid.color || "brand-on-background-weak"}) 1px,
                   var(--static-transparent) 1px,
-                  var(--static-transparent) ${
-                    grid.width || "var(--static-space-32)"
-                  }
+                  var(--static-transparent) ${grid.width || "var(--static-space-32)"}
                 ),
                 linear-gradient(
                   0deg,
                   var(--${grid.color || "brand-on-background-weak"}) 0,
                   var(--${grid.color || "brand-on-background-weak"}) 1px,
                   var(--static-transparent) 1px,
-                  var(--static-transparent) ${
-                    grid.height || "var(--static-space-32)"
-                  }
+                  var(--static-transparent) ${grid.height || "var(--static-space-32)"}
                 )
               `,
             }}
@@ -295,7 +293,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
         {children}
       </Flex>
     );
-  }
+  },
 );
 
 Background.displayName = "Background";
