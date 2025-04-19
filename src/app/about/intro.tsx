@@ -6,6 +6,8 @@ import {
   Icon,
   IconButton,
   Button,
+  LogoCloud,
+  InlineCode,
 } from "@/once-ui/components";
 import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
@@ -23,6 +25,24 @@ export default function Intro() {
         <Heading className={styles.textAlign} variant="display-strong-xl">
           {person.name}
         </Heading>
+        <InlineCode>
+          <LogoCloud
+            columns="1"
+            mobileColumns="1"
+            rotationInterval={3000}
+            limit={1}
+            logos={[
+              {
+                iconSrc: "/images/about/titles/backend.gif",
+                wordmark: false,
+              },
+              {
+                iconSrc: "/images/about/titles/frontend.gif",
+                wordmark: false,
+              },
+            ]}
+          />
+        </InlineCode>
         <Text
           className={styles.textAlign}
           variant="display-default-xs"
