@@ -5,7 +5,7 @@
     "node": ">=20.x"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "export": "next export",
     "build": "next build",
     "start": "next start",
@@ -14,14 +14,14 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
     "@mdx-js/loader": "^3.1.0",
-    "@next/mdx": "^15.3.1",
+    "@next/mdx": "15.3.1",
     "classnames": "^2.5.1",
     "cookie": "^1.0.2",
     "gray-matter": "^4.0.3",
-    "next": "^14.2.16",
+    "next": "15.3.1",
     "next-mdx-remote": "^5.0.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "postcss": "^8.5.3",
     "postcss-preset-env": "^10.1.5",
     "prismjs": "^1.30.0",
@@ -35,12 +35,16 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
     "@csstools/postcss-global-data": "^3.0.0",
     "@types/cookie": "^1.0.0",
     "postcss-custom-media": "^11.0.5",
     "postcss-flexbugs-fixes": "^5.0.2",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2"
   }
 }
