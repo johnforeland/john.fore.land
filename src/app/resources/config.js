@@ -1,3 +1,5 @@
+import { about, work, gallery } from "@/app/resources/content";
+
 const baseURL = "john.fore.land";
 
 const routes = {
@@ -6,6 +8,32 @@ const routes = {
   "/work": true,
   "/gallery": true,
 };
+
+const menuItems = [
+  {
+    id: "home",
+    path: "/",
+    icon: "home",
+  },
+  {
+    id: "about",
+    label: about.label,
+    path: "/about",
+    icon: "person",
+  },
+  {
+    id: "work",
+    label: work.label,
+    path: "/work",
+    icon: "grid",
+  },
+  {
+    id: "gallery",
+    label: gallery.label,
+    path: "/gallery",
+    icon: "gallery",
+  },
+];
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
@@ -66,4 +94,4 @@ const display = {
   time: true,
 };
 
-export { routes, protectedRoutes, effects, style, display, baseURL };
+export { routes, menuItems, protectedRoutes, effects, style, display, baseURL };
