@@ -1,7 +1,7 @@
 import { Column, Flex, Tag } from "@/once-ui/components";
 import styles from "@/components/about/about.module.scss";
 import { person, about } from "@/app/resources/content";
-import SkyAvatar from "@/components/about/sky-avatar/sky-avatar";
+import SkyAvatar from "@/components/about/sky-avatar/SkyAvatar";
 
 export default function Photo() {
   return (

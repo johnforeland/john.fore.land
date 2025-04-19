@@ -1,5 +1,5 @@
 import { person } from "@/app/resources/content";
-import "./sky-avatar.css";
+import "./SkyAvatar.css";
 
 export default function SkyAvatar() {
   return (
