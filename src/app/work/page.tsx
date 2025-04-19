@@ -4,33 +4,10 @@ import { Projects } from "@/components/work/Projects";
 import { baseURL } from "@/app/resources";
 import { person, work } from "@/app/resources/content";
 
-export async function generateMetadata() {
-  const title = work.title;
-  const description = work.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+import { generateMetadataObject } from "@/app/utils/utils";
 
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: `https://${baseURL}/work/`,
-      images: [
-        {
-          url: ogImage,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
+export async function generateMetadata() {
+  return generateMetadataObject(work.title, work.description, "work");
 }
 
 export default function Work() {
