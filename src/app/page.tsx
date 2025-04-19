@@ -12,7 +12,7 @@ import {
 } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
 
-import { baseURL, routes } from "@/app/resources";
+import { baseURL } from "@/app/resources";
 import { home, about, person } from "@/app/resources/content";
 
 export async function generateMetadata() {
