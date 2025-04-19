@@ -27,28 +27,6 @@ export default function About() {
   return (
     <MountainBackground>
       <Column maxWidth="m">
-        <script
-          type="application/ld+json"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: person.name,
-              jobTitle: person.role,
-              description: about.intro.description,
-              url: `https://${baseURL}/about`,
-              image: `${baseURL}/images/${person.avatar}`,
-              sameAs: social
-                .filter((item) => item.link && !item.link.startsWith("mailto:")) // Filter out empty links and email links
-                .map((item) => item.link),
-              worksFor: {
-                "@type": "Organization",
-                name: about.work.experiences[0].company || "",
-              },
-            }),
-          }}
-        />
         <Contents />
         <Flex fillWidth mobileDirection="column" horizontal="center">
           <Photo />
