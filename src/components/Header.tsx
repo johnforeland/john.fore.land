@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
-import { menuItems } from "@/app/resources";
+import { routes } from "@/app/resources";
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
@@ -31,25 +31,25 @@ export const Header = () => {
             horizontal="center"
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
-              {menuItems.map((item) => (
+              {routes.map((route) => (
                 <>
                   <ToggleButton
-                    key={item.id}
+                    key={route.id}
                     className="s-flex-show"
-                    prefixIcon={item.icon}
-                    href={item.path}
-                    selected={pathname === item.path}
+                    prefixIcon={route.icon}
+                    href={route.path}
+                    selected={pathname === route.path}
                   />
                   <ToggleButton
-                    key={item.id}
+                    key={route.id}
                     className="s-flex-hide"
-                    prefixIcon={item.icon}
-                    href={item.path}
-                    label={item.label}
-                    selected={pathname === item.path}
+                    prefixIcon={route.icon}
+                    href={route.path}
+                    label={route.label}
+                    selected={pathname === route.path}
                   />
-                  {item.id == "home" && (
-                    <Line key={item.id} vert maxHeight="24" />
+                  {route.id == "home" && (
+                    <Line key={route.id} vert maxHeight="24" />
                   )}
                 </>
               ))}

@@ -2,14 +2,7 @@ import { about, work, gallery } from "@/app/resources/content";
 
 const baseURL = "john.fore.land";
 
-const validRoutes = {
-  "/": true,
-  "/about": true,
-  "/work": true,
-  "/gallery": true,
-};
-
-const menuItems = [
+const routes = [
   {
     id: "home",
     path: "/",
@@ -34,6 +27,11 @@ const menuItems = [
     icon: "gallery",
   },
 ];
+
+const validRoutes = routes.reduce((routes, item) => {
+  routes[item.path] = true;
+  return routes;
+}, {});
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
@@ -96,7 +94,7 @@ const display = {
 
 export {
   validRoutes,
-  menuItems,
+  routes,
   protectedRoutes,
   effects,
   style,
