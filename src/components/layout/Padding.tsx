@@ -1,18 +1,18 @@
 "use client";
 
 import { Flex } from "@/once-ui/components";
-import { addPadding } from "@/app/utils/clientUtils";
+import { isAboutPage } from "@/app/utils/clientUtils";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const shouldAddPadding = addPadding();
+  const isAbout = isAboutPage();
 
   return (
     <Flex
       position="relative"
       zIndex={0}
       fillWidth
-      paddingY={shouldAddPadding && "l"}
-      paddingX={shouldAddPadding && "l"}
+      paddingY={isAbout ? "0" : "l"}
+      paddingX={isAbout ? "0" : "l"}
       horizontal="center"
       flex={1}
     >
