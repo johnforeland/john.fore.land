@@ -32,21 +32,23 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           <DefaultBackground />
           <Flex fillWidth minHeight="16"></Flex>
           <Header />
-          <Flex
-            position="relative"
-            zIndex={0}
-            fillWidth
-            paddingY="l"
-            paddingX="l"
-            horizontal="center"
-            flex={1}
-          >
-            <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard>
-                <ParallaxProvider>{children}</ParallaxProvider>
-              </RouteGuard>
-            </Flex>
-          </Flex>
+          <RouteGuard>
+            <ParallaxProvider>
+              <Flex
+                position="relative"
+                zIndex={0}
+                fillWidth
+                paddingY="l"
+                paddingX="l"
+                horizontal="center"
+                flex={1}
+              >
+                <Flex horizontal="center" fillWidth minHeight="0">
+                  {children}
+                </Flex>
+              </Flex>
+            </ParallaxProvider>
+          </RouteGuard>
           <Footer />
         </Column>
       </ToastProvider>
