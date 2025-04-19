@@ -41,7 +41,9 @@ import {
 
 import { RiVisaLine } from "react-icons/ri";
 
-import { FaDiscord, FaGithub, FaGoogle } from "react-icons/fa6";
+import { GoRepoForked } from "react-icons/go";
+
+import { FaDiscord, FaGithub, FaGoogle, FaLinkedin } from "react-icons/fa6";
 
 import { LuChevronsLeftRight } from "react-icons/lu";
 
@@ -67,6 +69,8 @@ export const iconLibrary: Record<string, IconType> = {
   close: HiMiniXMark,
   openLink: HiOutlineLink,
   discord: FaDiscord,
+  sourceCode: GoRepoForked,
+  linkedin: FaLinkedin,
   home: PiHouseDuotone,
   gallery: PiImageDuotone,
   google: FaGoogle,
