@@ -41,9 +41,7 @@ import {
 
 import { RiVisaLine } from "react-icons/ri";
 
-import { GoRepoForked } from "react-icons/go";
-
-import { FaDiscord, FaGithub, FaLinkedin, FaGoogle } from "react-icons/fa6";
+import { FaDiscord, FaGithub, FaGoogle } from "react-icons/fa6";
 
 import { LuChevronsLeftRight } from "react-icons/lu";
 
@@ -52,7 +50,6 @@ export const iconLibrary: Record<string, IconType> = {
   chevronDown: HiChevronDown,
   chevronRight: HiChevronRight,
   chevronLeft: HiChevronLeft,
-  sourceCode: GoRepoForked,
   chevronsLeftRight: LuChevronsLeftRight,
   refresh: HiOutlineArrowPath,
   check: HiCheck,
@@ -70,7 +67,6 @@ export const iconLibrary: Record<string, IconType> = {
   close: HiMiniXMark,
   openLink: HiOutlineLink,
   discord: FaDiscord,
-  linkedin: FaLinkedin,
   home: PiHouseDuotone,
   gallery: PiImageDuotone,
   google: FaGoogle,
