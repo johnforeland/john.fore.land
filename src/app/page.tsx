@@ -14,34 +14,10 @@ import { Projects } from "@/components/work/Projects";
 
 import { baseURL } from "@/app/resources";
 import { home, about, person } from "@/app/resources/content";
+import { generateMetadataObject } from "@/app/utils/utils";
 
 export async function generateMetadata() {
-  const title = home.title;
-  const description = home.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: `https://${baseURL}`,
-      images: [
-        {
-          url: ogImage,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
+  return generateMetadataObject(home.title, home.description);
 }
 
 export default function Home() {
