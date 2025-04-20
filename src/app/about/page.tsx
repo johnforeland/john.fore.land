@@ -20,23 +20,17 @@ export async function generateMetadata() {
 export default function About() {
   return (
     <MountainBackground>
-      <Grid
-        columns={2}
-        mobileColumns={1}
-        gap="24"
-        padding="24"
-        fillWidth={true}
-      >
-        <Column />
-        <Column>
+      <div className="grid grid-cols-3 gap-4">
+        <div />
+        <div className="col-span-2">
           <Flex className="s-flex-show" height={24} />
-          <Name />
+
           <Intro />
           <Work />
           <Studies />
           <Skills />
-        </Column>
-      </Grid>
+        </div>
+      </div>
     </MountainBackground>
   );
 }

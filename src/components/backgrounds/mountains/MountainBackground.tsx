@@ -7,6 +7,7 @@ import {
 } from "react-scroll-parallax";
 import styles from "./MountainBackground.module.scss";
 import Photo from "@/app/about/parts/Photo";
+import Name from "@/app/about/parts/Name";
 
 export default function MountainBackground({
   children,
@@ -22,13 +23,7 @@ export default function MountainBackground({
           shouldAlwaysCompleteAnimation={true}
           expanded={false}
         />
-        <ParallaxBannerLayer
-          translateY={[0, 20]}
-          shouldAlwaysCompleteAnimation={true}
-          expanded={false}
-        >
-          <Photo />
-        </ParallaxBannerLayer>
+
         <ParallaxBannerLayer
           image="images/mountains/bg-2.png"
           translateY={[5, 45]}
@@ -55,6 +50,18 @@ export default function MountainBackground({
           expanded={false}
         />
         <ParallaxBannerLayer>{children}</ParallaxBannerLayer>
+        <ParallaxBannerLayer
+          translateY={[0, 20]}
+          shouldAlwaysCompleteAnimation={true}
+          expanded={false}
+        >
+          <div className="grid grid-cols-3 place-items-center">
+            <div className="grid place-items-center">
+              <Photo />
+              <Name className="mr-20" />
+            </div>
+          </div>
+        </ParallaxBannerLayer>
       </ParallaxBanner>
     </div>
   );

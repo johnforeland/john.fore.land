@@ -1,12 +1,10 @@
 import { LogoCloud } from "@/once-ui/components";
 
-export default function Title() {
+export default function Title({ style }: { style?: React.CSSProperties }) {
   return (
     <LogoCloud
       columns="1"
-      style={{
-        transform: "translate(140px, -45px) rotate(-20deg) scale(1.4)",
-      }}
+      style={style}
       mobileColumns="1"
       rotationInterval={3000}
       limit={1}

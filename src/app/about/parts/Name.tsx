@@ -1,27 +1,29 @@
-import { Column, Heading } from "@/once-ui/components";
-import styles from "@/components/about/about.module.scss";
 import { person, about } from "@/app/resources/content";
 import Title from "./Title";
 import SocialButtons from "./SocialButtons";
 
-export default function Name() {
+export default function Name({ className }: { className?: string }) {
   return (
     <>
-      <Column
-        id={about.intro.title}
-        fillWidth
-        minHeight="160"
-        vertical="center"
-        marginBottom="32"
-      >
-        <Heading className={styles.textAlign} variant="display-strong-xl">
-          {person.name}
-        </Heading>
+      <div className={className}>
+        <div className="grid mb-24">
+          {/* Name */}
+          <h1 className="text-4xl font-extrabold flex-shrink">{person.name}</h1>
 
-        <Title />
+          {/* Title */}
+          <Title
+            style={{
+              transform: "translateX(160px) rotate(-20deg) scale(1.4)",
+              position: "absolute",
+            }}
+          />
 
-        <SocialButtons />
-      </Column>
+          {/* Social Buttons */}
+          <div className="mt-8">
+            <SocialButtons />
+          </div>
+        </div>
+      </div>
     </>
   );
 }
