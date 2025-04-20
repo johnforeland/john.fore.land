@@ -20,11 +20,8 @@ export async function generateMetadata() {
 export default function About() {
   return (
     <MountainBackground>
-      <div className="grid grid-cols-3 gap-4">
-        <div />
-        <div className="col-span-2">
-          <Flex className="s-flex-show" height={24} />
-
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="col-span-2 col-start-2 mx-10">
           <Intro />
           <Work />
           <Studies />
