@@ -61,9 +61,15 @@ const about = {
     description: (
       <>
         John is as full-stack as you can get. You'll find him building solutions
-        with the end user in mind, wether that be customers or developers. With
-        a background in software engineering and a passion for design, he's
-        always looking for ways to improve the user experience.
+        with the end user in mind, wether that be customers, employees or
+        developers. With a background in software engineering and a passion for
+        design, he's always looking for ways to improve the user experience (or
+        add a bit of silly flare to it).
+        <br />
+        <br />
+        He does full-stack development, DevOps, integration and architecture. A
+        little bit of everything, which ensure a great end results that's easy
+        to use (and fun!).
       </>
     ),
   },
