@@ -2,7 +2,7 @@
 
 import { Column, Flex, Heading, Text, SmartLink } from "@/once-ui/components";
 import { about } from "@/app/resources/content";
-import ThesisModal from "./thesis-modal";
+import ThesisModal from "./ThesisModal";
 
 export default function Studies() {
   return (

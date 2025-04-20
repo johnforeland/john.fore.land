@@ -6,7 +6,7 @@ import {
   ParallaxBannerLayer,
 } from "react-scroll-parallax";
 import styles from "./MountainBackground.module.scss";
-import Photo from "@/app/about/photo";
+import Photo from "@/app/about/parts/Photo";
 
 export default function MountainBackground({
   children,
