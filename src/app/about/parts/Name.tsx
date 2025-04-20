@@ -1,8 +1,8 @@
 import { Column, Heading } from "@/once-ui/components";
 import styles from "@/components/about/about.module.scss";
 import { person, about } from "@/app/resources/content";
-import Title from "./parts/Title";
-import SocialButtons from "./parts/SocialButtons";
+import Title from "./Title";
+import SocialButtons from "./SocialButtons";
 
 export default function Name() {
   return (
