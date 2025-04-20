@@ -27,7 +27,6 @@ export default function About() {
     <MountainBackground>
       <Column maxWidth="m">
         <Flex fillWidth mobileDirection="column" horizontal="center">
-          <Photo />
           <Column className={styles.blockAlign} flex={9} maxWidth={40}>
             <Intro />
 
