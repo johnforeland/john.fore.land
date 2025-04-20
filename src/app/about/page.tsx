@@ -11,6 +11,7 @@ import Skills from "./skills";
 import MountainBackground from "@/components/backgrounds/mountains/MountainBackground";
 
 import { generateMetadataObject } from "@/app/utils/utils";
+import Name from "./name";
 
 export async function generateMetadata() {
   return generateMetadataObject(about.title, about.description, "about");
@@ -29,6 +30,7 @@ export default function About() {
         <Column />
         <Column>
           <Flex className="s-flex-show" height={24} />
+          <Name />
           <Intro />
           <Work />
           <Studies />
