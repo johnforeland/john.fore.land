@@ -25,31 +25,38 @@ export default function Intro() {
         <Heading className={styles.textAlign} variant="display-strong-xl">
           {person.name}
         </Heading>
-        <InlineCode>
-          <LogoCloud
-            columns="1"
-            mobileColumns="1"
-            rotationInterval={3000}
-            limit={1}
-            logos={[
-              {
-                iconSrc: "/images/about/titles/backend.gif",
-                wordmark: false,
-              },
-              {
-                iconSrc: "/images/about/titles/frontend.gif",
-                wordmark: false,
-              },
-            ]}
-          />
-        </InlineCode>
-        <Text
-          className={styles.textAlign}
-          variant="display-default-xs"
-          onBackground="neutral-weak"
-        >
-          {person.role}
-        </Text>
+        <LogoCloud
+          columns="1"
+          style={{
+            transform: "translate(140px, -45px) rotate(-20deg) scale(1.4)",
+          }}
+          mobileColumns="1"
+          rotationInterval={3000}
+          limit={1}
+          logos={[
+            {
+              iconSrc: "/images/about/titles/frontend.gif",
+              wordmark: false,
+            },
+            {
+              iconSrc: "/images/about/titles/architect.gif",
+              wordmark: false,
+            },
+            {
+              iconSrc: "/images/about/titles/devops.gif",
+              wordmark: false,
+            },
+            {
+              iconSrc: "/images/about/titles/backend.gif",
+              wordmark: false,
+            },
+            {
+              iconSrc: "/images/about/titles/integration.gif",
+              wordmark: false,
+            },
+          ]}
+        />
+
         {social.length > 0 && (
           <Flex
             className={styles.blockAlign}
