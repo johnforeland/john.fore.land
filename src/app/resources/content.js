@@ -8,8 +8,6 @@ const person = {
   },
   role: "Full-Stack & DevOps Developer/Architect",
   avatar: "/images/avatar.png",
-  location: "Europe/Oslo", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: [], // optional: Leave the array empty if you don't want to display languages
 };
 
 const social = [
