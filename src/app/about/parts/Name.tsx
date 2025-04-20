@@ -8,8 +8,10 @@ export default function Name({ className }: { className?: string }) {
       <div className={className}>
         <div className="grid mb-24">
           {/* Name */}
-          <h1 className="text-4xl font-extrabold flex-shrink">{person.name}</h1>
 
+          <h1 className="text-4xl text-gray-500 font-extrabold flex-shrink">
+            {person.name}
+          </h1>
           {/* Title */}
           <Title
             style={{
@@ -17,7 +19,6 @@ export default function Name({ className }: { className?: string }) {
               position: "absolute",
             }}
           />
-
           {/* Social Buttons */}
           <div className="mt-8">
             <SocialButtons />
