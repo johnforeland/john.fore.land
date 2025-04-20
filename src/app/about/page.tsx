@@ -1,14 +1,8 @@
-import {
-  Column,
-  Flex,
-  Heading,
-  SmartImage,
-  SmartLink,
-  Text,
-} from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
+import { Column, Flex, Grid } from "@/once-ui/components";
+
 import styles from "@/components/about/about.module.scss";
-import { person, about, social } from "@/app/resources/content";
+import { about } from "@/app/resources/content";
+
 import Photo from "./photo";
 import Intro from "./intro";
 import Work from "./work";
@@ -25,19 +19,22 @@ export async function generateMetadata() {
 export default function About() {
   return (
     <MountainBackground>
-      <Column maxWidth="m">
-        <Flex fillWidth mobileDirection="column" horizontal="center">
-          <Column className={styles.blockAlign} flex={9} maxWidth={40}>
-            <Intro />
-
-            <Work />
-
-            <Studies />
-
-            <Skills />
-          </Column>
-        </Flex>
-      </Column>
+      <Grid
+        columns={2}
+        mobileColumns={1}
+        gap="24"
+        padding="24"
+        fillWidth={true}
+      >
+        <Column />
+        <Column>
+          <Flex className="s-flex-show" height={24} />
+          <Intro />
+          <Work />
+          <Studies />
+          <Skills />
+        </Column>
+      </Grid>
     </MountainBackground>
   );
 }
