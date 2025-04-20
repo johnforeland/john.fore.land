@@ -60,7 +60,7 @@ export default function Name() {
         {social.length > 0 && (
           <Flex
             className={styles.blockAlign}
-            paddingTop="20"
+            style={{ transform: "translateY(-60px)" }}
             paddingBottom="8"
             gap="8"
             wrap
