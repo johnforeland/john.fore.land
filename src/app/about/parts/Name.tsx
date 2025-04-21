@@ -1,4 +1,4 @@
-import { person, about } from "@/app/resources/content";
+import { person } from "@/app/resources/content";
 import Title from "./Title";
 import SocialButtons from "./SocialButtons";
 
