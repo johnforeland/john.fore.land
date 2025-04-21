@@ -4,14 +4,13 @@ import { JSX } from "react";
 
 export default function Work({ className }: { className?: string }) {
   return (
-    <div className={className}>
+    <div className={className} id="work">
       <h2 className="text-4xl font-bold mb-12">{about.work.title}</h2>
-      <div className="">
+
+      <div className="flex flex-col gap-6 ">
+        {/* loop */}
         {about.work.experiences.map((experience, index) => (
-          <div
-            className="mb-6"
-            key={`${experience.company}-${experience.role}-${index}`}
-          >
+          <div key={`${experience.company}-${experience.role}-${index}`}>
             {/* company */}
             <div className="flex w-full justify-between items-end mb-1">
               <p className="text-xl font-semibold">{experience.company}</p>
@@ -29,6 +28,8 @@ export default function Work({ className }: { className?: string }) {
                 )
               )}
             </ul>
+
+            {/* loop images */}
             {experience.images.length > 0 && (
               <div className="flex w-full pt-4 pl-10 flex-wrap">
                 {experience.images.map((image, index) => (
@@ -36,19 +37,14 @@ export default function Work({ className }: { className?: string }) {
                     key={index}
                     border="neutral-medium"
                     radius="m"
-                    //@ts-ignore
                     minWidth={image.width}
-                    //@ts-ignore
                     height={image.height}
                   >
                     <SmartImage
                       enlarge
                       radius="m"
-                      //@ts-ignore
                       sizes={image.width.toString()}
-                      //@ts-ignore
                       alt={image.alt}
-                      //@ts-ignore
                       src={image.src}
                     />
                   </Flex>
