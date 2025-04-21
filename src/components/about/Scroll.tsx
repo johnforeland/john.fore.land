@@ -26,7 +26,7 @@ export default function Scroll({ to }: { to: string }) {
 
   return (
     <div
-      className={`hidden md:inline transition-opacity duration-300 ${
+      className={`hidden md:inline w-auto mt-40 mr-40 transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
