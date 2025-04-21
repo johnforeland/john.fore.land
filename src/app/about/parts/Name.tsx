@@ -8,17 +8,11 @@ export default function Name({ className }: { className?: string }) {
       <div className={className}>
         <div className="grid mb-24">
           {/* Name */}
-
           <h1 className="text-4xl text-gray-500 font-extrabold flex-shrink">
             {person.name}
           </h1>
           {/* Title */}
-          <Title
-            style={{
-              transform: "translateX(160px) rotate(-20deg) scale(1.4)",
-              position: "absolute",
-            }}
-          />
+          <Title />
           {/* Social Buttons */}
           <div className="mt-8">
             <SocialButtons />
