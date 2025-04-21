@@ -12,8 +12,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "s3.eu-north-1.amazonaws.com/media.fore.land",
+        protocol: "https",
+        hostname: "s3.eu-north-1.amazonaws.com",
         port: "",
         pathname: "**",
       },
