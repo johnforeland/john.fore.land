@@ -5,12 +5,7 @@ export default function Work({ className }: { className?: string }) {
   return (
     about.work.display && (
       <div className={className}>
-        <Heading
-          as="h2"
-          id={about.work.title}
-          variant="display-strong-s"
-          marginBottom="m"
-        >
+        <Heading as="h2" id="work" variant="display-strong-s" marginBottom="m">
           {about.work.title}
         </Heading>
         <Column fillWidth gap="l" marginBottom="40">
