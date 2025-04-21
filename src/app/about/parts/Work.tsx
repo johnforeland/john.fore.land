@@ -1,5 +1,6 @@
 import { Column, Flex, Heading, Text, SmartImage } from "@/once-ui/components";
 import { about } from "@/app/resources/content";
+import { JSX } from "react";
 
 export default function Work({ className }: { className?: string }) {
   return (
