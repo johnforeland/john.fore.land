@@ -92,7 +92,7 @@ export default function MountainBackground({
 
       {/* photo */}
       <div className="hidden md:inline">
-        <div className="grid grid-cols-3 fixed top-1/6 left-0 right-0 z-10 ">
+        <div className="w-1/3 fixed top-1/6 ">
           <NamePhoto />
         </div>
       </div>
