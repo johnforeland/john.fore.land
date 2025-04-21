@@ -26,18 +26,18 @@ export default function Scroll({ to }: { to: string }) {
 
   return (
     <div
-      className={`hidden md:inline fixed bottom-1/10 transition-opacity duration-300 ${
+      className={`hidden md:inline transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <div className="transition-transform hover:scale-130">
+      <div className="transition-transform hover:scale-110">
         <div
           className="grid content-center animate-pulse"
           style={{ animationIterationCount: 4, animationDuration: "5s" }}
           onClick={scrollToTarget}
         >
-          <div className="mb-2 text-gray-600 text-sm">Scroll to see more</div>
-          <button className="bg-black text-white py-4 px-4 rounded-full text-center hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 opacity-50 ">
+          <div className="mb-2 text-gray-500 text-sm">Scroll to see more</div>
+          <button className="bg-black text-white py-4 px-4 rounded-full text-center hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 opacity-30 ">
             ↓
           </button>
         </div>
