@@ -1,50 +1,34 @@
 "use client";
 
-import { Column, Flex, Heading, Text } from "@/once-ui/components";
 import { about } from "@/app/resources/content";
 import ThesisModal from "./ThesisModal";
 
 export default function Studies({ className }: { className?: string }) {
   return (
-    about.studies.display && (
-      <div className={className}>
-        <Heading
-          as="h2"
-          id={about.studies.title}
-          variant="display-strong-s"
-          marginBottom="m"
-        >
-          {about.studies.title}
-        </Heading>
-        <Column fillWidth gap="l" marginBottom="40">
-          {about.studies.institutions.map((institution, index) => (
-            <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-              <Flex
-                fillWidth
-                horizontal="space-between"
-                vertical="end"
-                marginBottom="4"
-              >
-                <Text id={institution.name} variant="heading-strong-l">
-                  {institution.name}
-                </Text>
-                <Text variant="heading-default-xs" onBackground="neutral-weak">
-                  {institution.timeframe}
-                </Text>
-              </Flex>
-              <Text variant="heading-default-xs" onBackground="neutral-weak">
-                {institution.description}
-              </Text>
-              {institution.thesis && (
-                <ThesisModal
-                  name={institution.thesis}
-                  url={institution.thesisUrl}
-                />
-              )}
-            </Column>
-          ))}
-        </Column>
+    <div className={className}>
+      <h2 id={about.studies.title} className="text-4xl font-bold mb-4">
+        {about.studies.title}
+      </h2>
+      <div className="flex flex-col w-full gap-6 mb-10">
+        {about.studies.institutions.map((institution, index) => (
+          <div
+            key={`${institution.name}-${index}`}
+            className="flex flex-col w-full gap-1"
+          >
+            <div className="flex w-full justify-between items-end mb-1">
+              <p className="text-xl font-semibold">{institution.name}</p>
+              <p className="text-sm text-gray-500">{institution.timeframe}</p>
+            </div>
+            <p className="text-sm text-gray-500">{institution.description}</p>
+            {institution.thesis && (
+              <ThesisModal
+                name={institution.thesis}
+                url={institution.thesisUrl}
+              />
+            )}
+          </div>
+        ))}
       </div>
-    )
+    </div>
   );
 }
