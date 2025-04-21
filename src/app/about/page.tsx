@@ -22,7 +22,6 @@ export default function About() {
           <Skills />
         </MountainBackground>
       </div>
-      <Scroll to="work" />;
     </>
   );
 }
