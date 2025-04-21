@@ -12,6 +12,8 @@ export default function ThesisModal({
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
+  if (!name) return;
+
   return (
     <>
       <Button
