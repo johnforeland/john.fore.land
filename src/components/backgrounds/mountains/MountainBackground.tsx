@@ -96,7 +96,9 @@ export default function MountainBackground({
       </div>
 
       {/* content */}
-      <GridRight className="mr-30">{children}</GridRight>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-10 md:mr-30">
+        <div className="col-span-2 col-start-2">{children}</div>
+      </div>
     </div>
   );
 }
