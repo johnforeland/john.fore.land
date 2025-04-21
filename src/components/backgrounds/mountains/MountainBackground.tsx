@@ -65,7 +65,7 @@ export default function MountainBackground({
         {/* intro title */}
         <ParallaxBannerLayer
           className="hidden md:inline"
-          translateY={[10, 20]}
+          speed={10}
           shouldAlwaysCompleteAnimation={true}
           expanded={false}
         >
@@ -77,9 +77,9 @@ export default function MountainBackground({
         {/* intro text */}
         <ParallaxBannerLayer
           className="hidden md:inline"
-          translateY={[15, 35]}
+          translateY={[30, 35]}
           shouldAlwaysCompleteAnimation={true}
-          expanded={false}
+          expanded={true}
         >
           <GridRight className="flex flex-col items-center">
             <Intro />
