@@ -8,6 +8,7 @@ import Intro from "@/app/about/parts/Intro";
 import NamePhoto from "@/app/about/parts/NamePhoto";
 import Scroll from "@/components/about/Scroll";
 import GridRight from "@/app/about/parts/GridRight";
+import { about } from "@/app/resources";
 
 export default function MountainBackground({
   children,
@@ -52,7 +53,7 @@ export default function MountainBackground({
         ]}
       >
         {/* ------------------ mobile ------------------ */}
-        <ParallaxBannerLayer className="inline md:hidden">
+        <ParallaxBannerLayer className="inline md:hidden" translateY={[10, 15]}>
           <div className="grid grid-cols-1 gap-4 mx-10">
             <NamePhoto />
             <Intro />
@@ -61,10 +62,22 @@ export default function MountainBackground({
 
         {/* ---------------- non-mobile ---------------- */}
 
-        {/* intro text */}
+        {/* intro title */}
         <ParallaxBannerLayer
           className="hidden md:inline"
           translateY={[10, 20]}
+          shouldAlwaysCompleteAnimation={true}
+          expanded={false}
+        >
+          <GridRight>
+            <h2 className="text-4xl font-bold pb-10">{about.intro.title}</h2>
+          </GridRight>
+        </ParallaxBannerLayer>
+
+        {/* intro text */}
+        <ParallaxBannerLayer
+          className="hidden md:inline"
+          translateY={[15, 35]}
           shouldAlwaysCompleteAnimation={true}
           expanded={false}
         >
