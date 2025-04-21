@@ -70,7 +70,9 @@ export default function MountainBackground({
           expanded={false}
         >
           <GridRight>
-            <h2 className="text-4xl font-bold pb-10">{about.intro.title}</h2>
+            <h2 className="text-4xl font-bold pb-10 text-gray-500">
+              {about.intro.title}
+            </h2>
           </GridRight>
         </ParallaxBannerLayer>
 
