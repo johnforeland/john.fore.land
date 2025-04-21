@@ -4,7 +4,7 @@ import "./SkyAvatar.css";
 export default function SkyAvatar() {
   return (
     <div id="container">
-      <img src={person.avatar} alt={person.name} id="avatar" />
+      <img src="/images/avatar.png" alt={person.name} id="avatar" />
       <div id="background-wrap">
         {/* big clouds */}
         <div className="cloud1">
