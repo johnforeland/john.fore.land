@@ -13,7 +13,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: "media.fore.land",
+        hostname: "s3.eu-north-1.amazonaws.com/media.fore.land",
         port: "",
         pathname: "**",
       },
