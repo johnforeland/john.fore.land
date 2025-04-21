@@ -1,31 +1,16 @@
-import { Column, Flex, Tag } from "@/once-ui/components";
-import styles from "@/components/about/about.module.scss";
-import { person, about } from "@/app/resources/content";
+import { about } from "@/app/resources/content";
 import SkyAvatar from "@/components/about/sky-avatar/SkyAvatar";
 
-export default function Photo({ width = 24 }: { width?: number }) {
+export default function Photo({ className }: { className?: string }) {
   return (
     about.avatar.display && (
-      <Column
-        className={styles.avatar}
-        width={width}
-        paddingX="l"
-        paddingBottom="xl"
-        gap="m"
-        flex={3}
-        horizontal="center"
-      >
-        <Flex
-          direction="column"
-          mobileDirection="row"
-          vertical="center"
-          horizontal="center"
-        >
-          <div style={{ width: "50px" }}></div>
-          <SkyAvatar></SkyAvatar>
-          <div style={{ width: "50px" }}></div>
-        </Flex>
-      </Column>
+      <div className={className}>
+        <div className="flex flex-col items-center  px-4 pb-6 gap-4 flex-grow-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center">
+            <SkyAvatar />
+          </div>
+        </div>
+      </div>
     )
   );
 }
