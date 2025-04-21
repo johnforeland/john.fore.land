@@ -17,9 +17,11 @@ export default function About() {
     <>
       <div className="flex flex-col flex-grow-3">
         <MountainBackground>
-          <Work />
-          <Studies />
-          <Skills />
+          <div className="flex flex-col gap-6">
+            <Work />
+            <Studies />
+            <Skills />
+          </div>
         </MountainBackground>
       </div>
     </>
