@@ -1,13 +1,11 @@
 "use client";
 
-import {
-  Parallax,
-  ParallaxBanner,
-  ParallaxBannerLayer,
-} from "react-scroll-parallax";
+import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
+
 import styles from "./MountainBackground.module.scss";
-import Photo from "@/app/about/parts/Photo";
-import Name from "@/app/about/parts/Name";
+
+import Intro from "@/app/about/parts/Intro";
+import NamePhoto from "@/app/about/parts/NamePhoto";
 
 export default function MountainBackground({
   children,
@@ -51,29 +49,52 @@ export default function MountainBackground({
           },
         ]}
       >
+        {/* ------------------ mobile ------------------ */}
+        <ParallaxBannerLayer className="inline md:hidden">
+          <div className="grid grid-cols-1 gap-4 mx-10">
+            <NamePhoto />
+            <Intro />
+          </div>
+        </ParallaxBannerLayer>
+
+        {/* ---------------- non-mobile ---------------- */}
+
+        {/* intro text */}
         <ParallaxBannerLayer
-          className="invisible md:visible"
-          translateY={[0, 20]}
+          className="hidden md:inline"
+          translateY={[10, 20]}
           shouldAlwaysCompleteAnimation={true}
           expanded={false}
         >
-          <ParallaxBannerLayer>
-            <div className="grid grid-cols-1 md:grid-cols-3 place-items-center visible md:invisible">
-              <div className="grid place-items-center">
-                <Photo />
-                <Name className="mr-20" />
-              </div>
-            </div>
-            {children}
-          </ParallaxBannerLayer>
-          <div className="grid grid-cols-1 md:grid-cols-3 place-items-center">
-            <div className="grid place-items-center">
-              <Photo />
-              <Name className="mr-20" />
-            </div>
+          <div className="grid grid-cols-3 gap-4 mx-10">
+            <Intro className="col-span-2 col-start-2" />
           </div>
         </ParallaxBannerLayer>
+
+        {/* photo */}
+        {/* <ParallaxBannerLayer
+          className="hidden md:inline"
+          translateY={[30, 50]}
+          shouldAlwaysCompleteAnimation={true}
+          expanded={true}
+        >
+          <div className="grid grid-cols-3">
+            <NamePhoto />
+          </div>
+        </ParallaxBannerLayer> */}
       </ParallaxBanner>
+
+      {/* photo */}
+      <div className="hidden md:inline">
+        <div className="grid grid-cols-3 fixed top-1/6 left-0 right-0 z-10 ">
+          <NamePhoto />
+        </div>
+      </div>
+
+      {/* content */}
+      <div className="grid grid-cols-3 mr-30">
+        <div className="col-span-2 col-start-2">{children}</div>
+      </div>
     </div>
   );
 }
