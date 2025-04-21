@@ -7,6 +7,7 @@ import styles from "./MountainBackground.module.scss";
 import Intro from "@/app/about/parts/Intro";
 import NamePhoto from "@/app/about/parts/NamePhoto";
 import Scroll from "@/components/about/Scroll";
+import GridRight from "@/app/about/parts/GridRight";
 
 export default function MountainBackground({
   children,
@@ -67,14 +68,10 @@ export default function MountainBackground({
           shouldAlwaysCompleteAnimation={true}
           expanded={false}
         >
-          <div className="grid grid-cols-3 gap-4 mx-10">
-            <div className="col-span-2 col-start-2 flex flex-col items-center">
-              <Intro />
-              <div className="w-auto mt-40 mr-40">
-                <Scroll to="work" />
-              </div>
-            </div>
-          </div>
+          <GridRight className="flex flex-col items-center">
+            <Intro />
+            <Scroll to="work" />
+          </GridRight>
         </ParallaxBannerLayer>
       </ParallaxBanner>
 
@@ -86,9 +83,7 @@ export default function MountainBackground({
       </div>
 
       {/* content */}
-      <div className="grid grid-cols-3 mr-30">
-        <div className="col-span-2 col-start-2">{children}</div>
-      </div>
+      <GridRight className="mr-30">{children}</GridRight>
     </div>
   );
 }
