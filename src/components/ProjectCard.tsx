@@ -1,19 +1,13 @@
 "use client";
 
-import {
-  AvatarGroup,
-  Carousel,
-  Column,
-  Flex,
-  Heading,
-  SmartLink,
-  Text,
-} from "@/once-ui/components";
+import { Carousel } from "@/once-ui/components";
+import { Tag } from "./work/Tag";
 
 interface ProjectCardProps {
   href: string;
   priority?: boolean;
   images: string[];
+  tags: string[];
   title: string;
   content: string;
   description: string;
@@ -24,6 +18,7 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
   images = [],
+  tags = [],
   title,
   content,
   description,
@@ -31,67 +26,82 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   link,
 }) => {
   return (
-    <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        indicator="thumbnail"
-        images={images.map((image) => ({
-          src: image,
-          alt: title,
-        }))}
-      />
-      <Flex
-        mobileDirection="column"
-        fillWidth
-        paddingX="s"
-        paddingTop="12"
-        paddingBottom="24"
-        gap="l"
-      >
-        {title && (
-          <Flex flex={5}>
-            <Heading as="h2" wrap="balance" variant="heading-strong-xl">
-              {title}
-            </Heading>
-          </Flex>
-        )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
-          <Column flex={7} gap="16">
-            {avatars?.length > 0 && (
-              <AvatarGroup avatars={avatars} size="m" reverse />
-            )}
+    <div className="flex flex-col w-full gap-4">
+      <div className="relative">
+        {/* carousel */}
+        <Carousel
+          sizes="(max-width: 960px) 100vw, 960px"
+          indicator="thumbnail"
+          images={images.map((image) => ({
+            src: image,
+            alt: title,
+          }))}
+        />
+      </div>
+
+      {/* content */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* title and tags */}
+
+        <div className="grid grid-cols-1 gap-4">
+          {/* title */}
+          <h2 className="text-2xl font-bold leading-tight">{title}</h2>
+
+          {/* tags */}
+          {tags.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag, index) => (
+                <Tag key={index} tag={tag} />
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* avatars + description + links */}
+        <div className="grid grid-cols-1 gap-4">
+          {/* avatars */}
+          <div className="flex-1 flex flex-col gap-4">
+            <div className="flex -space-x-2">
+              {avatars?.map((avatar, index) => (
+                <img
+                  key={index}
+                  src={avatar.src}
+                  className="w-10 h-10 rounded-full border-3"
+                />
+              ))}
+            </div>
+
+            {/* description */}
             {description?.trim() && (
-              <Text
-                wrap="balance"
-                variant="body-default-s"
-                onBackground="neutral-weak"
-              >
-                {description}
-              </Text>
+              <p className="text-sm text-gray-500">{description}</p>
             )}
-            <Flex gap="24" wrap>
+
+            {/* open project */}
+            <div className="flex flex-wrap gap-6">
               {content?.trim() && (
-                <SmartLink
-                  suffixIcon="arrowRight"
-                  style={{ margin: "0", width: "fit-content" }}
+                <a
                   href={href}
+                  className="flex items-center text-sm text-blue-600 hover:underline"
                 >
-                  <Text variant="body-default-s">Read case study</Text>
-                </SmartLink>
+                  Read case study
+                  <span className="ml-1">→</span>
+                </a>
               )}
+
+              {/* project link */}
               {link && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
+                <a
                   href={link}
+                  className="flex items-center text-sm text-blue-600 hover:underline"
                 >
-                  <Text variant="body-default-s">View project</Text>
-                </SmartLink>
+                  View project
+                  <span className="ml-1">→</span>
+                </a>
               )}
-            </Flex>
-          </Column>
-        )}
-      </Flex>
-    </Column>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
