@@ -6,6 +6,8 @@ import Work from "@/app/about/parts/Work";
 import Studies from "@/app/about/parts/Studies";
 import Skills from "@/app/about/parts/Skills";
 
+import Scroll from "@/components/about/Scroll";
+
 export async function generateMetadata() {
   return generateMetadataObject(about.title, about.description, "about");
 }
@@ -20,6 +22,7 @@ export default function About() {
           <Skills />
         </MountainBackground>
       </div>
+      <Scroll to="work" />;
     </>
   );
 }
