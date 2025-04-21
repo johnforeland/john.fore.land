@@ -6,8 +6,8 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Full-Stack & DevOps Developer/Architect",
-  avatar: "/images/avatar.png",
+  role: "Software Engineer",
+  avatar: "/images/avatars/avatar.jpg",
 };
 
 const social = [
@@ -34,12 +34,15 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Software Enigneer & Architect</>,
   subline: (
     <>
-      I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I
-      craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm John, a software engineer at <InlineCode>Sopra Steria</InlineCode>.
+      <br />
+      <br />
+      My main department is Salesforce, but I'm responsible for everything
+      architeture, full-stack, DevOps and more. where I craft intuitive user
+      experiences. After hours, I build my own projects.
     </>
   ),
 };

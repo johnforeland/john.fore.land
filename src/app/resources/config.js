@@ -20,12 +20,6 @@ const routes = [
     path: "/work",
     icon: "grid",
   },
-  {
-    id: "gallery",
-    label: gallery.label,
-    path: "/gallery",
-    icon: "gallery",
-  },
 ];
 
 const validRoutes = routes.reduce((routes, item) => {
