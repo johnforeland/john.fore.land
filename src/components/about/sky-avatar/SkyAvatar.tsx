@@ -1,10 +1,18 @@
 import { person } from "@/app/resources/content";
+import Image from "next/image";
 import "./SkyAvatar.css";
 
 export default function SkyAvatar() {
   return (
     <div id="container">
-      <img src="/images/avatar.png" alt={person.name} id="avatar" />
+      <Image
+        src="/images/avatar.png"
+        alt={person.name}
+        id="avatar"
+        width={150}
+        height={150}
+      />
+
       <div id="background-wrap">
         {/* big clouds */}
         <div className="cloud1">

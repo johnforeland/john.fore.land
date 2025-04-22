@@ -1,6 +1,7 @@
 "use client";
 
 import { Carousel } from "@/once-ui/components";
+import Image from "next/image";
 import { Tag } from "./work/Tag";
 
 interface ProjectCardProps {
@@ -63,10 +64,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="flex-1 flex flex-col gap-4">
             <div className="flex -space-x-2">
               {avatars?.map((avatar, index) => (
-                <img
+                <Image
                   key={index}
                   src={avatar.src}
-                  className="w-10 h-10 rounded-full border-3"
+                  alt={`Avatar ${index + 1}`}
+                  width={40}
+                  height={40}
+                  className="rounded-full border-2 border-white"
                 />
               ))}
             </div>
