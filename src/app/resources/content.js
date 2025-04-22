@@ -37,10 +37,11 @@ const home = {
   headline: <>Software Enigneer & Architect</>,
   subline: (
     <>
-      I'm John, a software engineer at <InlineCode>Sopra Steria</InlineCode>.
+      I&apos;m John, a software engineer at{" "}
+      <InlineCode>Sopra Steria</InlineCode>.
       <br />
       <br />
-      My main department is Salesforce, but I'm responsible for everything
+      My main department is Salesforce, but I&apos;m responsible for everything
       architeture, full-stack, DevOps and more. where I craft intuitive user
       experiences. After hours, I build my own projects.
     </>
@@ -63,16 +64,16 @@ const about = {
     title: "Hey, I'm John! 👋",
     description: (
       <>
-        I'm as full-stack as you can get, but I'm the most passionate for
-        front-end (clearly). However, don't underestimate my skills in backend,
-        integration, DevOps and architecture in general!
+        I&apos;m as full-stack as you can get, but I&apos;m the most passionate
+        for front-end (clearly). However, don&apos;t underestimate my skills in
+        backend, integration, DevOps and architecture in general!
         <br />
         <br />
-        You'll always find me building solutions with the end user in mind,
+        You&apos;ll always find me building solutions with the end user in mind,
         whether that be customers, employees or other developers. With a
-        background in software engineering and a passion for design, I'm always
-        looking for ways to improve the user experience (and add a bit of flare
-        to it).
+        background in software engineering and a passion for design, I&apos;m
+        always looking for ways to improve the user experience (and add a bit of
+        flare to it).
       </>
     ),
   },
@@ -129,7 +130,10 @@ const about = {
         name: "University of Agder",
         timeframe: "2016 - 2018",
         description: (
-          <>Master's degree in Industrial Economy and Technology Management.</>
+          <>
+            Master&apos;s degree in Industrial Economy and Technology
+            Management.
+          </>
         ),
         thesis:
           "Managing Change When Implementing a New Project Management Methodology",
@@ -139,7 +143,9 @@ const about = {
       {
         name: "University of Agder",
         timeframe: "2013 - 2016",
-        description: <>Bachelor's degree in Computer Software Engineering.</>,
+        description: (
+          <>Bachelor&apos;s degree in Computer Software Engineering.</>
+        ),
         thesis: "",
         thesisUrl: "",
       },
@@ -276,4 +282,4 @@ const gallery = {
   ],
 };
 
-export { person, social, home, about, work, gallery };
+export { about, gallery, home, person, social, work };
