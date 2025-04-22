@@ -17,9 +17,9 @@ import {
 import { notFound } from "next/navigation";
 
 interface WorkParams {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
