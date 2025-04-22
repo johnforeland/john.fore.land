@@ -16,7 +16,9 @@ type TableProps = {
 };
 
 function Table({ data }: TableProps) {
-  const headers = data.headers.map((header, index) => <th key={index}>{header}</th>);
+  const headers = data.headers.map((header, index) => (
+    <th key={index}>{header}</th>
+  ));
   const rows = data.rows.map((row, index) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
@@ -64,7 +66,11 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
   );
 }
 
-function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) {
+function createImage({
+  alt,
+  src,
+  ...props
+}: SmartImageProps & { src: string }) {
   if (!src) {
     console.error("SmartImage requires a valid 'src' property.");
     return null;
@@ -99,7 +105,10 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
     const slug = slugify(children as string);
     return (
       <HeadingLink
-        style={{ marginTop: "var(--static-space-24)", marginBottom: "var(--static-space-12)" }}
+        style={{
+          marginTop: "var(--static-space-24)",
+          marginBottom: "var(--static-space-12)",
+        }}
         level={level}
         id={slug}
         {...props}
@@ -129,15 +138,15 @@ function createParagraph({ children }: TextProps) {
 }
 
 const components = {
-  p: createParagraph as any,
-  h1: createHeading(1) as any,
-  h2: createHeading(2) as any,
-  h3: createHeading(3) as any,
-  h4: createHeading(4) as any,
-  h5: createHeading(5) as any,
-  h6: createHeading(6) as any,
-  img: createImage as any,
-  a: CustomLink as any,
+  p: createParagraph as React.ComponentType<TextProps>,
+  h1: createHeading(1) as React.ComponentType<TextProps>,
+  h2: createHeading(2) as React.ComponentType<TextProps>,
+  h3: createHeading(3) as React.ComponentType<TextProps>,
+  h4: createHeading(4) as React.ComponentType<TextProps>,
+  h5: createHeading(5) as React.ComponentType<TextProps>,
+  h6: createHeading(6) as React.ComponentType<TextProps>,
+  img: createImage as React.ComponentType<SmartImageProps & { src: string }>,
+  a: CustomLink as React.ComponentType<CustomLinkProps>,
   Table,
   CodeBlock,
 };
@@ -148,7 +157,9 @@ type CustomMDXProps = MDXRemoteProps & {
 
 export function CustomMDX(props: CustomMDXProps) {
   return (
-    // @ts-ignore: Suppressing type error for MDXRemote usage
-    <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+    />
   );
 }
