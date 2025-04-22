@@ -14,7 +14,7 @@ export const Footer = () => {
     <Flex
       as="footer"
       style={{
-        backgroundColor: isAbout && "#40255b",
+        backgroundColor: isAbout ? "#40255b" : undefined,
       }}
       position="relative"
       fillWidth
