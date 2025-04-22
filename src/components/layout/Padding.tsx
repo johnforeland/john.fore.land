@@ -1,10 +1,10 @@
 "use client";
 
+import { IsAboutPage } from "@/app/utils/clientUtils";
 import { Flex } from "@/once-ui/components";
-import { isAboutPage } from "@/app/utils/clientUtils";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const isAbout = isAboutPage();
+  const isAbout = IsAboutPage();
 
   return (
     <Flex
