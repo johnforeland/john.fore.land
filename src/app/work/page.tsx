@@ -1,8 +1,6 @@
-import { getPosts } from "@/app/utils/utils";
-import { Column } from "@/once-ui/components";
+import { work } from "@/app/resources/content";
 import { Projects } from "@/components/work/Projects";
-import { baseURL } from "@/app/resources";
-import { person, work } from "@/app/resources/content";
+import { Column } from "@/once-ui/components";
 
 import { generateMetadataObject } from "@/app/utils/utils";
 
@@ -11,8 +9,6 @@ export async function generateMetadata() {
 }
 
 export default function Work() {
-  let allProjects = getPosts(["src", "app", "work", "projects"]);
-
   return (
     <Column maxWidth="m">
       <Projects />
