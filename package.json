@@ -37,7 +37,6 @@
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
-    "@types/cookie": "^1.0.0",
     "@types/node": "^20",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
