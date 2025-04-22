@@ -1,12 +1,10 @@
-import { generateMetadataObject } from "@/app/utils/utils";
 import { about } from "@/app/resources/content";
+import { generateMetadataObject } from "@/app/utils/utils";
 
-import MountainBackground from "@/components/backgrounds/mountains/MountainBackground";
-import Work from "@/app/about/parts/Work";
-import Studies from "@/app/about/parts/Studies";
 import Skills from "@/app/about/parts/Skills";
-
-import Scroll from "@/components/about/Scroll";
+import Studies from "@/app/about/parts/Studies";
+import Work from "@/app/about/parts/Work";
+import MountainBackground from "@/components/backgrounds/mountains/MountainBackground";
 
 export async function generateMetadata() {
   return generateMetadataObject(about.title, about.description, "about");

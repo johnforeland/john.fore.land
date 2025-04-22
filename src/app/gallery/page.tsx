@@ -1,7 +1,6 @@
-import { Flex } from "@/once-ui/components";
+import { gallery } from "@/app/resources/content";
 import MasonryGrid from "@/components/gallery/MasonryGrid";
-import { baseURL } from "@/app/resources";
-import { gallery, person } from "@/app/resources/content";
+import { Flex } from "@/once-ui/components";
 
 import { generateMetadataObject } from "@/app/utils/utils";
 

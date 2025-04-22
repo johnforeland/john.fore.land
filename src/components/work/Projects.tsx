@@ -1,6 +1,6 @@
 import { getPosts } from "@/app/utils/utils";
-import { Column } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
+import { Column } from "@/once-ui/components";
 
 interface ProjectsProps {
   range?: [number, number?];
