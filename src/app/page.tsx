@@ -1,18 +1,15 @@
-import React from "react";
-
-import {
-  Heading,
-  Flex,
-  Text,
-  Button,
-  Avatar,
-  RevealFx,
-  Arrow,
-  Column,
-} from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
+import {
+  Avatar,
+  Button,
+  Column,
+  Flex,
+  Heading,
+  RevealFx,
+  Text,
+} from "@/once-ui/components";
 
-import { home, about, person } from "@/app/resources/content";
+import { about, home, person } from "@/app/resources/content";
 import { generateMetadataObject } from "@/app/utils/utils";
 import GenerateScript from "@/components/layout/GenerateScript";
 

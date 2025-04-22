@@ -1,9 +1,9 @@
 "use client";
 
-import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components";
 import { person, social } from "@/app/resources/content";
-import styles from "./Footer.module.scss";
 import { isAboutPage } from "@/app/utils/clientUtils";
+import { Flex, IconButton, Text } from "@/once-ui/components";
+import styles from "./Footer.module.scss";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();

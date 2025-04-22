@@ -1,6 +1,6 @@
-import { Flex, IconButton, Button } from "@/once-ui/components";
-import styles from "@/components/about/about.module.scss";
 import { social } from "@/app/resources/content";
+import styles from "@/components/about/about.module.scss";
+import { Flex, IconButton } from "@/once-ui/components";
 
 export default function SocialButtons() {
   return (

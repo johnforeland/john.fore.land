@@ -1,8 +1,13 @@
-import React from "react";
 import Script from "next/script";
 
 export interface SchemaProps {
-  as: "website" | "article" | "blogPosting" | "techArticle" | "webPage" | "organization";
+  as:
+    | "website"
+    | "article"
+    | "blogPosting"
+    | "techArticle"
+    | "webPage"
+    | "organization";
   title: string;
   description: string;
   baseURL: string;
@@ -37,7 +42,9 @@ export function Schema({
   image,
   author,
 }: SchemaProps) {
-  const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
+  const normalizedBaseURL = baseURL.endsWith("/")
+    ? baseURL.slice(0, -1)
+    : baseURL;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
   const imageUrl = image

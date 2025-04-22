@@ -1,4 +1,3 @@
-import { Column, Heading } from "@/once-ui/components";
 import { about } from "@/app/resources/content";
 
 export default function Intro({ className }: { className?: string }) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, Button, Column } from "@/once-ui/components";
+import { Button, Dialog } from "@/once-ui/components";
 import React from "react";
 
 export default function ThesisModal({
