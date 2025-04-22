@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { baseURL } from "@/app/resources";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 
 type Team = {
   name: string;
@@ -78,12 +78,31 @@ export function getPosts(customPath = ["", "", "", ""]) {
   return getMDXData(postsDir);
 }
 
+interface MetadataObject {
+  title: string;
+  description: string;
+  openGraph: {
+    title: string;
+    description: string;
+    type: string;
+    url: string;
+    images: { url: string; alt: string }[];
+  };
+  twitter: {
+    card: string;
+    title: string;
+    description: string;
+    images: string[];
+  };
+  [key: string]: unknown;
+}
+
 export async function generateMetadataObject(
   title: string,
   description: string,
   path: string = "",
-  extraFields?: Record<string, any>
-): Promise<any> {
+  extraFields?: Record<string, unknown>
+): Promise<MetadataObject> {
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
@@ -113,7 +132,7 @@ export async function generateMetadataObject(
 
 import { home } from "@/app/resources/content";
 
-export async function generateMetadataObjectLayout(): Promise<Object> {
+export async function generateMetadataObjectLayout(): Promise<object> {
   return generateMetadataObject(home.title, home.description, "", {
     metadataBase: new URL(`https://${baseURL}`),
     robots: {
