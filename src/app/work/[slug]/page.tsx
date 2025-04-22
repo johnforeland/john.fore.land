@@ -1,6 +1,10 @@
-import { notFound } from "next/navigation";
-import { CustomMDX } from "@/components/mdx";
+import { baseURL } from "@/app/resources";
+import { person } from "@/app/resources/content";
+import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
+import { CustomMDX } from "@/components/mdx";
+import ScrollToHash from "@/components/ScrollToHash";
+import Video from "@/components/Video";
 import {
   AvatarGroup,
   Button,
@@ -10,11 +14,7 @@ import {
   SmartImage,
   Text,
 } from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
-import { person } from "@/app/resources/content";
-import { formatDate } from "@/app/utils/formatDate";
-import ScrollToHash from "@/components/ScrollToHash";
-import Video from "@/components/Video";
+import { notFound } from "next/navigation";
 
 interface WorkParams {
   params: {
@@ -31,15 +31,14 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 
 export async function generateMetadata({ params }: WorkParams) {
   const { slug } = await params;
-  let post = getPosts(["src", "app", "work", "projects"]).find(
+  const post = getPosts(["src", "app", "work", "projects"]).find(
     (post) => post.slug === slug
   );
 
   if (!post) {
     return;
   }
-
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
@@ -47,7 +46,7 @@ export async function generateMetadata({ params }: WorkParams) {
     image,
     team,
   } = post.metadata;
-  let ogImage = image
+  const ogImage = image
     ? `https://${baseURL}${image}`
     : `https://${baseURL}/og?title=${title}`;
 
@@ -78,7 +77,7 @@ export async function generateMetadata({ params }: WorkParams) {
 }
 export default async function Project({ params }: WorkParams) {
   const { slug } = await params;
-  let post = getPosts(["src", "app", "work", "projects"]).find(
+  const post = getPosts(["src", "app", "work", "projects"]).find(
     (post) => post.slug === slug
   );
 
