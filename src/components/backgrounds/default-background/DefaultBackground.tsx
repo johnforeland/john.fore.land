@@ -3,11 +3,11 @@
 "use client";
 
 import { effects } from "@/app/resources";
-import { isAboutPage } from "@/app/utils/clientUtils";
+import { IsAboutPage } from "@/app/utils/clientUtils";
 import { Background } from "@/once-ui/components";
 
 export default function DefaultBackground() {
-  const isAbout = isAboutPage();
+  const isAbout = IsAboutPage();
 
   return isAbout ? (
     <Background
