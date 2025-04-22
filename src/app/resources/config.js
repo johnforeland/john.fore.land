@@ -1,4 +1,4 @@
-import { about, work, gallery } from "@/app/resources/content";
+import { about, work } from "@/app/resources/content";
 
 const baseURL = "john.fore.land";
 
@@ -87,11 +87,11 @@ const display = {
 };
 
 export {
-  validRoutes,
-  routes,
-  protectedRoutes,
-  effects,
-  style,
-  display,
   baseURL,
+  display,
+  effects,
+  protectedRoutes,
+  routes,
+  style,
+  validRoutes,
 };
