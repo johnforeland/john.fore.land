@@ -27,12 +27,6 @@ const validRoutes = routes.reduce((routes, item) => {
   return routes;
 }, {});
 
-// Enable password protection on selected routes
-// Set password in the .env file, refer to .env.example
-const protectedRoutes = {
-  "/work/example": false,
-};
-
 const style = {
   theme: "dark", // dark | light
   neutral: "gray", // sand | gray | slate
