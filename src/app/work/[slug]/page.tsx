@@ -1,5 +1,3 @@
-import { formatDate } from "@/app/utils/formatDate";
-import { getPosts } from "@/app/utils/utils";
 import { ScrollToHash } from "@/components/shared";
 import { CustomMDX, Video } from "@/components/work";
 import {
@@ -13,6 +11,8 @@ import {
 } from "@/once-ui/components";
 import { baseURL } from "@/resources";
 import { person } from "@/resources/content";
+import { formatDate } from "@/utils/formatDate";
+import { getPosts } from "@/utils/utils";
 import { notFound } from "next/navigation";
 
 interface WorkParams {
