@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function Scroll({ to }: { to: string }) {
+export function ScrollToBottom({ to }: { to: string }) {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

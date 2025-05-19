@@ -8,7 +8,7 @@ import GridRight from "@/app/about/parts/GridRight";
 import Intro from "@/app/about/parts/Intro";
 import NamePhoto from "@/app/about/parts/NamePhoto";
 import { about } from "@/app/resources";
-import Scroll from "@/components/shared/ScrollToBottom";
+import { ScrollToBottom } from "@/components/shared";
 
 export default function MountainBackground({
   children,
@@ -85,7 +85,7 @@ export default function MountainBackground({
         >
           <GridRight className="flex flex-col items-center">
             <Intro />
-            <Scroll to="work" />
+            <ScrollToBottom to="work" />
           </GridRight>
         </ParallaxBannerLayer>
       </ParallaxBanner>
