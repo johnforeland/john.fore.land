@@ -5,7 +5,7 @@ import "@/once-ui/tokens/index.scss";
 import { Footer, Header, RouteGuard } from "@/components/layout";
 import { Column, Flex, ToastProvider } from "@/once-ui/components";
 
-import DefaultBackground from "@/components/backgrounds/default-background/DefaultBackground";
+import { DefaultBackground } from "@/components/backgrounds";
 import { Padding, Root } from "@/components/layout";
 
 import { generateMetadataObjectLayout } from "@/app/utils/utils";
