@@ -8,7 +8,7 @@ import { Column, Flex, ToastProvider } from "@/once-ui/components";
 import { DefaultBackground } from "@/components/backgrounds";
 import { Padding, Root } from "@/components/layout";
 
-import { generateMetadataObjectLayout } from "@/app/utils/utils";
+import { generateMetadataObjectLayout } from "@/utils/utils";
 
 export async function generateMetadata() {
   return generateMetadataObjectLayout();

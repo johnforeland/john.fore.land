@@ -2,7 +2,7 @@ import { Projects } from "@/components/work";
 import { Column } from "@/once-ui/components";
 import { work } from "@/resources/content";
 
-import { generateMetadataObject } from "@/app/utils/utils";
+import { generateMetadataObject } from "@/utils/utils";
 
 export async function generateMetadata() {
   return generateMetadataObject(work.title, work.description, "work");

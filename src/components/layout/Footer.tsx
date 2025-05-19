@@ -1,8 +1,8 @@
 "use client";
 
-import { IsAboutPage } from "@/app/utils/clientUtils";
 import { Flex, IconButton, Text } from "@/once-ui/components";
 import { person, social } from "@/resources/content";
+import { IsAboutPage } from "@/utils/clientUtils";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
