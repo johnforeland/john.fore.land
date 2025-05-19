@@ -1,5 +1,5 @@
 import { about } from "@/app/resources/content";
-import SkyAvatar from "@/components/about/SkyAvatar";
+import { SkyAvatar } from "@/components/about";
 
 export default function Photo({ className }: { className?: string }) {
   return (

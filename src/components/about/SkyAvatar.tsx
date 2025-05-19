@@ -2,7 +2,7 @@ import { person } from "@/app/resources/content";
 import Image from "next/image";
 import "./SkyAvatar.css";
 
-export default function SkyAvatar() {
+export function SkyAvatar() {
   return (
     <div id="container">
       <Image
