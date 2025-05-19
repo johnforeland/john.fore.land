@@ -1,4 +1,4 @@
-import ParallaxProvider from "@/components/layout/Parallax";
+import { ParallaxProvider } from "@/components/layout";
 
 export default async function RootLayout({ children }) {
   return (

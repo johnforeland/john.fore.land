@@ -1,15 +1,14 @@
+import "@/app/resources/globals.css";
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
-import "@/app/resources/globals.css";
 
-import { Footer, Header, RouteGuard } from "@/components";
+import { Footer, Header, RouteGuard } from "@/components/layout";
 import { Column, Flex, ToastProvider } from "@/once-ui/components";
 
 import DefaultBackground from "@/components/backgrounds/default-background/DefaultBackground";
-import Root from "@/components/layout/Root";
+import { Padding, Root } from "@/components/layout";
 
 import { generateMetadataObjectLayout } from "@/app/utils/utils";
-import Padding from "@/components/layout/Padding";
 
 export async function generateMetadata() {
   return generateMetadataObjectLayout();

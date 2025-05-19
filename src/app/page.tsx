@@ -11,7 +11,7 @@ import {
 
 import { about, home, person } from "@/app/resources/content";
 import { generateMetadataObject } from "@/app/utils/utils";
-import GenerateScript from "@/components/layout/GenerateScript";
+import { GenerateScript } from "@/components/layout";
 
 export async function generateMetadata() {
   return generateMetadataObject(home.title, home.description);
