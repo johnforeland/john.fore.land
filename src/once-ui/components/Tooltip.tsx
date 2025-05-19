@@ -1,10 +1,10 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
 import classNames from "classnames";
+import React, { forwardRef, ReactNode } from "react";
 
 import { Flex, Icon } from ".";
-import { IconName } from "../icons";
+import { IconName } from "../../utils/icons";
 
 type TooltipProps = {
   label: ReactNode;

@@ -1,11 +1,11 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
 import classNames from "classnames";
-import { ElementType } from "./ElementType";
+import React, { forwardRef, ReactNode } from "react";
 import { Flex, Icon } from ".";
+import { IconName } from "../../utils/icons";
+import { ElementType } from "./ElementType";
 import styles from "./ToggleButton.module.scss";
-import { IconName } from "../icons";
 
 interface CommonProps {
   label?: ReactNode;
@@ -102,7 +102,9 @@ const ToggleButton = forwardRef<HTMLElement, ToggleButtonProps>(
             {label || children}
           </Flex>
         )}
-        {suffixIcon && <Icon name={suffixIcon} size={size === "l" ? "s" : "xs"} />}
+        {suffixIcon && (
+          <Icon name={suffixIcon} size={size === "l" ? "s" : "xs"} />
+        )}
       </ElementType>
     );
   }
