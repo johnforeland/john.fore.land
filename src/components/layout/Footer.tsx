@@ -1,9 +1,8 @@
 "use client";
 
-import { Flex, IconButton, Text } from "@/once-ui/components";
+import { IconButton } from "@/once-ui/components";
 import { person, social } from "@/resources/content";
 import { IsAboutPage } from "@/utils/clientUtils";
-import styles from "./Footer.module.scss";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,31 +10,17 @@ export const Footer = () => {
   const isAbout = IsAboutPage();
 
   return (
-    <Flex
-      as="footer"
-      style={{
-        backgroundColor: isAbout ? "#40255b" : undefined,
-      }}
-      position="relative"
-      fillWidth
-      padding="8"
-      horizontal="center"
-      mobileDirection="column"
+    <footer
+      className={`${
+        isAbout ? "bg-[#40255b]" : ""
+      } relative w-full p-8 flex flex-col items-center`}
     >
-      <Flex
-        className={styles.mobile}
-        maxWidth="m"
-        paddingY="8"
-        paddingX="16"
-        gap="16"
-        horizontal="space-between"
-        vertical="center"
-      >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-        </Text>
-        <Flex gap="16">
+      <div className="max-w-screen-m py-8 px-16 gap-4 flex flex-col justify-between items-center">
+        <p className="text-neutral-strong text-sm">
+          <span className="text-neutral-weak">© {currentYear} /</span>
+          <span className="px-4">{person.name}</span>
+        </p>
+        <div className="flex gap-4">
           {social.map(
             (item) =>
               item.link && (
@@ -49,9 +34,9 @@ export const Footer = () => {
                 />
               )
           )}
-        </Flex>
-      </Flex>
-      <Flex height="80" show="s"></Flex>
-    </Flex>
+        </div>
+      </div>
+      <div className="h-20 block sm:hidden"></div>
+    </footer>
   );
 };
