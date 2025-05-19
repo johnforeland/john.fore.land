@@ -1,4 +1,4 @@
-import { about } from "@/app/resources/content";
+import { about } from "@/resources/content";
 
 export default function Intro({ className }: { className?: string }) {
   return (

@@ -1,6 +1,6 @@
-import { person } from "@/app/resources/content";
-import Title from "./Title";
+import { person } from "@/resources/content";
 import SocialButtons from "./SocialButtons";
+import Title from "./Title";
 
 export default function Name({ className }: { className?: string }) {
   return (

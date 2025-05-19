@@ -1,5 +1,5 @@
-import { about } from "@/app/resources/content";
 import { generateMetadataObject } from "@/app/utils/utils";
+import { about } from "@/resources/content";
 
 import Skills from "@/app/about/parts/Skills";
 import Studies from "@/app/about/parts/Studies";

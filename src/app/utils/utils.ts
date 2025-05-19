@@ -1,4 +1,4 @@
-import { baseURL } from "@/app/resources";
+import { baseURL } from "@/resources";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
@@ -130,7 +130,7 @@ export async function generateMetadataObject(
   };
 }
 
-import { home } from "@/app/resources/content";
+import { home } from "@/resources/content";
 
 export async function generateMetadataObjectLayout(): Promise<object> {
   return generateMetadataObject(home.title, home.description, "", {

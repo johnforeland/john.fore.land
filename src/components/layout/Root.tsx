@@ -3,10 +3,9 @@ import "@/once-ui/tokens/index.scss";
 
 import classNames from "classnames";
 
-import { style } from "@/app/resources";
+import { style } from "@/resources";
 
-import { Inter } from "next/font/google";
-import { Source_Code_Pro } from "next/font/google";
+import { Inter, Source_Code_Pro } from "next/font/google";
 
 import { Flex } from "@/once-ui/components";
 

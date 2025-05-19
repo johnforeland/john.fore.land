@@ -1,5 +1,5 @@
-import { baseURL } from "@/app/resources";
-import { person } from "@/app/resources/content";
+import { baseURL } from "@/resources";
+import { person } from "@/resources/content";
 
 export default function GenerateScript({
   title,

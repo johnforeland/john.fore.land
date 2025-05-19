@@ -1,6 +1,6 @@
-import "@/app/resources/globals.css";
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
+import "@/resources/globals.css";
 
 import { Footer, Header, RouteGuard } from "@/components/layout";
 import { Column, Flex, ToastProvider } from "@/once-ui/components";

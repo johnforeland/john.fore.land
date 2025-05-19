@@ -1,7 +1,6 @@
 "use client";
 
 import NotFound from "@/app/not-found";
-import { protectedRoutes, validRoutes } from "@/app/resources";
 import {
   Button,
   Column,
@@ -10,6 +9,7 @@ import {
   PasswordInput,
   Spinner,
 } from "@/once-ui/components";
+import { protectedRoutes, validRoutes } from "@/resources";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
