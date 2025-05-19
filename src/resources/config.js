@@ -24,7 +24,7 @@ const routes = [
     id: "stats",
     label: stats.label,
     path: "/stats",
-    icon: "grid",
+    icon: "stats",
   },
 ];
 
