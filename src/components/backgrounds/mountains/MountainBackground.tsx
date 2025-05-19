@@ -4,11 +4,11 @@ import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 
 import styles from "./MountainBackground.module.scss";
 
+import GridRight from "@/app/about/parts/GridRight";
 import Intro from "@/app/about/parts/Intro";
 import NamePhoto from "@/app/about/parts/NamePhoto";
-import Scroll from "@/components/about/Scroll";
-import GridRight from "@/app/about/parts/GridRight";
 import { about } from "@/app/resources";
+import Scroll from "@/components/about/ScrollToBottom";
 
 export default function MountainBackground({
   children,
