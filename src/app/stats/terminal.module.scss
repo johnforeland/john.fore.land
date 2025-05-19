@@ -1,0 +1,134 @@
+// terminal.module.scss - CSS Module for Next.js
+
+// BUTTON CIRCLES (close, minimize, zoom)
+.buttons {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  left: 6px;
+  background-color: #ff3b47;
+  border-color: #9d252b;
+  display: inline-block;
+
+  &.minimize {
+    left: 11px;
+    background-color: #ffc100;
+    border-color: #9d802c;
+  }
+
+  &.zoom {
+    left: 16px;
+    background-color: #00d742;
+    border-color: #049931;
+  }
+}
+
+// TITLE BAR AND WINDOW
+.bar {
+  width: 650px;
+  box-sizing: border-box;
+  height: 25px;
+  background-color: #bbb;
+  margin: 0 auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.window {
+  background-color: #151515a6;
+  box-sizing: border-box;
+  width: 650px;
+  margin: 0 auto;
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+// TEXT ELEMENTS
+.text {
+  position: relative;
+  text-align: left;
+  font-size: 1.25em;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.response {
+  // ensure visible text container
+  width: auto;
+}
+
+.cmd {
+  color: #9cd9f0;
+}
+
+.response {
+  color: #cdee69;
+}
+
+// Variables for animation timing
+$cmd-count: 4;
+$cmd-start: 1s;
+$cmd-gap: 3s;
+$cmd-duration: 1s;
+$response-delay: 1s;
+
+// Typing keyframes inherited from module
+:global {
+  @keyframes blink {
+    0%,
+    40% {
+      opacity: 0;
+    }
+    50%,
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes type {
+    to {
+      width: 650px;
+    }
+  }
+
+  @keyframes show {
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Generate cmd, response, and cursor sequences
+@for $i from 1 through 10 {
+  .cmd#{$i} {
+    animation: type
+      $cmd-duration
+      ($cmd-start + ($i - 1) * $cmd-gap)
+      steps(20, end)
+      forwards;
+  }
+
+  .cursor#{$i} {
+    animation: blink 1s ($cmd-start + ($i - 1) * $cmd-gap) 2 forwards;
+    @if $i == $cmd-count {
+      animation-iteration-count: infinite;
+    }
+  }
+
+  .response#{$i} {
+    opacity: 0;
+    animation: show 0s linear forwards;
+    animation-delay: (
+      $cmd-start + ($i - 1) * $cmd-gap + $cmd-duration + $response-delay
+    );
+    width: auto;
+  }
+}
