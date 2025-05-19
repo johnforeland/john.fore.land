@@ -10,7 +10,7 @@ import NamePhoto from "@/app/about/parts/NamePhoto";
 import { about } from "@/app/resources";
 import { Scroll } from "@/components/shared";
 
-export default function MountainBackground({
+export function MountainBackground({
   children,
 }: {
   children: React.ReactNode;

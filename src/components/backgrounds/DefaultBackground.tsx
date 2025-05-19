@@ -6,7 +6,7 @@ import { effects } from "@/app/resources";
 import { IsAboutPage } from "@/app/utils/clientUtils";
 import { Background } from "@/once-ui/components";
 
-export default function DefaultBackground() {
+export function DefaultBackground() {
   const isAbout = IsAboutPage();
 
   return isAbout ? (

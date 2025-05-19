@@ -4,7 +4,7 @@ import { generateMetadataObject } from "@/app/utils/utils";
 import Skills from "@/app/about/parts/Skills";
 import Studies from "@/app/about/parts/Studies";
 import Work from "@/app/about/parts/Work";
-import MountainBackground from "@/components/backgrounds/mountains/MountainBackground";
+import { MountainBackground } from "@/components/backgrounds";
 
 export async function generateMetadata() {
   return generateMetadataObject(about.title, about.description, "about");
