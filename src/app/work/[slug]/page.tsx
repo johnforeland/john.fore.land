@@ -2,7 +2,7 @@ import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
-import ScrollToHash from "@/components/shared/ScrollToHash";
+import { ScrollToHash } from "@/components/shared";
 import { CustomMDX, Video } from "@/components/work";
 import {
   AvatarGroup,
