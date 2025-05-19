@@ -2,7 +2,7 @@
 
 import { Carousel } from "@/once-ui/components";
 import Image from "next/image";
-import { Tag } from "./work/Tag";
+import { Tag } from "./Tag";
 
 interface ProjectCardProps {
   href: string;

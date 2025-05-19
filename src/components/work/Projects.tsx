@@ -1,5 +1,5 @@
 import { getPosts } from "@/app/utils/utils";
-import { ProjectCard } from "@/components";
+import { ProjectCard } from "@/components/work/ProjectCard";
 import { Column } from "@/once-ui/components";
 
 interface ProjectsProps {
