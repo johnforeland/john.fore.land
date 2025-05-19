@@ -1,13 +1,13 @@
 "use client";
 
 import NotFound from "@/app/not-found";
+import { Spinner } from "@/components/layout";
 import {
   Button,
   Column,
   Flex,
   Heading,
   PasswordInput,
-  Spinner,
 } from "@/once-ui/components";
 import { protectedRoutes, validRoutes } from "@/resources";
 import { usePathname } from "next/navigation";
