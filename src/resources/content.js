@@ -1,5 +1,3 @@
-import { InlineCode } from "@/once-ui/components";
-
 const person = {
   firstName: "John",
   lastName: "Føreland",
@@ -37,8 +35,7 @@ const home = {
   headline: <>Software Enigneer & Architect</>,
   subline: (
     <>
-      I&apos;m John, a software engineer at{" "}
-      <InlineCode>Sopra Steria</InlineCode>.
+      I&apos;m John, a software engineer at Sopra Steria.
       <br />
       <br />
       My main department is Salesforce, but I&apos;m responsible for everything
