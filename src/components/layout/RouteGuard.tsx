@@ -2,14 +2,7 @@
 
 import NotFound from "@/app/not-found";
 import { Spinner } from "@/components/layout";
-import {
-  Button,
-  Column,
-  Flex,
-  Heading,
-  PasswordInput,
-} from "@/once-ui/components";
-import { protectedRoutes, validRoutes } from "@/resources";
+import { validRoutes } from "@/resources";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -20,18 +13,12 @@ interface RouteGuardProps {
 const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
   const pathname = usePathname();
   const [isRouteEnabled, setIsRouteEnabled] = useState(false);
-  const [isPasswordRequired, setIsPasswordRequired] = useState(false);
-  const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [error, setError] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const performChecks = async () => {
       setLoading(true);
       setIsRouteEnabled(false);
-      setIsPasswordRequired(false);
-      setIsAuthenticated(false);
 
       const checkRouteEnabled = () => {
         if (!pathname) return false;
@@ -52,67 +39,22 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
 
       const routeEnabled = checkRouteEnabled();
       setIsRouteEnabled(routeEnabled);
-
-      if (protectedRoutes[pathname as keyof typeof protectedRoutes]) {
-        setIsPasswordRequired(true);
-
-        const response = await fetch("/api/check-auth");
-        if (response.ok) {
-          setIsAuthenticated(true);
-        }
-      }
-
       setLoading(false);
     };
 
     performChecks();
   }, [pathname]);
 
-  const handlePasswordSubmit = async () => {
-    const response = await fetch("/api/authenticate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
-    });
-
-    if (response.ok) {
-      setIsAuthenticated(true);
-      setError(undefined);
-    } else {
-      setError("Incorrect password");
-    }
-  };
-
   if (loading) {
     return (
-      <Flex fillWidth paddingY="128" horizontal="center">
+      <div className="flex w-full py-32 justify-center">
         <Spinner />
-      </Flex>
+      </div>
     );
   }
 
   if (!isRouteEnabled) {
     return <NotFound />;
-  }
-
-  if (isPasswordRequired && !isAuthenticated) {
-    return (
-      <Column paddingY="128" maxWidth={24} gap="24" center>
-        <Heading align="center" wrap="balance">
-          This page is password protected
-        </Heading>
-        <Column fillWidth gap="8" horizontal="center">
-          <PasswordInput
-            id="password"
-            label="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            errorMessage={error}
-          />
-          <Button onClick={handlePasswordSubmit}>Submit</Button>
-        </Column>
-      </Column>
-    );
   }
 
   return <>{children}</>;
