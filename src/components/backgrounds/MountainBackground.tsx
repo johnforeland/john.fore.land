@@ -7,8 +7,8 @@ import styles from "./MountainBackground.module.scss";
 import GridRight from "@/app/about/parts/GridRight";
 import Intro from "@/app/about/parts/Intro";
 import NamePhoto from "@/app/about/parts/NamePhoto";
-import { about } from "@/app/resources";
 import { Scroll } from "@/components/shared";
+import { about } from "@/resources";
 
 export function MountainBackground({
   children,

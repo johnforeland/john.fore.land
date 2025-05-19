@@ -1,5 +1,5 @@
-import { about } from "@/app/resources/content";
 import { Flex, SmartImage } from "@/once-ui/components";
+import { about } from "@/resources/content";
 
 export default function Skills({ className }: { className?: string }) {
   return (

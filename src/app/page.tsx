@@ -9,9 +9,9 @@ import {
   Text,
 } from "@/once-ui/components";
 
-import { about, home, person } from "@/app/resources/content";
 import { generateMetadataObject } from "@/app/utils/utils";
 import { GenerateScript } from "@/components/layout";
+import { about, home, person } from "@/resources/content";
 
 export async function generateMetadata() {
   return generateMetadataObject(home.title, home.description);

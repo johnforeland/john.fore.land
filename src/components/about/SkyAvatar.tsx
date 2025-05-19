@@ -1,4 +1,4 @@
-import { person } from "@/app/resources/content";
+import { person } from "@/resources/content";
 import Image from "next/image";
 import "./SkyAvatar.css";
 

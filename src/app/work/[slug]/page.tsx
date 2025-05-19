@@ -1,5 +1,3 @@
-import { baseURL } from "@/app/resources";
-import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
 import { ScrollToHash } from "@/components/shared";
@@ -13,6 +11,8 @@ import {
   SmartImage,
   Text,
 } from "@/once-ui/components";
+import { baseURL } from "@/resources";
+import { person } from "@/resources/content";
 import { notFound } from "next/navigation";
 
 interface WorkParams {

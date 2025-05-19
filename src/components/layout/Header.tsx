@@ -2,10 +2,10 @@
 
 import { usePathname } from "next/navigation";
 
-import { Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/layout/Header.module.scss";
+import { Flex, Line, ToggleButton } from "@/once-ui/components";
 
-import { routes } from "@/app/resources";
+import { routes } from "@/resources";
 import React from "react";
 
 export const Header = () => {

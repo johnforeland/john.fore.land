@@ -1,5 +1,5 @@
-import { about } from "@/app/resources/content";
 import { Flex, SmartImage } from "@/once-ui/components";
+import { about } from "@/resources/content";
 import { JSX } from "react";
 
 export default function Work({ className }: { className?: string }) {

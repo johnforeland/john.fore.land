@@ -1,6 +1,6 @@
 "use client";
 
-import { about } from "@/app/resources/content";
+import { about } from "@/resources/content";
 import ThesisModal from "./ThesisModal";
 
 export default function Studies({ className }: { className?: string }) {

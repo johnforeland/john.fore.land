@@ -1,4 +1,4 @@
-import { about, work } from "@/app/resources/content";
+import { about, work } from "@/resources/content";
 
 const baseURL = "john.fore.land";
 
