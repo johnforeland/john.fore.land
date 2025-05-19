@@ -13,7 +13,7 @@ interface VideoProps {
   border?: boolean;
 }
 
-const Video: React.FC<VideoProps> = ({
+export const Video: React.FC<VideoProps> = ({
   src,
   title = "Video",
   controls = true,
@@ -41,5 +41,3 @@ const Video: React.FC<VideoProps> = ({
     </div>
   );
 };
-
-export default Video;

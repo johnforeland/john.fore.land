@@ -1,4 +1,4 @@
-import { Projects } from "@/components/work/Projects";
+import { Projects } from "@/components/work";
 import {
   Avatar,
   Button,
