@@ -10,8 +10,10 @@ export async function generateMetadata() {
 export default function Stats() {
   console.log(process.title);
   return (
-    <div className="w-full ">
-      <Terminal nodeVersion={process.version} nextVersion={process.title} />
+    <div className="grid grid-cols-1 md:grid-cols-4 items-center">
+      <div className="col-span-1 md:col-span-2 md:col-start-2">
+        <Terminal nodeVersion={process.version} nextVersion={process.title} />
+      </div>
     </div>
   );
 }
