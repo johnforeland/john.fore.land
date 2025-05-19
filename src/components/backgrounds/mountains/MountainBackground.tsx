@@ -8,7 +8,7 @@ import GridRight from "@/app/about/parts/GridRight";
 import Intro from "@/app/about/parts/Intro";
 import NamePhoto from "@/app/about/parts/NamePhoto";
 import { about } from "@/app/resources";
-import Scroll from "@/components/about/ScrollToBottom";
+import Scroll from "@/components/shared/ScrollToBottom";
 
 export default function MountainBackground({
   children,
