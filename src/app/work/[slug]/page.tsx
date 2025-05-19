@@ -3,7 +3,7 @@ import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
 import { CustomMDX } from "@/components/mdx";
-import ScrollToHash from "@/components/ScrollToHash";
+import ScrollToHash from "@/components/ScrollTo";
 import Video from "@/components/Video";
 import {
   AvatarGroup,
