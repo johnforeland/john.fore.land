@@ -27,7 +27,7 @@
 
 // TITLE BAR AND WINDOW
 .bar {
-  width: 650px;
+  width: 100%;
   box-sizing: border-box;
   height: 25px;
   background-color: #bbb;
@@ -39,7 +39,7 @@
 .window {
   background-color: #151515a6;
   box-sizing: border-box;
-  width: 650px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   border-bottom-left-radius: 5px;
@@ -95,7 +95,7 @@ $response-delay: 1s;
 
   @keyframes type {
     to {
-      width: 650px;
+      width: 100%;
     }
   }
 
