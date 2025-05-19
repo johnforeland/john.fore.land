@@ -1,12 +1,12 @@
 "use client";
 
-import React, { forwardRef, useState, useEffect, ReactNode } from "react";
-import { ElementType } from "./ElementType";
-import { Flex, Icon, Tooltip } from ".";
-import buttonStyles from "./Button.module.scss";
-import iconStyles from "./IconButton.module.scss";
 import classNames from "classnames";
-import { IconName } from "../icons";
+import React, { forwardRef, ReactNode, useEffect, useState } from "react";
+import { Flex, Icon, Tooltip } from ".";
+import { IconName } from "../../utils/icons";
+import buttonStyles from "./Button.module.scss";
+import { ElementType } from "./ElementType";
+import iconStyles from "./IconButton.module.scss";
 
 interface CommonProps {
   icon?: IconName;

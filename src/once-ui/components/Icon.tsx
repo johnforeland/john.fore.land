@@ -1,11 +1,11 @@
 "use client";
 
-import React, { forwardRef, useState, useEffect, ReactNode } from "react";
 import classNames from "classnames";
+import React, { forwardRef, ReactNode, useEffect, useState } from "react";
 import { IconType } from "react-icons";
-import { iconLibrary, IconName } from "../icons";
-import { ColorScheme, ColorWeight } from "../types";
 import { Flex, Tooltip } from ".";
+import { iconLibrary, IconName } from "../../utils/icons";
+import { ColorScheme, ColorWeight } from "../types";
 import styles from "./Icon.module.scss";
 import iconStyles from "./IconButton.module.scss";
 
@@ -64,7 +64,10 @@ const Icon = forwardRef<HTMLDivElement, IconProps>(
 
     let colorClass = "color-inherit";
     if (onBackground) {
-      const [scheme, weight] = onBackground.split("-") as [ColorScheme, ColorWeight];
+      const [scheme, weight] = onBackground.split("-") as [
+        ColorScheme,
+        ColorWeight
+      ];
       colorClass = `${scheme}-on-background-${weight}`;
     } else if (onSolid) {
       const [scheme, weight] = onSolid.split("-") as [ColorScheme, ColorWeight];

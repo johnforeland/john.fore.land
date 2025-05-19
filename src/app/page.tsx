@@ -21,10 +21,12 @@ export default function Home() {
           <p className="text-xl text-gray-500 leading-relaxed break-words">
             {home.subline}
           </p>
+
+          {/* about me button */}
           <a
             id="about"
             href="/about"
-            className="group inline-flex items-center px-3 py-1.5 rounded-full border border-neutral-700 bg-neutral-900 text-white transition-colors hover:bg-neutral-700"
+            className="group inline-flex items-center px-3 py-1.5 mt-4 rounded-full border border-neutral-700 bg-neutral-900 text-white transition-colors hover:bg-neutral-700"
           >
             <Image
               className="w-7 h-7 rounded-full ml-1"
