@@ -5,49 +5,35 @@ import React from "react";
 import styles from "./Terminal.module.scss";
 import { CommandsProps, TerminalOutput } from "./TerminalOutput";
 
-export function Terminal() {
+export type Versions = {
+  nodeVersion: string;
+  nextVersion: string;
+};
+
+export function Terminal(props: Versions) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isZoomed, setIsZoomed] = React.useState(false);
 
   const azureOutput = `{
-  "customDomain": "john.fore.land",
-  "defaultHostname": "calm-glacier-0030b2c03.6.azurestaticapps.net",
-  "location": "West Europe",
-  "repositoryUrl": "https://github.com/johnforeland/john.fore.land",
-  "resourceGroup": "rg-john.fore.land"
-}`;
+    "customDomain": "john.fore.land",
+    "defaultHostname": "calm-glacier-0030b2c03.6.azurestaticapps.net",
+    "location": "West Europe",
+    "repositoryUrl": "https://github.com/johnforeland/john.fore.land",
+    "resourceGroup": "rg-john.fore.land"
+  }`;
 
   const commands = [
     {
       cmd: "node -v",
-      response: process.version,
+      response: props.nodeVersion,
     },
     {
       cmd: "next -v",
-      response: process.title,
+      response: props.nextVersion.replace(/next-server \(v([\d.]+)\)/, "v$1"),
     },
     {
       cmd: "az staticwebapp -n john.fore.land",
-      response: (
-        <pre>
-          <span style={{ color: "cyan" }}>
-            {"{"}
-            <br />
-          </span>
-          {Object.entries(JSON.parse(azureOutput)).map(([key, value]) => (
-            <div key={key} style={{ marginLeft: "20px" }}>
-              <span style={{ color: "cyan" }}>{'"' + key + '"'}</span>:{" "}
-              <span style={{ color: "orange" }}>
-                {JSON.stringify(value, null, 2)}
-              </span>
-            </div>
-          ))}
-          <span style={{ color: "cyan" }}>
-            {"}"}
-            <br />
-          </span>
-        </pre>
-      ),
+      response: formatJson(azureOutput),
     },
   ] as CommandsProps[];
 
@@ -86,5 +72,28 @@ export function Terminal() {
         </div>
       )}
     </>
+  );
+}
+
+function formatJson(azureOutput: string) {
+  return (
+    <pre>
+      <span style={{ color: "cyan" }}>
+        {"{"}
+        <br />
+      </span>
+      {Object.entries(JSON.parse(azureOutput)).map(([key, value]) => (
+        <div key={key} style={{ marginLeft: "20px" }}>
+          <span style={{ color: "cyan" }}>{'"' + key + '"'}</span>:{" "}
+          <span style={{ color: "orange" }}>
+            {JSON.stringify(value, null, 2)}
+          </span>
+        </div>
+      ))}
+      <span style={{ color: "cyan" }}>
+        {"}"}
+        <br />
+      </span>
+    </pre>
   );
 }
