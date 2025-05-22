@@ -55,7 +55,7 @@ export function Terminal(props: Versions) {
               ></div>
               <div
                 className={`${styles.button} ${styles.minimize}`}
-                onClick={() => setIsOpen(false)}
+                onClick={() => minimize()}
               ></div>
               <div
                 className={`${styles.button} ${styles.zoom}`}
@@ -75,6 +75,24 @@ export function Terminal(props: Versions) {
       )}
     </>
   );
+
+  function minimize() {
+    const terminalWindow = document.querySelector(`.${styles.terminal}`);
+    if (terminalWindow) {
+      terminalWindow.animate(
+        [
+          { transform: "scale(1) translateY(0)", opacity: 1 },
+          {
+            transform: "scale(0.0) translateY(100%)",
+            opacity: 0,
+          },
+        ],
+        { duration: 400, easing: "ease-in-out" }
+      ).onfinish = () => setIsOpen(false);
+    } else {
+      setIsOpen(false);
+    }
+  }
 }
 
 function formatJson(azureOutput: string) {
