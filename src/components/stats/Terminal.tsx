@@ -1,0 +1,90 @@
+"use client";
+
+import { Button } from "@/once-ui/components";
+import React from "react";
+import styles from "./Terminal.module.scss";
+import { CommandsProps, TerminalOutput } from "./TerminalOutput";
+
+export function Terminal() {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [isZoomed, setIsZoomed] = React.useState(false);
+
+  const azureOutput = `{
+  "customDomain": "john.fore.land",
+  "defaultHostname": "calm-glacier-0030b2c03.6.azurestaticapps.net",
+  "location": "West Europe",
+  "repositoryUrl": "https://github.com/johnforeland/john.fore.land",
+  "resourceGroup": "rg-john.fore.land"
+}`;
+
+  const commands = [
+    {
+      cmd: "node -v",
+      response: process.version,
+    },
+    {
+      cmd: "next -v",
+      response: process.title,
+    },
+    {
+      cmd: "az staticwebapp -n john.fore.land",
+      response: (
+        <pre>
+          <span style={{ color: "cyan" }}>
+            {"{"}
+            <br />
+          </span>
+          {Object.entries(JSON.parse(azureOutput)).map(([key, value]) => (
+            <div key={key} style={{ marginLeft: "20px" }}>
+              <span style={{ color: "cyan" }}>{'"' + key + '"'}</span>:{" "}
+              <span style={{ color: "orange" }}>
+                {JSON.stringify(value, null, 2)}
+              </span>
+            </div>
+          ))}
+          <span style={{ color: "cyan" }}>
+            {"}"}
+            <br />
+          </span>
+        </pre>
+      ),
+    },
+  ] as CommandsProps[];
+
+  return (
+    <>
+      <Button
+        variant="primary"
+        size="m"
+        onClick={() => setIsOpen(true)}
+        label="View Stats"
+      ></Button>
+      {isOpen && (
+        <div className={styles.terminal}>
+          <div className={styles.bar}>
+            <div
+              className={`${styles.buttons} ${styles.close}`}
+              onClick={() => setIsOpen(false)}
+            ></div>
+            <div
+              className={`${styles.buttons} ${styles.minimize}`}
+              onClick={() => setIsOpen(false)}
+            ></div>
+            <div
+              className={`${styles.buttons} ${styles.zoom}`}
+              onClick={() => setIsZoomed(!isZoomed)}
+            ></div>
+          </div>
+          <div
+            className={styles.window}
+            style={{
+              height: isZoomed ? "100vh" : "auto",
+            }}
+          >
+            <TerminalOutput commands={commands} />
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
