@@ -22,7 +22,6 @@ export function TerminalOutput({ commands }: TerminalProps) {
               styles["cmd" + (index + 1)]
             }`}
           >
-            <br />
             {"> " + cmd}
             <span
               className={`${styles.cursor} ${styles["cursor" + (index + 1)]}`}
@@ -37,13 +36,17 @@ export function TerminalOutput({ commands }: TerminalProps) {
           >
             {response}
           </div>
+          <br />
         </React.Fragment>
       ))}
 
-      <p className={`${styles.text} ${styles.cmd} ${styles.cmd4}`}>
-        <br />
+      <p
+        className={`${styles.text} ${styles.cmd} ${
+          styles["cmd" + (commands.length + 1)]
+        }`}
+      >
         {"> "}
-        <span className={`${styles.cursor} ${styles.cursor4}`}>_</span>
+        <span className={`${styles.cursor} ${styles.lastCursor}`}>_</span>
       </p>
     </>
   );
