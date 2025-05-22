@@ -53,7 +53,7 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <Terminal />
+      <Terminal nodeVersion={process.version} nextVersion={process.title} />
     </div>
   );
 }
