@@ -17,34 +17,24 @@ export function TerminalOutput({ commands }: TerminalProps) {
     <>
       {commands.map(({ cmd, response }, index) => (
         <React.Fragment key={index}>
-          <p
-            className={`${styles.text} ${styles.cmd} ${
-              styles["cmd" + (index + 1)]
-            }`}
-          >
+          {/* prettier-ignore */}
+          <p className={`${styles.text} ${styles.cmd} ${ styles["cmd" + (index + 1)] }`}>
             {"> " + cmd}
-            <span
-              className={`${styles.cursor} ${styles["cursor" + (index + 1)]}`}
-            >
+            <span className={`${styles.cursor} ${styles["cursor" + (index + 1)]}`}>
               _
             </span>
           </p>
-          <div
-            className={`${styles.text} ${styles.response} ${
-              styles["response" + (index + 1)]
-            }`}
-          >
+
+          {/* prettier-ignore */}
+          <div className={`${styles.text} ${styles.response} ${ styles["response" + (index + 1)] }`}>
             {response}
           </div>
           <br />
         </React.Fragment>
       ))}
 
-      <p
-        className={`${styles.text} ${styles.cmd} ${
-          styles["cmd" + (commands.length + 1)]
-        }`}
-      >
+      {/* prettier-ignore */}
+      <p className={`${styles.text} ${styles.cmd} ${styles[`cmd${commands.length + 1}`]}`}>
         {"> "}
         <span className={`${styles.cursor} ${styles.lastCursor}`}>_</span>
       </p>
