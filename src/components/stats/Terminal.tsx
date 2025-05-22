@@ -64,7 +64,7 @@ export function Terminal(props: Versions) {
           <div
             className={styles.window}
             style={{
-              height: isZoomed ? "100vh" : "auto",
+              minHeight: isZoomed ? "100vh" : "40vh",
             }}
           >
             <TerminalOutput commands={commands} />
