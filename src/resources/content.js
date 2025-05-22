@@ -198,12 +198,6 @@ const work = {
   description: `Design and dev projects by ${person.name}`,
 };
 
-const stats = {
-  label: "Stats",
-  title: "Stats",
-  description: `Stats of page`,
-};
-
 const gallery = {
   label: "Gallery",
   title: "My photo gallery",
@@ -283,4 +277,4 @@ const gallery = {
   ],
 };
 
-export { about, gallery, home, person, social, stats, work };
+export { about, gallery, home, person, social, work };

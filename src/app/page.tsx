@@ -1,4 +1,5 @@
 import { GenerateScript } from "@/components/layout";
+import { Terminal } from "@/components/stats/Terminal";
 import { home, person } from "@/resources/content";
 import { generateMetadataObject } from "@/utils/utils";
 import Image from "next/image";
@@ -52,6 +53,7 @@ export default function Home() {
           </a>
         </div>
       </div>
+      <Terminal />
     </div>
   );
 }
