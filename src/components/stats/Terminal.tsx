@@ -48,23 +48,25 @@ export function Terminal(props: Versions) {
       {isOpen && (
         <div className={styles.terminal}>
           <div className={styles.bar}>
-            <div
-              className={`${styles.buttons} ${styles.close}`}
-              onClick={() => setIsOpen(false)}
-            ></div>
-            <div
-              className={`${styles.buttons} ${styles.minimize}`}
-              onClick={() => setIsOpen(false)}
-            ></div>
-            <div
-              className={`${styles.buttons} ${styles.zoom}`}
-              onClick={() => setIsZoomed(!isZoomed)}
-            ></div>
+            <div className={styles.buttons}>
+              <div
+                className={`${styles.button} ${styles.close}`}
+                onClick={() => setIsOpen(false)}
+              ></div>
+              <div
+                className={`${styles.button} ${styles.minimize}`}
+                onClick={() => setIsOpen(false)}
+              ></div>
+              <div
+                className={`${styles.button} ${styles.zoom}`}
+                onClick={() => setIsZoomed(!isZoomed)}
+              ></div>
+            </div>
           </div>
           <div
             className={styles.window}
             style={{
-              minHeight: isZoomed ? "100vh" : "40vh",
+              minHeight: isZoomed ? "80vh" : "40vh",
             }}
           >
             <TerminalOutput commands={commands} />

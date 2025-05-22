@@ -36,6 +36,20 @@ $minimizeHover: "data:image/svg+xml, %3Csvg%20enable-background=%22new%200%200%2
 $zoomHover: "data:image/svg+xml, %3Csvg%20enable-background=%22new%200%200%2085.4%2085.4%22%20viewBox=%220%200%2085.4%2085.4%22%20xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20clip-rule=%22evenodd%22%20fill-rule=%22evenodd%22%3E%3Cpath%20d=%22m42.7%2085.4c23.6%200%2042.7-19.1%2042.7-42.7s-19.1-42.7-42.7-42.7-42.7%2019.1-42.7%2042.7%2019.1%2042.7%2042.7%2042.7z%22%20fill=%22%232dac2f%22%2F%3E%3Cpath%20d=%22m42.7%2081.8c21.6%200%2039.1-17.5%2039.1-39.1s-17.5-39.1-39.1-39.1-39.1%2017.5-39.1%2039.1c0%2021.5%2017.5%2039.1%2039.1%2039.1z%22%20fill=%22%2361c555%22%2F%3E%3Cpath%20d=%22m31.2%2020.8h26.7c3.6%200%206.5%202.9%206.5%206.5v26.7zm23.2%2043.7h-26.8c-3.6%200-6.5-2.9-6.5-6.5v-26.8z%22%20fill=%22%232a6218%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
 
 .buttons {
+  &:hover {
+    .button.close {
+      background-image: url($closeHover);
+    }
+    .button.minimize {
+      background-image: url($minimizeHover);
+    }
+    .button.zoom {
+      background-image: url($zoomHover);
+    }
+  }
+}
+
+.button {
   height: 12px;
   width: 12px;
   position: relative;
@@ -45,6 +59,7 @@ $zoomHover: "data:image/svg+xml, %3Csvg%20enable-background=%22new%200%200%2085.
   &:hover {
     cursor: pointer;
     background-repeat: no-repeat;
+    filter: brightness(0.95);
   }
 
   &.close {
