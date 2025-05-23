@@ -2,7 +2,7 @@ import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 import "@/resources/globals.css";
 
-import { Footer, Header, RouteGuard } from "@/components/layout";
+import { Header, RouteGuard } from "@/components/layout";
 import { Column, Flex } from "@/once-ui/components";
 
 import { DefaultBackground } from "@/components/backgrounds";
@@ -34,7 +34,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <RouteGuard>
           <Padding>{children}</Padding>
         </RouteGuard>
-        <Footer />
       </Column>
     </Root>
   );
