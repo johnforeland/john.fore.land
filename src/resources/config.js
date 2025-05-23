@@ -80,12 +80,4 @@ const display = {
   time: true,
 };
 
-export {
-  baseURL,
-  display,
-  effects,
-  protectedRoutes,
-  routes,
-  style,
-  validRoutes,
-};
+export { baseURL, display, effects, routes, style, validRoutes };
