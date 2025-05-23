@@ -1,8 +1,8 @@
 import { GenerateScript } from "@/components/layout";
+import { Button } from "@/components/shared/Button";
 import { Terminal } from "@/components/stats/Terminal";
 import { home, person } from "@/resources/content";
 import { generateMetadataObject } from "@/utils/utils";
-import Image from "next/image";
 
 export async function generateMetadata() {
   return generateMetadataObject(home.title, home.description);
@@ -23,23 +23,21 @@ export default function Home() {
             {home.subline}
           </p>
 
-          {/* about me button */}
-          <a
-            href="/about"
-            className="group inline-flex items-center rounded-full border-neutral-700 bg-neutral-900 text-white transition-colors hover:opacity-80 mr-3 mt-3"
-          >
-            <Image
-              className="rounded-full m-2 p-2"
-              src={person.avatar}
-              alt="Avatar"
-              width={40}
-              height={40}
+          <div className="flex gap-2">
+            {/* about me button */}
+            <Button
+              label="About me"
+              image={person.avatar}
+              href="/about"
+              imageSize={30}
             />
-            <span className="ml-3 mr-6 my-2.5 font-semibold">About me</span>
-          </a>
 
-          {/* stats button */}
-          <Terminal nodeVersion={process.version} nextVersion={process.title} />
+            {/* stats button */}
+            <Terminal
+              nodeVersion={process.version}
+              nextVersion={process.title}
+            />
+          </div>
         </div>
       </div>
     </div>
