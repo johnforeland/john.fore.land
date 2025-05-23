@@ -7,8 +7,6 @@ import { style } from "@/resources";
 
 import { Inter, Source_Code_Pro } from "next/font/google";
 
-import { Flex } from "@/once-ui/components";
-
 const primary = Inter({
   variable: "--font-primary",
   subsets: ["latin"],
@@ -36,27 +34,25 @@ const code = Source_Code_Pro({
 
 export default function Root({ children }: { children: React.ReactNode }) {
   return (
-    <Flex
-      as="html"
+    <html
       lang="en"
-      background="page"
+      className={classNames(
+        primary.variable,
+        secondary?.variable || "",
+        tertiary?.variable || "",
+        code.variable
+      )}
       data-neutral={style.neutral}
       data-brand={style.brand}
-      data-accent={style.accent}
+      data-accent={style.accent || ""}
       data-solid={style.solid}
       data-solid-style={style.solidStyle}
       data-theme={style.theme}
       data-border={style.border}
       data-surface={style.surface}
       data-transition={style.transition}
-      className={classNames(
-        primary.variable,
-        secondary ? secondary.variable : "",
-        tertiary ? tertiary.variable : "",
-        code.variable
-      )}
     >
-      {children}
-    </Flex>
+      <body className="bg-page">{children}</body>
+    </html>
   );
 }
