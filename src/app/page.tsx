@@ -10,12 +10,14 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center h-screen pb-50">
-      <NamePhoto />
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center h-screen pb-50">
+      <div className="col-span-1 md:col-span-2">
+        <NamePhoto />
+      </div>
 
       {/* Left side */}
 
-      <div className="col-span-2 flex flex-col w-full py-6 gap-4 justify-center">
+      <div className="col-span-1 md:col-span-3 flex flex-col w-full py-6 gap-4 justify-center">
         <div className="max-w-screen-sm">
           <h1 className="text-4xl font-extrabold leading-tight break-words">
             {home.headline}
