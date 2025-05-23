@@ -1,10 +1,8 @@
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
-import classNames from "classnames";
-
 import { style } from "@/resources";
-
+import classNames from "classnames";
 import { Inter, Source_Code_Pro } from "next/font/google";
 
 const primary = Inter({
@@ -52,7 +50,12 @@ export default function Root({ children }: { children: React.ReactNode }) {
       data-surface={style.surface}
       data-transition={style.transition}
     >
-      <body className="bg-page">{children}</body>
+      <body
+        className="m-0 p-0 min-h-screen min-w-full"
+        style={{ margin: "0", padding: "0" }}
+      >
+        {children}
+      </body>
     </html>
   );
 }
