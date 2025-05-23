@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 
-import styles from "@/components/layout/Header.module.scss";
+import styles from "@/components/layout/Navigation.module.scss";
 import { Flex, Line, ToggleButton } from "@/once-ui/components";
 
 import { routes } from "@/resources";
 import React from "react";
 
-export const Header = () => {
+export const Navigation = () => {
   const pathname = usePathname() ?? "";
 
   return (
