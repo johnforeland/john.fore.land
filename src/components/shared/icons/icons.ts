@@ -63,7 +63,7 @@ export const iconLibrary: Record<string, IconType> = {
   errorCircle: HiExclamationCircle,
   checkCircle: HiCheckCircle,
   person: PiUserCircleDuotone,
-  stats: IoTerminal,
+  terminal: IoTerminal,
   grid: PiGridFourDuotone,
   eyeDropper: HiEyeDropper,
   clipboard: HiOutlineClipboard,
