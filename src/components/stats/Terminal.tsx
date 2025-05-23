@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/once-ui/components";
+import { Icon } from "@/components/shared/icons/Icon";
 import React from "react";
 import styles from "./Terminal.module.scss";
 import { CommandsProps, TerminalOutput } from "./TerminalOutput";
@@ -12,6 +12,7 @@ export type Versions = {
 
 export function Terminal(props: Versions) {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isMinimized, setIsMinimized] = React.useState(false);
   const [isZoomed, setIsZoomed] = React.useState(false);
 
   const azureOutput = `{
@@ -39,14 +40,21 @@ export function Terminal(props: Versions) {
 
   return (
     <>
-      <Button
-        variant="primary"
-        size="m"
-        onClick={() => setIsOpen(true)}
-        label="View Stats"
-      ></Button>
+      <button
+        onClick={() => open()}
+        className="group inline-flex items-center rounded-full border-neutral-700 bg-neutral-900 text-white transition-colors hover:opacity-80"
+      >
+        <span className="ml-3 mr-6 my-2.5 font-semibold">
+          <Icon name="terminal" size="xl" />
+          About this site
+        </span>
+      </button>
       {isOpen && (
-        <div className={styles.terminal}>
+        <div
+          className={`${styles.terminal} ${
+            isMinimized ? styles.minimized : ""
+          }`}
+        >
           <div className={styles.bar}>
             <div className={styles.buttons}>
               <div
@@ -76,22 +84,15 @@ export function Terminal(props: Versions) {
     </>
   );
 
-  function minimize() {
-    const terminalWindow = document.querySelector(`.${styles.terminal}`);
-    if (terminalWindow) {
-      terminalWindow.animate(
-        [
-          { transform: "scale(1) translateY(0)", opacity: 1 },
-          {
-            transform: "scale(0.0) translateY(100%)",
-            opacity: 0,
-          },
-        ],
-        { duration: 400, easing: "ease-in-out" }
-      ).onfinish = () => setIsOpen(false);
-    } else {
-      setIsOpen(false);
+  function open() {
+    setIsOpen(true);
+    if (isMinimized) {
+      setIsMinimized(false);
     }
+  }
+
+  function minimize() {
+    setIsMinimized(true);
   }
 }
 

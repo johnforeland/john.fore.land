@@ -25,35 +25,23 @@ export default function Home() {
 
           {/* about me button */}
           <a
-            id="about"
             href="/about"
-            className="group inline-flex items-center px-3 py-1.5 mt-4 rounded-full border border-neutral-700 bg-neutral-900 text-white transition-colors hover:bg-neutral-700"
+            className="group inline-flex items-center rounded-full border-neutral-700 bg-neutral-900 text-white transition-colors hover:opacity-80 mr-3 mt-3"
           >
             <Image
-              className="w-7 h-7 rounded-full ml-1"
+              className="rounded-full m-2 p-2"
               src={person.avatar}
               alt="Avatar"
-              width={28}
-              height={28}
+              width={40}
+              height={40}
             />
-            <span className="ml-5 mr-1 font-semibold">About me</span>
-            <svg
-              className="ml-1 h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            <span className="ml-3 mr-6 my-2.5 font-semibold">About me</span>
           </a>
+
+          {/* stats button */}
+          <Terminal nodeVersion={process.version} nextVersion={process.title} />
         </div>
       </div>
-      <Terminal nodeVersion={process.version} nextVersion={process.title} />
     </div>
   );
 }
