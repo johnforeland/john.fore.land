@@ -3,7 +3,7 @@ import "@/once-ui/tokens/index.scss";
 import "@/resources/globals.css";
 
 import { Navigation, RouteGuard } from "@/components/layout";
-import { Column, Flex } from "@/once-ui/components";
+import { Flex } from "@/once-ui/components";
 
 import { DefaultBackground } from "@/components/backgrounds";
 import { Padding, Root } from "@/components/layout";
@@ -21,20 +21,12 @@ interface RootLayoutProps {
 export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <Root>
-      <Column
-        style={{ minHeight: "100vh" }}
-        as="body"
-        fillWidth
-        margin="0"
-        padding="0"
-      >
-        <DefaultBackground />
-        <Flex fillWidth minHeight="16"></Flex>
-        <RouteGuard>
-          <Padding>{children}</Padding>
-        </RouteGuard>
-        <Navigation />
-      </Column>
+      <DefaultBackground />
+      <Flex fillWidth minHeight="16"></Flex>
+      <RouteGuard>
+        <Padding>{children}</Padding>
+      </RouteGuard>
+      <Navigation />
     </Root>
   );
 }
