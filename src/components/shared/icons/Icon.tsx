@@ -5,9 +5,24 @@ import classNames from "classnames";
 import { forwardRef } from "react";
 import { IconType } from "react-icons";
 
+export type IconSize =
+  | "xs"
+  | "sm"
+  | "base"
+  | "lg"
+  | "xl"
+  | "2xl"
+  | "3xl"
+  | "4xl"
+  | "5xl"
+  | "6xl"
+  | "7xl"
+  | "8xl"
+  | "9xl";
+
 interface IconProps {
   name: IconName;
-  size?: "xs" | "s" | "m" | "l" | "xl";
+  size?: IconSize;
 }
 
 export const Icon = forwardRef<HTMLDivElement, IconProps>(
@@ -21,26 +36,14 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>(
 
     return (
       <div
-        className={(classNames(getSize(size)), "inline-flex")}
+        className={classNames(`text-${size}`, "inline-flex")}
         ref={ref}
         {...rest}
       >
-        <IconComponent className="mr-3" />
+        <IconComponent />
       </div>
     );
   }
 );
 
 Icon.displayName = "Icon";
-
-function getSize(size: string): classNames.Argument {
-  const sizeClasses: Record<string, string> = {
-    xs: "text-xs",
-    s: "text-sm",
-    m: "text-base",
-    l: "text-lg",
-    xl: "text-xl",
-  };
-
-  return sizeClasses[size] || sizeClasses["l"];
-}
