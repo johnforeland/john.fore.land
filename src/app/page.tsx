@@ -23,7 +23,7 @@ export default function Home() {
             {home.subline}
           </p>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 pt-24">
             {/* about me button */}
             <Button
               label="About me"
