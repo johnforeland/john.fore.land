@@ -1,5 +1,4 @@
 import NamePhoto from "@/app/about/parts/NamePhoto";
-import { GenerateScript } from "@/components/layout";
 import { Button } from "@/components/shared/Button";
 import { Terminal } from "@/components/stats/Terminal";
 import { home, person } from "@/resources/content";
@@ -12,7 +11,6 @@ export async function generateMetadata() {
 export default function Home() {
   return (
     <div className="flex flex-col max-w-screen-md gap-8 items-center">
-      <GenerateScript title={home.title} description={home.description} />
       <NamePhoto />
 
       <div className="flex flex-col w-full py-6 gap-4">
