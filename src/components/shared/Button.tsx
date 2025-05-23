@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon, IconSize } from "@/components/shared/Icon";
-import { IconName } from "@/components/shared/icons/Icons";
+import { IconName } from "@/utils/Icons";
 import Image from "next/image";
 
 interface ButtonProps {

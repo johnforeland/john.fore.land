@@ -1,6 +1,6 @@
 "use client";
 
-import { iconLibrary, IconName } from "@/components/shared/icons/Icons";
+import { iconLibrary, IconName } from "@/utils/Icons";
 import classNames from "classnames";
 import React, { forwardRef, ReactNode, useEffect, useState } from "react";
 import { IconType } from "react-icons";

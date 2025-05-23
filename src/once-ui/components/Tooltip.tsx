@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import React, { forwardRef, ReactNode } from "react";
 
-import { IconName } from "@/components/shared/icons/Icons";
+import { IconName } from "@/utils/Icons";
 import { Flex, Icon } from ".";
 
 type TooltipProps = {
