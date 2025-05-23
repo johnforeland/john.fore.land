@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon, IconSize } from "@/components/shared/icons/Icon";
+import { Icon, IconSize } from "@/components/shared/Icon";
 import { IconName } from "@/components/shared/icons/Icons";
 import Image from "next/image";
 
