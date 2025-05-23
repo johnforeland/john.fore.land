@@ -3,7 +3,6 @@ export {
   baseURL,
   display,
   effects,
-  protectedRoutes,
   routes,
   style,
   validRoutes,
