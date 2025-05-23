@@ -18,7 +18,7 @@ const routes = [
     id: "work",
     label: work.label,
     path: "/work",
-    icon: "grid",
+    icon: "work",
   },
 ];
 

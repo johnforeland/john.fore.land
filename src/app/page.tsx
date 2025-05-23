@@ -10,10 +10,10 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <div className="flex flex-col max-w-screen-md gap-8 items-center">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
       <NamePhoto />
 
-      <div className="flex flex-col w-full py-6 gap-4">
+      <div className="col-span-2 flex flex-col w-full py-6 gap-4 justify-center">
         <div className="max-w-screen-sm">
           <h1 className="text-4xl font-extrabold leading-tight break-words">
             {home.headline}
@@ -37,6 +37,8 @@ export default function Home() {
               nodeVersion={process.version}
               nextVersion={process.title}
             />
+
+            <Button label="View my work" icon="work" href="/work" />
           </div>
         </div>
       </div>

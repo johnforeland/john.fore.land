@@ -33,7 +33,6 @@ import {
 import { IoTerminal } from "react-icons/io5";
 
 import {
-  PiGridFourDuotone,
   PiHouseDuotone,
   PiImageDuotone,
   PiUserCircleDuotone,
@@ -46,6 +45,8 @@ import { GoRepoForked } from "react-icons/go";
 import { FaDiscord, FaGithub, FaGoogle, FaLinkedin } from "react-icons/fa6";
 
 import { LuChevronsLeftRight } from "react-icons/lu";
+
+import { PiProjectorScreenChart } from "react-icons/pi";
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,
@@ -64,7 +65,7 @@ export const iconLibrary: Record<string, IconType> = {
   checkCircle: HiCheckCircle,
   person: PiUserCircleDuotone,
   terminal: IoTerminal,
-  grid: PiGridFourDuotone,
+  work: PiProjectorScreenChart,
   eyeDropper: HiEyeDropper,
   clipboard: HiOutlineClipboard,
   close: HiMiniXMark,
