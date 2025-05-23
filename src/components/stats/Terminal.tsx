@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@/components/shared/icons/Icon";
+import { Button } from "@/components/shared/Button";
 import React from "react";
 import styles from "./Terminal.module.scss";
 import { CommandsProps, TerminalOutput } from "./TerminalOutput";
@@ -40,15 +40,12 @@ export function Terminal(props: Versions) {
 
   return (
     <>
-      <button
-        onClick={() => open()}
-        className="group inline-flex items-center rounded-full border-neutral-700 bg-neutral-900 text-white transition-colors hover:opacity-80"
-      >
-        <span className="ml-3 mr-6 my-2.5 font-semibold">
-          <Icon name="terminal" size="xl" />
-          About this site
-        </span>
-      </button>
+      <Button
+        label="About this site"
+        icon="terminal"
+        iconSize="2xl"
+        method={open}
+      />
       {isOpen && (
         <div
           className={`${styles.terminal} ${
