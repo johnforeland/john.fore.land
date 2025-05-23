@@ -15,11 +15,11 @@ export default function Studies({ className }: { className?: string }) {
             {/* title */}
             <div className="flex w-full justify-between items-end mb-1">
               <p className="text-xl font-semibold">{institution.name}</p>
-              <p className="text-sm text-gray-500">{institution.timeframe}</p>
+              <p className="text-sm text-gray-300">{institution.timeframe}</p>
             </div>
 
             {/* description */}
-            <p className="text-sm text-gray-500">{institution.description}</p>
+            <p className="text-sm text-gray-300">{institution.description}</p>
 
             {/* thesis modal button */}
             <ThesisModal

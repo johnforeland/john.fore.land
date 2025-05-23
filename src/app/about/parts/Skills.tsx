@@ -14,7 +14,7 @@ export default function Skills({ className }: { className?: string }) {
             <p className="text-xl font-semibold">{skill.title}</p>
 
             {/* description */}
-            <p className="text-sm text-gray-500">{skill.description}</p>
+            <p className="text-sm text-gray-300">{skill.description}</p>
 
             {/* loop images */}
             {skill.images && skill.images.length > 0 && (
