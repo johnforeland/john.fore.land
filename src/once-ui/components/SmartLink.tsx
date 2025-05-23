@@ -1,9 +1,9 @@
 "use client";
 
+import { IconName } from "@/components/shared/icons/Icons";
 import classNames from "classnames";
 import React, { forwardRef, ReactNode } from "react";
 import { Icon } from ".";
-import { IconName } from "../../utils/icons";
 import { ElementType } from "./ElementType";
 
 interface CommonProps {
