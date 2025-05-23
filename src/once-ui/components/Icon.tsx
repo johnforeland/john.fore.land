@@ -1,10 +1,10 @@
 "use client";
 
+import { iconLibrary, IconName } from "@/components/shared/icons/icons";
 import classNames from "classnames";
 import React, { forwardRef, ReactNode, useEffect, useState } from "react";
 import { IconType } from "react-icons";
 import { Flex, Tooltip } from ".";
-import { iconLibrary, IconName } from "../../utils/icons";
 import { ColorScheme, ColorWeight } from "../types";
 import styles from "./Icon.module.scss";
 import iconStyles from "./IconButton.module.scss";
