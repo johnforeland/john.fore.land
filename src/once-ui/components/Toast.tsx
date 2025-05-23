@@ -1,9 +1,9 @@
 "use client";
 
+import { IconName } from "@/components/shared/icons/Icons";
 import classNames from "classnames";
 import React, { forwardRef, useEffect, useState } from "react";
 import { Flex, Icon, IconButton, Text } from ".";
-import { IconName } from "../../utils/icons";
 import styles from "./Toast.module.scss";
 
 interface ToastProps {

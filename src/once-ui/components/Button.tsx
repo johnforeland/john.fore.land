@@ -4,8 +4,8 @@ import classNames from "classnames";
 import React, { ReactNode, forwardRef } from "react";
 import { ElementType } from "./ElementType";
 
+import { IconName } from "@/components/shared/icons/Icons";
 import { Arrow, Flex, Icon, Spinner } from ".";
-import { IconName } from "../../utils/icons";
 import styles from "./Button.module.scss";
 
 interface CommonProps {
