@@ -4,7 +4,7 @@ import classNames from "classnames";
 import React, { ReactNode, forwardRef } from "react";
 import { ElementType } from "./ElementType";
 
-import { IconName } from "@/components/shared/icons/Icons";
+import { IconName } from "@/utils/Icons";
 import { Arrow, Flex, Icon, Spinner } from ".";
 import styles from "./Button.module.scss";
 
