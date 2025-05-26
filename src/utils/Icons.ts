@@ -65,7 +65,7 @@ export const iconLibrary: Record<string, IconType> = {
   checkCircle: HiCheckCircle,
   person: PiUserCircleDuotone,
   terminal: IoTerminal,
-  work: PiProjectorScreenChart,
+  project: PiProjectorScreenChart,
   eyeDropper: HiEyeDropper,
   clipboard: HiOutlineClipboard,
   close: HiMiniXMark,

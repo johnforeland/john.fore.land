@@ -1,4 +1,4 @@
-import { about, work } from "@/resources/content";
+import { about, project } from "@/resources/content";
 
 const baseURL = "john.fore.land";
 
@@ -15,10 +15,10 @@ const routes = [
     icon: "person",
   },
   {
-    id: "work",
-    label: work.label,
-    path: "/work",
-    icon: "work",
+    id: "project",
+    label: project.label,
+    path: "/project",
+    icon: "project",
   },
 ];
 

@@ -15,22 +15,22 @@ import { formatDate } from "@/utils/formatDate";
 import { getPosts } from "@/utils/utils";
 import { notFound } from "next/navigation";
 
-interface WorkParams {
+interface ProjectParams {
   params: Promise<{
     slug: string;
   }>;
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "work", "projects"]);
+  const posts = getPosts(["src", "app", "project", "projects"]);
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export async function generateMetadata({ params }: WorkParams) {
+export async function generateMetadata({ params }: ProjectParams) {
   const { slug } = await params;
-  const post = getPosts(["src", "app", "work", "projects"]).find(
+  const post = getPosts(["src", "app", "project", "projects"]).find(
     (post) => post.slug === slug
   );
 
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: WorkParams) {
       description,
       type: "article",
       publishedTime,
-      url: `https://${baseURL}/work/${post.slug}`,
+      url: `https://${baseURL}/project/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -74,9 +74,9 @@ export async function generateMetadata({ params }: WorkParams) {
     },
   };
 }
-export default async function Project({ params }: WorkParams) {
+export default async function Project({ params }: ProjectParams) {
   const { slug } = await params;
-  const post = getPosts(["src", "app", "work", "projects"]).find(
+  const post = getPosts(["src", "app", "project", "projects"]).find(
     (post) => post.slug === slug
   );
 
@@ -105,7 +105,7 @@ export default async function Project({ params }: WorkParams) {
             image: post.metadata.image
               ? `https://${baseURL}${post.metadata.image}`
               : `https://${baseURL}/og?title=${post.metadata.title}`,
-            url: `https://${baseURL}/work/${post.slug}`,
+            url: `https://${baseURL}/project/${post.slug}`,
             author: {
               "@type": "Person",
               name: person.name,
@@ -115,7 +115,7 @@ export default async function Project({ params }: WorkParams) {
       />
       <Column maxWidth="xs" gap="16">
         <Button
-          href="/work"
+          href="/project"
           variant="tertiary"
           weight="default"
           size="s"

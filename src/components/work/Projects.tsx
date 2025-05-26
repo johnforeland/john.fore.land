@@ -7,7 +7,7 @@ interface ProjectsProps {
 }
 
 export function Projects({ range }: ProjectsProps) {
-  const allProjects = getPosts(["src", "app", "work", "projects"]);
+  const allProjects = getPosts(["src", "app", "project", "projects"]);
 
   const sortedProjects = allProjects.sort((a, b) => {
     return (
@@ -27,7 +27,7 @@ export function Projects({ range }: ProjectsProps) {
           priority={index < 2}
           key={post.slug}
           tags={post.metadata.tags}
-          href={`work/${post.slug}`}
+          href={`project/${post.slug}`}
           images={post.metadata.images}
           title={post.metadata.title}
           description={post.metadata.summary}

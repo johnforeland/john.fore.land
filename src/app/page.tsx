@@ -39,7 +39,7 @@ export default function Home() {
             {/* stats button */}
             <Terminal />
 
-            <Button label="View my work" icon="work" href="/work" />
+            <Button label="View my projects" icon="project" href="/project" />
           </div>
         </div>
       </div>
