@@ -1,6 +1,5 @@
+import { getPost, ProjectParams } from "@/components/project/FindPost";
 import { baseURL } from "@/resources";
-import { getPost } from "../FindPost";
-import { ProjectParams } from "./ProjectParams";
 
 export async function GenerateSharingMetadata({ params }: ProjectParams) {
   const { slug } = await params;

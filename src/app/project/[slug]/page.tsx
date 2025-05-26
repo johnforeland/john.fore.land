@@ -1,5 +1,5 @@
-import { PostMetadata } from "@/app/project/FindPost";
-import { CustomMDX, Video } from "@/components/project";
+import { CustomMDX, getAvatars, getPost, Video } from "@/components/project";
+import { ProjectParams } from "@/components/project/FindPost";
 import { ScrollToHash } from "@/components/shared";
 import {
   AvatarGroup,
@@ -12,9 +12,7 @@ import {
 } from "@/once-ui/components";
 import { formatDate } from "@/utils/formatDate";
 import { notFound } from "next/navigation";
-import { getPost } from "../FindPost";
 import GenerateMetadata from "./GenerateMetadata";
-import { ProjectParams } from "./ProjectParams";
 
 export { GenerateSharingMetadata } from "./GenerateSharingMetadata";
 export { GenerateStaticParams } from "./GenerateStaticParams";
@@ -30,7 +28,7 @@ export default async function Project({ params }: ProjectParams) {
   const avatars = getAvatars(post);
 
   return (
-    <section className="mx-auto max-w-3xl flex flex-col gap-8 pb-22 md:pd-0">
+    <section className="mx-auto max-w-3xl flex flex-col gap-8 px-8 pb-22 md:pd-0">
       <GenerateMetadata post={post.metadata} slug={post.slug} />
       <Column maxWidth="xs" gap="16">
         <Button
@@ -70,17 +68,5 @@ export default async function Project({ params }: ProjectParams) {
       </Column>
       <ScrollToHash />
     </section>
-  );
-}
-
-function getAvatars(post: {
-  metadata: PostMetadata;
-  slug: string;
-  content: string;
-}) {
-  return (
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || []
   );
 }

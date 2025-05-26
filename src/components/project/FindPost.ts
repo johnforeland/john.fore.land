@@ -82,3 +82,21 @@ export function getPost(slug: string) {
     (post) => post.slug === slug
   );
 }
+
+export function getAvatars(post: {
+  metadata: PostMetadata;
+  slug: string;
+  content: string;
+}) {
+  return (
+    post.metadata.team?.map((person) => ({
+      src: person.avatar,
+    })) || []
+  );
+}
+
+export interface ProjectParams {
+  params: Promise<{
+    slug: string;
+  }>;
+}

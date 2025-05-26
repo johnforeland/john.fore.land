@@ -1,4 +1,4 @@
-import { getPosts } from "../FindPost";
+import { getPosts } from "@/components/project";
 
 export async function GenerateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "project", "projects"]);
