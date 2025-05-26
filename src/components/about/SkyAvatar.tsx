@@ -1,35 +1,35 @@
 import { person } from "@/resources/content";
 import Image from "next/image";
-import "./SkyAvatar.css";
+import styles from "./SkyAvatar.module.scss";
 
 export function SkyAvatar() {
   return (
-    <div id="container">
+    <div className={styles.container}>
       <Image
         src="/images/avatar.png"
         alt={person.name}
-        id="avatar"
-        width={150}
-        height={150}
+        className={styles.avatar}
+        width={200}
+        height={200}
       />
 
-      <div id="background-wrap">
+      <div className={styles.backgroundWrap}>
         {/* big clouds */}
-        <div className="cloud1">
-          <div className="cloud"></div>
+        <div className={styles.cloud1}>
+          <div className={styles.cloud} />
         </div>
 
-        <div className="cloud2">
-          <div className="cloud"></div>
+        <div className={styles.cloud2}>
+          <div className={styles.cloud} />
         </div>
 
         {/* small clouds */}
-        <div className="cloud3">
-          <div className="cloud"></div>
+        <div className={styles.cloud3}>
+          <div className={styles.cloud} />
         </div>
 
-        <div className="cloud4">
-          <div className="cloud"></div>
+        <div className={styles.cloud4}>
+          <div className={styles.cloud} />
         </div>
       </div>
     </div>
