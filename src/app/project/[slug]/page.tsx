@@ -30,7 +30,7 @@ export default async function Project({ params }: ProjectParams) {
   const avatars = getAvatars(post);
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
+    <section className="mx-auto max-w-3xl flex flex-col gap-8 pb-22 md:pd-0">
       <GenerateMetadata post={post.metadata} slug={post.slug} />
       <Column maxWidth="xs" gap="16">
         <Button
@@ -69,7 +69,7 @@ export default async function Project({ params }: ProjectParams) {
         <CustomMDX source={post.content} />
       </Column>
       <ScrollToHash />
-    </Column>
+    </section>
   );
 }
 
