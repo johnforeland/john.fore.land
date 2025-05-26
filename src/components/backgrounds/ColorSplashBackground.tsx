@@ -1,21 +1,10 @@
-/* eslint-disable */
-
-"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Background } from "@/once-ui/components";
 import { effects } from "@/resources";
-import { IsAboutPage } from "@/utils/clientUtils";
 
-export function DefaultBackground() {
-  const isAbout = IsAboutPage();
-
-  return isAbout ? (
-    <Background
-      style={{
-        backgroundColor: "#BEEAF7",
-      }}
-    />
-  ) : (
+export function ColorSplashBackground() {
+  return (
     <Background
       mask={{
         cursor: effects.mask.cursor,
