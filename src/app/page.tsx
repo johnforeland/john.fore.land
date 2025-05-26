@@ -10,7 +10,7 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center h-screen pb-50">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center h-screen">
       <div className="col-span-1 md:col-span-2">
         <NamePhoto />
       </div>
