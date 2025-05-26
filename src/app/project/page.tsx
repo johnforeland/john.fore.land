@@ -1,5 +1,4 @@
 import { Projects } from "@/components/project";
-import { Column } from "@/once-ui/components";
 import { project } from "@/resources/content";
 
 import { generateMetadataObject } from "@/utils/utils";
@@ -10,8 +9,8 @@ export async function generateMetadata() {
 
 export default function Project() {
   return (
-    <Column maxWidth="m">
+    <div className="max-w-5xl mx-auto">
       <Projects />
-    </Column>
+    </div>
   );
 }
