@@ -1,18 +1,15 @@
-"use client";
-
 import { Flex } from "@/once-ui/components";
-import { IsAboutPage } from "@/utils/clientUtils";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const isAbout = IsAboutPage();
+  // const isAbout = IsAboutPage(); //! not needed, as every layout that needs padding manually adds it
 
   return (
     <Flex
       position="relative"
       zIndex={0}
       fillWidth
-      paddingY={isAbout ? "0" : "l"}
-      paddingX={isAbout ? "0" : "l"}
+      paddingY="l"
+      paddingX="l"
       horizontal="center"
       flex={1}
     >

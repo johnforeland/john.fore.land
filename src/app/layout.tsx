@@ -5,7 +5,7 @@ import "@/resources/globals.css";
 import { Navigation, RouteGuard } from "@/components/layout";
 
 import { DefaultBackground } from "@/components/backgrounds";
-import { Padding, Root } from "@/components/layout";
+import { Root } from "@/components/layout";
 
 import { generateMetadataObjectLayout } from "@/utils/utils";
 
@@ -22,9 +22,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <Root>
       <Navigation />
       <DefaultBackground />
-      <RouteGuard>
-        <Padding>{children}</Padding>
-      </RouteGuard>
+      <RouteGuard>{children}</RouteGuard>
     </Root>
   );
 }
