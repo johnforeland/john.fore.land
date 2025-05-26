@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <ColorSplashBackground />
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center h-screen">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center h-screen p-20">
         <div className="col-span-1 md:col-span-2">
           <NamePhoto />
         </div>
@@ -31,7 +31,7 @@ export default function Home() {
               {home.subline}
             </p>
 
-            <div className="flex gap-2 pt-24">
+            <div className="flex gap-2 pt-24 pb-25 md:pd-0">
               {/* about me button */}
               <Button
                 label="About me"
