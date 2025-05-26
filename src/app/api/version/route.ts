@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { getType, getVersionInfo } from "./VersionFinder";
 
 export async function GET(request: NextRequest) {
   try {
@@ -10,37 +11,6 @@ export async function GET(request: NextRequest) {
       err.message || "Internal Server Error",
       err instanceof Error ? 400 : 500
     );
-  }
-}
-
-function getType(request: NextRequest): string {
-  const searchParams = request.nextUrl.searchParams;
-  const query = searchParams.get("type");
-
-  if (query === null) {
-    throw new Error("Missing required 'type' query parameter");
-  }
-
-  return query;
-}
-
-async function getVersionInfo(type: string): Promise<string> {
-  switch (type) {
-    case "node":
-      return process.version;
-    case "next.js": {
-      const pkg = await import("next/package.json");
-      return pkg.version;
-    }
-    case "tailwind": {
-      const { execSync } = await import("child_process");
-      const result = execSync("npm view tailwindcss version", {
-        encoding: "utf-8",
-      }).trim();
-      return result;
-    }
-    default:
-      throw new Error(`Unknown type: ${type}`);
   }
 }
 
