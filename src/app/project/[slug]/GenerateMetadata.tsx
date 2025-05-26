@@ -1,6 +1,6 @@
+import { PostMetadata } from "@/components/project/FindPost";
 import { baseURL } from "@/resources";
 import { person } from "@/resources/content";
-import { PostMetadata } from "../FindPost";
 
 export default function GenerateMetadata({
   post,
