@@ -14,8 +14,16 @@ import { formatDate } from "@/utils/formatDate";
 import { notFound } from "next/navigation";
 import GenerateMetadata from "./GenerateMetadata";
 
-export { GenerateSharingMetadata } from "./GenerateSharingMetadata";
-export { GenerateStaticParams } from "./GenerateStaticParams";
+import { GenerateSharingMetadata } from "./GenerateSharingMetadata";
+import { GenerateStaticParams } from "./GenerateStaticParams";
+
+export async function generateMetadata({ params }: ProjectParams) {
+  return await GenerateSharingMetadata({ params });
+}
+
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  return await GenerateStaticParams();
+}
 
 export default async function Project({ params }: ProjectParams) {
   const { slug } = await params;
