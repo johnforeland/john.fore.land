@@ -1,7 +1,12 @@
+import { getVersionInfo, VersionType } from "@/app/api/version/VersionFinder";
 import { TerminalWindow } from "./TerminalWindow";
 
-export function Terminal() {
+export async function Terminal() {
   return (
-    <TerminalWindow nodeVersion={process.version} nextVersion={process.title} />
+    <TerminalWindow
+      nodeVersion={await getVersionInfo(VersionType.Node)}
+      nextVersion={await getVersionInfo(VersionType.Next)}
+      tailwindVersion={await getVersionInfo(VersionType.Tailwind)}
+    />
   );
 }

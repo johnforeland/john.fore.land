@@ -8,6 +8,7 @@ import { CommandsProps, TerminalOutput } from "./TerminalOutput";
 export type Versions = {
   nodeVersion: string;
   nextVersion: string;
+  tailwindVersion: string;
 };
 
 export function TerminalWindow(props: Versions) {
@@ -38,7 +39,7 @@ export function TerminalWindow(props: Versions) {
     },
     {
       cmd: "npm view tailwindcss --json | jq -r '.version'",
-      response: "",
+      response: props.tailwindVersion,
     },
   ] as CommandsProps[];
 
