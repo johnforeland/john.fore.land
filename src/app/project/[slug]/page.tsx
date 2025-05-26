@@ -30,13 +30,12 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 
 export async function generateMetadata({ params }: ProjectParams) {
   const { slug } = await params;
-  const post = getPosts(["src", "app", "project", "projects"]).find(
-    (post) => post.slug === slug
-  );
+  const post = getPost(slug);
 
   if (!post) {
     return;
   }
+
   const {
     title,
     publishedAt: publishedTime,
@@ -74,11 +73,16 @@ export async function generateMetadata({ params }: ProjectParams) {
     },
   };
 }
-export default async function Project({ params }: ProjectParams) {
-  const { slug } = await params;
-  const post = getPosts(["src", "app", "project", "projects"]).find(
+
+function getPost(slug: string) {
+  return getPosts(["src", "app", "project", "projects"]).find(
     (post) => post.slug === slug
   );
+}
+
+export default async function Project({ params }: ProjectParams) {
+  const { slug } = await params;
+  const post = getPost(slug);
 
   if (!post) {
     notFound();
