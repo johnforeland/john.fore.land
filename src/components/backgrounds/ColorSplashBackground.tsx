@@ -6,6 +6,7 @@ import { effects } from "@/resources";
 export function ColorSplashBackground() {
   return (
     <Background
+      className="z-[-1] fixed inset-0"
       mask={{
         cursor: effects.mask.cursor,
         x: effects.mask.x,
