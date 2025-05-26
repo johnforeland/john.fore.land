@@ -1,16 +1,10 @@
-import { execSync } from "child_process";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
     const query = getType(request);
-    const command = getCommand(query);
-
-    const output = execSync(command, {
-      encoding: "utf-8",
-    });
-
-    return success(output);
+    const output = await getVersionInfo(query);
+    return success(JSON.stringify({ result: output }));
   } catch (err) {
     return error(
       err.message || "Internal Server Error",
@@ -30,14 +24,21 @@ function getType(request: NextRequest): string {
   return query;
 }
 
-function getCommand(type: string): string {
+async function getVersionInfo(type: string): Promise<string> {
   switch (type) {
     case "node":
-      return "node -v";
-    case "next.js":
-      return "npx next -v";
-    case "tailwind":
-      return "npm view tailwindcss --json | jq -r '.version'";
+      return process.version;
+    case "next.js": {
+      const pkg = await import("next/package.json");
+      return pkg.version;
+    }
+    case "tailwind": {
+      const { execSync } = await import("child_process");
+      const result = execSync("npm view tailwindcss version", {
+        encoding: "utf-8",
+      }).trim();
+      return result;
+    }
     default:
       throw new Error(`Unknown type: ${type}`);
   }
