@@ -37,10 +37,7 @@ export default function Home() {
             />
 
             {/* stats button */}
-            <Terminal
-              nodeVersion={process.version}
-              nextVersion={process.title}
-            />
+            <Terminal />
 
             <Button label="View my work" icon="work" href="/work" />
           </div>
