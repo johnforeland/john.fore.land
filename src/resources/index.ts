@@ -12,6 +12,6 @@ export {
   gallery,
   home,
   person,
+  project,
   social,
-  work,
 } from "@/resources/content";

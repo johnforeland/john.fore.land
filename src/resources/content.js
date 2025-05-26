@@ -76,7 +76,7 @@ const about = {
   },
   work: {
     display: true, // set to false to hide this section
-    title: "Work Experience",
+    title: "Project Experience",
     experiences: [
       {
         company: "Sopra Steria",
@@ -160,8 +160,8 @@ const about = {
   },
 };
 
-const work = {
-  label: "Work",
+const project = {
+  label: "Projects",
   title: "My projects",
   description: `Design and dev projects by ${person.name}`,
 };
@@ -245,4 +245,4 @@ const gallery = {
   ],
 };
 
-export { about, gallery, home, person, social, work };
+export { about, gallery, home, person, project, social };

@@ -1,14 +1,14 @@
 import { Projects } from "@/components/work";
 import { Column } from "@/once-ui/components";
-import { work } from "@/resources/content";
+import { project } from "@/resources/content";
 
 import { generateMetadataObject } from "@/utils/utils";
 
 export async function generateMetadata() {
-  return generateMetadataObject(work.title, work.description, "work");
+  return generateMetadataObject(project.title, project.description, "project");
 }
 
-export default function Work() {
+export default function Project() {
   return (
     <Column maxWidth="m">
       <Projects />
