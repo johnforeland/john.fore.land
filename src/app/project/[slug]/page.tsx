@@ -1,4 +1,4 @@
-import { getPosts, PostMetadata } from "@/app/project/FindPost";
+import { PostMetadata } from "@/app/project/FindPost";
 import { CustomMDX, Video } from "@/components/project";
 import { ScrollToHash } from "@/components/shared";
 import {
@@ -10,75 +10,14 @@ import {
   SmartImage,
   Text,
 } from "@/once-ui/components";
-import { baseURL } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { notFound } from "next/navigation";
+import { getPost } from "../FindPost";
 import GenerateMetadata from "./GenerateMetadata";
+import { ProjectParams } from "./ProjectParams";
 
-interface ProjectParams {
-  params: Promise<{
-    slug: string;
-  }>;
-}
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "project", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
-export async function generateMetadata({ params }: ProjectParams) {
-  const { slug } = await params;
-  const post = getPost(slug);
-
-  if (!post) {
-    return;
-  }
-
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    images,
-    image,
-    team,
-  } = post.metadata;
-  const ogImage = image
-    ? `https://${baseURL}${image}`
-    : `https://${baseURL}/og?title=${title}`;
-
-  return {
-    title,
-    description,
-    images,
-    team,
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      publishedTime,
-      url: `https://${baseURL}/project/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
-}
-
-function getPost(slug: string) {
-  return getPosts(["src", "app", "project", "projects"]).find(
-    (post) => post.slug === slug
-  );
-}
+export { GenerateSharingMetadata } from "./GenerateSharingMetadata";
+export { GenerateStaticParams } from "./GenerateStaticParams";
 
 export default async function Project({ params }: ProjectParams) {
   const { slug } = await params;
