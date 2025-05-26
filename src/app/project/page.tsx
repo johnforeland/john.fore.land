@@ -9,7 +9,7 @@ export async function generateMetadata() {
 
 export default function Project() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-5xl mx-auto pb-22 md:pd-0">
       <Projects />
     </div>
   );
