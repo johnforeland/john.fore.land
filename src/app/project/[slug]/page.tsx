@@ -1,5 +1,5 @@
+import { CustomMDX, Video } from "@/components/project";
 import { ScrollToHash } from "@/components/shared";
-import { CustomMDX, Video } from "@/components/work";
 import {
   AvatarGroup,
   Button,

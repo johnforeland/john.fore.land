@@ -3,7 +3,7 @@
 import { Flex, Heading, IconButton, useToast } from "@/once-ui/components";
 import React, { JSX } from "react";
 
-import styles from "@/components/work/HeadingLink.module.scss";
+import styles from "@/components/project/HeadingLink.module.scss";
 
 interface HeadingLinkProps {
   id: string;

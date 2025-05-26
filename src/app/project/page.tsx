@@ -1,4 +1,4 @@
-import { Projects } from "@/components/work";
+import { Projects } from "@/components/project";
 import { Column } from "@/once-ui/components";
 import { project } from "@/resources/content";
 
