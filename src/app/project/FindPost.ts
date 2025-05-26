@@ -76,3 +76,9 @@ export function getPosts(customPath = ["", "", "", ""]) {
   const postsDir = path.join(process.cwd(), ...customPath);
   return getMDXData(postsDir);
 }
+
+export function getPost(slug: string) {
+  return getPosts(["src", "app", "project", "projects"]).find(
+    (post) => post.slug === slug
+  );
+}
