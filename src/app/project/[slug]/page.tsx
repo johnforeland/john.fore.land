@@ -1,3 +1,4 @@
+import { getPosts } from "@/app/project/FindPost";
 import { CustomMDX, Video } from "@/components/project";
 import { ScrollToHash } from "@/components/shared";
 import {
@@ -10,10 +11,9 @@ import {
   Text,
 } from "@/once-ui/components";
 import { baseURL } from "@/resources";
-import { person } from "@/resources/content";
 import { formatDate } from "@/utils/formatDate";
-import { getPosts } from "@/utils/utils";
 import { notFound } from "next/navigation";
+import GenerateMetadata from "./GenerateMetadata";
 
 interface ProjectParams {
   params: Promise<{
@@ -91,28 +91,7 @@ export default async function Project({ params }: ProjectParams) {
 
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `https://${baseURL}${post.metadata.image}`
-              : `https://${baseURL}/og?title=${post.metadata.title}`,
-            url: `https://${baseURL}/project/${post.slug}`,
-            author: {
-              "@type": "Person",
-              name: person.name,
-            },
-          }),
-        }}
-      />
+      <GenerateMetadata post={post.metadata} slug={post.slug} />
       <Column maxWidth="xs" gap="16">
         <Button
           href="/project"
