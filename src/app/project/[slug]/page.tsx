@@ -1,4 +1,4 @@
-import { getPosts } from "@/app/project/FindPost";
+import { getPosts, PostMetadata } from "@/app/project/FindPost";
 import { CustomMDX, Video } from "@/components/project";
 import { ScrollToHash } from "@/components/shared";
 import {
@@ -84,10 +84,7 @@ export default async function Project({ params }: ProjectParams) {
     notFound();
   }
 
-  const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
+  const avatars = getAvatars(post);
 
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
@@ -130,5 +127,17 @@ export default async function Project({ params }: ProjectParams) {
       </Column>
       <ScrollToHash />
     </Column>
+  );
+}
+
+function getAvatars(post: {
+  metadata: PostMetadata;
+  slug: string;
+  content: string;
+}) {
+  return (
+    post.metadata.team?.map((person) => ({
+      src: person.avatar,
+    })) || []
   );
 }
