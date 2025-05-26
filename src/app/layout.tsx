@@ -4,9 +4,9 @@ import "@/resources/globals.css";
 
 import { Navigation, RouteGuard } from "@/components/layout";
 
-import { DefaultBackground } from "@/components/backgrounds";
 import { Root } from "@/components/layout";
 
+import { ColorSplashBackground } from "@/components/backgrounds";
 import { generateMetadataObjectLayout } from "@/utils/utils";
 
 export async function generateMetadata() {
@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <Root>
       <Navigation />
-      <DefaultBackground />
+      <ColorSplashBackground />
       <RouteGuard>{children}</RouteGuard>
     </Root>
   );
