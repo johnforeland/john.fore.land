@@ -13,7 +13,7 @@ export const Navigation = () => {
   return (
     <>
       <header
-        className="fixed z-[500] left-0 right-0 w-full px-12 flex justify-center inset-auto"
+        className="fixed z-50 left-0 right-0 w-full px-12 flex justify-center inset-auto"
         style={{ bottom: "var(--static-space-24)" }}
       >
         <Flex fillWidth horizontal="center">
