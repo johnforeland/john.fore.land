@@ -20,11 +20,11 @@ interface RootLayoutProps {
 export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <Root>
+      <Navigation />
       <DefaultBackground />
       <RouteGuard>
         <Padding>{children}</Padding>
       </RouteGuard>
-      <Navigation />
     </Root>
   );
 }

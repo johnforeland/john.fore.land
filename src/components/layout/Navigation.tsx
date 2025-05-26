@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation";
 
-import styles from "@/components/layout/Navigation.module.scss";
 import { Flex, Line, ToggleButton } from "@/once-ui/components";
 
 import { routes } from "@/resources";
@@ -13,14 +12,9 @@ export const Navigation = () => {
 
   return (
     <>
-      <Flex
-        fitHeight
-        className={styles.position}
-        as="header"
-        zIndex={9}
-        fillWidth
-        padding="12"
-        horizontal="center"
+      <header
+        className="fixed z-[500] left-0 right-0 w-full px-12 flex justify-center inset-auto"
+        style={{ bottom: "var(--static-space-24)" }}
       >
         <Flex fillWidth horizontal="center">
           <Flex
@@ -55,7 +49,7 @@ export const Navigation = () => {
             </Flex>
           </Flex>
         </Flex>
-      </Flex>
+      </header>
     </>
   );
 };
