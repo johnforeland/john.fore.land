@@ -29,7 +29,7 @@ export default function Home() {
               {home.headline}
             </h1>
 
-            <p className="text-xl text-gray-500 leading-relaxed break-words">
+            <p className="text-xl text-gray-300 leading-relaxed break-words">
               {home.subline}
             </p>
 
