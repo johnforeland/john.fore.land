@@ -3,7 +3,7 @@
 import { Button } from "@/components/shared/Button";
 import React from "react";
 import styles from "./Terminal.module.scss";
-import { CommandsProps, TerminalOutput } from "./TerminalOutput";
+import { TerminalOutput, TerminalProps } from "./TerminalOutput";
 
 export type Versions = {
   nodeVersion: string;
@@ -11,37 +11,10 @@ export type Versions = {
   tailwindVersion: string;
 };
 
-export function TerminalWindow(props: Versions) {
+export function TerminalWindow({ commands }: TerminalProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isMinimized, setIsMinimized] = React.useState(false);
   const [isZoomed, setIsZoomed] = React.useState(false);
-
-  const azureOutput = `{
-    "customDomain": "john.fore.land",
-    "defaultHostname": "calm-glacier-0030b2c03.6.azurestaticapps.net",
-    "location": "West Europe",
-    "repositoryUrl": "https://github.com/johnforeland/john.fore.land",
-    "resourceGroup": "rg-john.fore.land"
-  }`;
-
-  const commands = [
-    {
-      cmd: "node -v",
-      response: props.nodeVersion,
-    },
-    {
-      cmd: "next -v",
-      response: props.nextVersion.replace(/next-server \(v([\d.]+)\)/, "v$1"),
-    },
-    {
-      cmd: "az staticwebapp -n john.fore.land",
-      response: formatJson(azureOutput),
-    },
-    {
-      cmd: "npm view tailwindcss --json | jq -r '.version'",
-      response: props.tailwindVersion,
-    },
-  ] as CommandsProps[];
 
   return (
     <>
@@ -96,27 +69,4 @@ export function TerminalWindow(props: Versions) {
   function minimize() {
     setIsMinimized(true);
   }
-}
-
-function formatJson(azureOutput: string) {
-  return (
-    <pre>
-      <span style={{ color: "cyan" }}>
-        {"{"}
-        <br />
-      </span>
-      {Object.entries(JSON.parse(azureOutput)).map(([key, value]) => (
-        <div key={key} style={{ marginLeft: "20px" }}>
-          <span style={{ color: "cyan" }}>{'"' + key + '"'}</span>:{" "}
-          <span style={{ color: "orange" }}>
-            {JSON.stringify(value, null, 2)}
-          </span>
-        </div>
-      ))}
-      <span style={{ color: "cyan" }}>
-        {"}"}
-        <br />
-      </span>
-    </pre>
-  );
 }
