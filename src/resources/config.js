@@ -42,8 +42,8 @@ const style = {
 const effects = {
   mask: {
     cursor: false,
-    x: 0,
-    y: 0,
+    x: 50,
+    y: 50,
     radius: 75,
   },
   gradient: {
@@ -69,7 +69,7 @@ const effects = {
     opacity: 100,
   },
   grid: {
-    display: false,
+    display: true,
     color: "neutral-alpha-weak",
     opacity: 100,
   },
