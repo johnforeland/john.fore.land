@@ -3,7 +3,7 @@
 import { Background } from "@/once-ui/components";
 import { effects } from "@/resources";
 
-export function ColorSplashBackground() {
+export function NormalBackground() {
   return (
     <Background
       className="z-[-1] fixed inset-0"

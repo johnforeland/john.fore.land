@@ -1,5 +1,6 @@
 import NamePhoto from "@/app/about/parts/NamePhoto";
-import { ColorSplashBackground } from "@/components/backgrounds";
+import { NormalBackground } from "@/components/backgrounds";
+import { AnimationBackground } from "@/components/backgrounds/AnimationBackground";
 import { Button } from "@/components/shared/Button";
 import { Terminal } from "@/components/stats/Terminal";
 import { home, person } from "@/resources/content";
@@ -12,7 +13,8 @@ export async function generateMetadata() {
 export default function Home() {
   return (
     <>
-      <ColorSplashBackground />
+      <NormalBackground />
+      <AnimationBackground />
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center h-screen p-20">
         <div className="col-span-1 md:col-span-2">
