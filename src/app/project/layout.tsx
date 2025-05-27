@@ -1,10 +1,10 @@
-import { ColorSplashBackground } from "@/components/backgrounds";
+import { NormalBackground } from "@/components/backgrounds";
 import { Padding } from "@/components/layout";
 
 export default async function RootLayout({ children }) {
   return (
     <>
-      <ColorSplashBackground />
+      <NormalBackground />
       <Padding>{children}</Padding>
     </>
   );
