@@ -1,16 +1,16 @@
 import { person } from "@/resources/content";
 import Image from "next/image";
+import profile from "./../../../public/images/avatar.png";
 import styles from "./SkyAvatar.module.scss";
 
 export function SkyAvatar() {
   return (
     <div className={styles.container}>
       <Image
-        src="/images/avatar.png"
+        src={profile}
         alt={person.name}
+        placeholder="blur"
         className={styles.avatar}
-        width={200}
-        height={200}
       />
 
       <div className={styles.backgroundWrap}>
