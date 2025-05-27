@@ -39,7 +39,7 @@ const home = {
       <br />
       <br />
       My main department is Salesforce, but I&apos;m responsible for everything
-      architeture, full-stack, DevOps and more. where I craft intuitive user
+      architeture, full-stack, DevOps and more, where I craft intuitive user
       experiences. After hours, I build my own projects.
     </>
   ),
