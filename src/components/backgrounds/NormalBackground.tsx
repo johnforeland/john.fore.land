@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { Background } from "@/once-ui/components";
+import { Background, BackgroundProps } from "@/once-ui/components";
 import { effects } from "@/resources";
 
-export function NormalBackground() {
+export function NormalBackground(props: BackgroundProps) {
   return (
     <Background
       className="z-[-1] fixed inset-0"
@@ -12,6 +12,7 @@ export function NormalBackground() {
         x: effects.mask.x,
         y: effects.mask.y,
         radius: effects.mask.radius,
+        ...props.mask,
       }}
       gradient={{
         display: effects.gradient.display,
@@ -34,12 +35,14 @@ export function NormalBackground() {
           | 80
           | 90
           | 100,
+        ...props.gradient,
       }}
       dots={{
         display: effects.dots.display,
         color: effects.dots.color,
         size: effects.dots.size as any,
         opacity: effects.dots.opacity as any,
+        ...props.dots,
       }}
       grid={{
         display: effects.grid.display,
@@ -47,10 +50,12 @@ export function NormalBackground() {
         width: effects.grid.width as any,
         height: effects.grid.height as any,
         opacity: effects.grid.opacity as any,
+        ...props.grid,
       }}
       lines={{
         display: effects.lines.display,
         opacity: effects.lines.opacity as any,
+        ...props.lines,
       }}
     />
   );

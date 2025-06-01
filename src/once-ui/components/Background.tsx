@@ -1,5 +1,8 @@
 "use client";
 
+import { DisplayProps } from "@/once-ui/interfaces";
+import { SpacingToken } from "@/once-ui/types";
+import classNames from "classnames";
 import React, {
   CSSProperties,
   forwardRef,
@@ -7,11 +10,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { SpacingToken } from "@/once-ui/types";
-import { Flex } from "./Flex";
-import { DisplayProps } from "@/once-ui/interfaces";
 import styles from "./Background.module.scss";
-import classNames from "classnames";
+import { Flex } from "./Flex";
 
 function setRef<T>(ref: React.Ref<T> | undefined, value: T | null) {
   if (typeof ref === "function") {
@@ -61,7 +61,7 @@ interface LinesProps {
   size?: SpacingToken;
 }
 
-interface BackgroundProps extends React.ComponentProps<typeof Flex> {
+export interface BackgroundProps extends React.ComponentProps<typeof Flex> {
   position?: CSSProperties["position"];
   gradient?: GradientProps;
   dots?: DotsProps;
