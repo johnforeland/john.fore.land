@@ -25,7 +25,7 @@ export async function Terminal() {
       response: formatJson(azureOutput),
     },
     {
-      cmd: "npm view tailwindcss version",
+      cmd: "npm list tailwindcss --json | jq -r '.dependencies.tailwindcss.version'",
       response: await getVersionInfo(VersionType.Tailwind),
     },
   ] as CommandsProps[];
