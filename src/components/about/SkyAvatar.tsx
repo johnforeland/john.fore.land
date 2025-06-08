@@ -1,6 +1,6 @@
 import { person } from "@/resources/content";
 import Image from "next/image";
-import profile from "./../../../public/images/avatar.png";
+import profile from "./../../../public/images/avatars/avatar.webp";
 import styles from "./SkyAvatar.module.scss";
 
 export function SkyAvatar() {
