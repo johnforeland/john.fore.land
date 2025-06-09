@@ -8,6 +8,7 @@ export interface GitHubContent {
 export interface GitHubRepo {
   owner: string;
   repo: string;
+  main_branch: string;
   image?: string;
   code?: string;
   tags?: string[];
