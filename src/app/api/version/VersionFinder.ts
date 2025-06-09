@@ -31,13 +31,10 @@ export async function getVersionInfo(type: VersionType): Promise<string> {
     }
     case VersionType.Tailwind: {
       const { execSync } = await import("child_process");
-      const result = execSync(
-        "npm list tailwindcss --json | jq -r '.dependencies.tailwindcss.version'",
-        {
-          encoding: "utf-8",
-        }
-      ).trim();
-      return result;
+      const result = execSync("npm list tailwindcss --json", {
+        encoding: "utf-8",
+      }).trim();
+      return JSON.parse(result).dependencies.tailwindcss.version;
     }
     default:
       throw new Error(`Unknown type: ${type}`);
