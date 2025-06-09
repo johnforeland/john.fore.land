@@ -163,8 +163,13 @@ const about = {
 const project = {
   label: "Projects",
   title: "My projects",
-  description: `Design and dev projects by ${person.name}`,
+  description: `Developer projects by ${person.name}`,
 };
 
+const github = {
+  label: "GitHub",
+  title: "GitHub Projects",
+  description: `GitHub projects by ${person.name}`,
 };
 
+export { about, github, home, person, project, social };

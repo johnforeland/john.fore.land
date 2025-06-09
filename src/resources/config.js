@@ -17,7 +17,7 @@ const routes = [
   {
     id: "github",
     label: "GitHub", // TODO: add a label for the new page
-    path: "/repos",
+    path: "/github",
     icon: "github",
   },
   {
