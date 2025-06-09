@@ -35,6 +35,7 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
       )}
       <div className="card-body">
         <h2 className="card-title">{repoInfo.name}</h2>
+        <h3>{repoInfo.organization}</h3>
         <p>{repoInfo.description || "No description available."}</p>
         <div className="card-actions justify-end">
           {repo.tags && repo.tags.length > 0
