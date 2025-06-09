@@ -181,7 +181,16 @@ const github = {
     {
       username: "johnforeland",
       repo: "truncate-tool",
-      image: "/images/github/truncate-tool.png",
+      code: `- uses: johnforeland/truncate-tool@v0.5
+    id: truncate-with-append
+    with:
+      text: 'my\\nstring\\nhas\multiple\\nlines'
+      max_characters: '4'
+      string_to_append: '...'
+
+  - run: echo "\${{ steps.truncate-with-append.outputs.text }}" # should be 'my\\nstring\\n\\n...' (because newline and ... counts as one row)
+
+        `,
       tags: ["GitHub Action", "TypeScript"],
     },
   ],
