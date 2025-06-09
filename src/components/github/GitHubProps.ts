@@ -12,9 +12,5 @@ export interface GitHubRepo {
 }
 
 export interface GitHubCardProps {
-  repo: {
-    username: string;
-    repo: string;
-    image?: string;
-  };
+  repo: GitHubRepo;
 }
