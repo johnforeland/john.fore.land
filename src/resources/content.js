@@ -175,14 +175,14 @@ const github = {
     {
       owner: "johnforeland",
       repo: "john.fore.land",
-      main_branch: "main",
+      branch: "main",
       image: "/images/github/john.fore.land.png",
       tags: ["Next.js", "TypeScript", "Tailwind"],
     },
     {
       owner: "johnforeland",
       repo: "truncate-tool",
-      main_branch: "main",
+      branch: "main",
       code: `- uses: johnforeland/truncate-tool@v0.5
     id: truncate-with-append
     with:

@@ -1,4 +1,4 @@
-import Image from "@/components/shared/Image";
+import NextImage from "next/image";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { fetchCommitAmount, fetchRepo } from "./GitHubApi";
@@ -9,7 +9,7 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
   const commitAmount = await fetchCommitAmount(
     repo.owner,
     repo.repo,
-    repo.main_branch
+    repo.branch
   );
 
   function getHeader(): import("react").ReactNode {
@@ -19,8 +19,8 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
   function getImage(): import("react").ReactNode {
     return (
       repo.image && (
-        <Image
-          src={repo.image}
+        <NextImage
+          src={repoInfo.openGraphImageUrl}
           alt={`${repo.owner}/${repo.repo}`}
           width={384}
           height={216}
@@ -67,6 +67,9 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
         <h2 className="card-title">{repoInfo.name}</h2>
         <h3>{repoInfo.organization}</h3>
         <h4>Commits: {commitAmount}</h4>
+        {repoInfo.latestRelease && (
+          <h4>Latest Release: {repoInfo.latestRelease.name}</h4>
+        )}
         <p>{repoInfo.description || "No description available."}</p>
         <div className="card-actions justify-end">{getTags()}</div>
       </div>

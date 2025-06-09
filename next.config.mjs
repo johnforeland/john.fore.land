@@ -16,6 +16,12 @@ const nextConfig = {
         port: "",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "opengraph.githubassets.com",
+        port: "",
+        pathname: "**",
+      },
     ],
   },
 };
