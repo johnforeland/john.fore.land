@@ -1,4 +1,6 @@
 import Image from "@/components/shared/Image";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { GitHubCardProps } from "./GitHubProps";
 import { fetchGitHubRepo } from "./GitHubRepoFetcher";
 
@@ -7,8 +9,8 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
 
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
-      <figure>
-        {repo.image && (
+      {repo.image && (
+        <figure>
           <Image
             src={repo.image}
             alt={`${repo.username}/${repo.repo}`}
@@ -16,8 +18,21 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
             height={216}
             style={{ width: "100%", height: "auto" }}
           />
-        )}
-      </figure>
+        </figure>
+      )}
+      {repo.code && (
+        <figure>
+          <div className="mockup-code w-full">
+            <SyntaxHighlighter
+              language="yml"
+              style={dark}
+              customStyle={{ background: "none" }}
+            >
+              {repo.code}
+            </SyntaxHighlighter>
+          </div>
+        </figure>
+      )}
       <div className="card-body">
         <h2 className="card-title">{repoInfo.name}</h2>
         <p>{repoInfo.description || "No description available."}</p>
