@@ -1,3 +1,4 @@
+import type { GraphQlQueryResponseData } from "@octokit/graphql";
 import { graphql } from "@octokit/graphql";
 
 interface RepoInfo {
@@ -34,29 +35,15 @@ export async function fetchCommitAmount(
   repo: string,
   main_branch: string
 ): Promise<number> {
-  const { repository } = await graphql(
+  const { repository } = await graphql<GraphQlQueryResponseData>(
     `
       query ($owner: String!, $repo: String!, $branch: String!) {
         repository(owner: $owner, name: $repo) {
           ref(qualifiedName: $branch) {
             target {
               ... on Commit {
-                history(first: 10) {
-                  edges {
-                    node {
-                      oid
-                      messageHeadline
-                      committedDate
-                      author {
-                        name
-                        email
-                      }
-                    }
-                  }
-                  pageInfo {
-                    hasNextPage
-                    endCursor
-                  }
+                history {
+                  totalCount
                 }
               }
             }
@@ -73,5 +60,5 @@ export async function fetchCommitAmount(
       },
     }
   );
-  return repository.ref.target.history.edges.length;
+  return repository.ref.target.history.totalCount;
 }
