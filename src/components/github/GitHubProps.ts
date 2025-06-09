@@ -9,6 +9,7 @@ export interface GitHubRepo {
   username: string;
   repo: string;
   image?: string;
+  tags?: string[];
 }
 
 export interface GitHubCardProps {
