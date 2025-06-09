@@ -6,7 +6,7 @@ interface RepoInfo {
   organization: string;
 }
 
-export async function fetchGitHubRepo(
+export async function fetchRepo(
   username: string,
   repo: string
 ): Promise<RepoInfo> {

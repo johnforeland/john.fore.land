@@ -1,11 +1,11 @@
 import Image from "@/components/shared/Image";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { fetchRepo } from "./GitHubApi";
 import { GitHubCardProps } from "./GitHubProps";
-import { fetchGitHubRepo } from "./GitHubRepoFetcher";
 
 export async function GitHubCard({ repo }: GitHubCardProps) {
-  const repoInfo = await fetchGitHubRepo(repo.username, repo.repo);
+  const repoInfo = await fetchRepo(repo.username, repo.repo);
 
   function getHeader(): import("react").ReactNode {
     return repo.image ? getImage() : getCode();
