@@ -1,4 +1,4 @@
-import { about, project } from "@/resources/content";
+import { about, github, project } from "@/resources/content";
 
 const baseURL = "john.fore.land";
 
@@ -16,7 +16,7 @@ const routes = [
   },
   {
     id: "github",
-    label: "GitHub", // TODO: add a label for the new page
+    label: github.label,
     path: "/github",
     icon: "github",
   },
