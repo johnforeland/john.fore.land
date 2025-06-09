@@ -9,7 +9,6 @@ export {
 } from "@/resources/config";
 export {
   about,
-  gallery,
   home,
   person,
   project,
