@@ -19,14 +19,18 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
         )}
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          {repoInfo.name}
-          <div className="badge badge-secondary">{repoInfo.language}</div>
-        </h2>
+        <h2 className="card-title">{repoInfo.name}</h2>
         <p>{repoInfo.description || "No description available."}</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+          {repo.tags && repo.tags.length > 0
+            ? repo.tags.map((tag: string) => (
+                <div key={tag} className="badge badge-outline">
+                  {tag}
+                </div>
+              ))
+            : repoInfo.language && (
+                <div className="badge badge-outline">{repoInfo.language}</div>
+              )}
         </div>
       </div>
     </div>
