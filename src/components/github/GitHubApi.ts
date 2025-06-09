@@ -7,10 +7,10 @@ interface RepoInfo {
 }
 
 export async function fetchRepo(
-  username: string,
+  owner: string,
   repo: string
 ): Promise<RepoInfo> {
-  const res = await fetch(`https://api.github.com/repos/${username}/${repo}`);
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
 
   if (!res.ok) {
     throw new Error(`GitHub API error: ${res.status}`);

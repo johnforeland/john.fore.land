@@ -173,13 +173,13 @@ const github = {
   description: `GitHub projects by ${person.name}`,
   repos: [
     {
-      username: "johnforeland",
+      owner: "johnforeland",
       repo: "john.fore.land",
       image: "/images/github/john.fore.land.png",
       tags: ["Next.js", "TypeScript", "Tailwind"],
     },
     {
-      username: "johnforeland",
+      owner: "johnforeland",
       repo: "truncate-tool",
       code: `- uses: johnforeland/truncate-tool@v0.5
     id: truncate-with-append

@@ -5,7 +5,7 @@ import { fetchRepo } from "./GitHubApi";
 import { GitHubCardProps } from "./GitHubProps";
 
 export async function GitHubCard({ repo }: GitHubCardProps) {
-  const repoInfo = await fetchRepo(repo.username, repo.repo);
+  const repoInfo = await fetchRepo(repo.owner, repo.repo);
 
   function getHeader(): import("react").ReactNode {
     return repo.image ? getImage() : getCode();
@@ -16,7 +16,7 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
       repo.image && (
         <Image
           src={repo.image}
-          alt={`${repo.username}/${repo.repo}`}
+          alt={`${repo.owner}/${repo.repo}`}
           width={384}
           height={216}
           style={{ width: "100%", height: "auto" }}

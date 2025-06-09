@@ -6,7 +6,7 @@ export interface GitHubContent {
 }
 
 export interface GitHubRepo {
-  username: string;
+  owner: string;
   repo: string;
   image?: string;
   code?: string;
