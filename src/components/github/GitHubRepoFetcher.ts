@@ -3,6 +3,7 @@ interface RepoInfo {
   html_url: string;
   description: string;
   language: string;
+  organization: string;
 }
 
 export async function fetchGitHubRepo(
@@ -22,5 +23,6 @@ export async function fetchGitHubRepo(
     html_url: json.html_url,
     description: json.description,
     language: json.language,
+    organization: json.owner.login,
   };
 }
