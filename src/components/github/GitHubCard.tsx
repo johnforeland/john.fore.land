@@ -13,13 +13,15 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
 
   function getImage(): import("react").ReactNode {
     return (
-      <Image
-        src={repo.image}
-        alt={`${repo.username}/${repo.repo}`}
-        width={384}
-        height={216}
-        style={{ width: "100%", height: "auto" }}
-      />
+      repo.image && (
+        <Image
+          src={repo.image}
+          alt={`${repo.username}/${repo.repo}`}
+          width={384}
+          height={216}
+          style={{ width: "100%", height: "auto" }}
+        />
+      )
     );
   }
 
