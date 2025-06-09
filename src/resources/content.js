@@ -166,10 +166,23 @@ const project = {
   description: `Developer projects by ${person.name}`,
 };
 
+/** @type {GitHubContent} */
 const github = {
   label: "GitHub",
   title: "GitHub Projects",
   description: `GitHub projects by ${person.name}`,
+  repos: [
+    {
+      username: "johnforeland",
+      repo: "john.fore.land",
+      image: "/images/github/john.fore.land.png",
+    },
+    {
+      username: "johnforeland",
+      repo: "truncate-tool",
+      image: "/images/github/truncate-tool.png",
+    },
+  ],
 };
 
 export { about, github, home, person, project, social };
