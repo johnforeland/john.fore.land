@@ -1,6 +1,6 @@
 import type { GraphQlQueryResponseData } from "@octokit/graphql";
 import { graphql } from "@octokit/graphql";
-// import gql from "graphql-tag";
+import gql from "graphql-tag";
 
 interface RepoInfo {
   name: string;
@@ -18,24 +18,24 @@ export async function fetchRepo(
   owner: string,
   repo: string
 ): Promise<RepoInfo> {
-  const query = `
-  query ($owner: String!, $repo: String!) {
-    repository(owner: $owner, name: $repo) {
-      name
-      description
-      openGraphImageUrl
-      projectsUrl
-      owner {
-        login
-      }
-      releases(last: 1) {
-        nodes {
-          name
+  const query = gql`
+    query ($owner: String!, $repo: String!) {
+      repository(owner: $owner, name: $repo) {
+        name
+        description
+        openGraphImageUrl
+        projectsUrl
+        owner {
+          login
+        }
+        releases(last: 1) {
+          nodes {
+            name
+          }
         }
       }
     }
-  }
-`;
+  `;
 
   const { repository } = await queryGitHub({ query, owner, repo });
 
@@ -55,7 +55,7 @@ export async function fetchCommitAmount(
   repo: string,
   branch: string
 ): Promise<number> {
-  const query = `
+  const query = gql`
     query ($owner: String!, $repo: String!, $branch: String!) {
       repository(owner: $owner, name: $repo) {
         ref(qualifiedName: $branch) {
@@ -75,8 +75,10 @@ export async function fetchCommitAmount(
   return repository.ref.target.history.totalCount;
 }
 
+import type { DocumentNode } from "graphql";
+
 interface GraphQLApiOptions {
-  query: string;
+  query: DocumentNode;
   owner: string;
   repo: string;
   branch?: string;
@@ -88,7 +90,7 @@ export async function queryGitHub<Response = GraphQlQueryResponseData>({
   repo,
   branch,
 }: GraphQLApiOptions): Promise<Response> {
-  return graphql<Response>(query, {
+  return graphql<Response>(query.loc?.source.body ?? "", {
     owner,
     repo,
     branch,
