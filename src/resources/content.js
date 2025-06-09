@@ -176,11 +176,13 @@ const github = {
       username: "johnforeland",
       repo: "john.fore.land",
       image: "/images/github/john.fore.land.png",
+      tags: ["Next.js", "TypeScript", "Tailwind"],
     },
     {
       username: "johnforeland",
       repo: "truncate-tool",
       image: "/images/github/truncate-tool.png",
+      tags: ["GitHub Action", "TypeScript"],
     },
   ],
 };
