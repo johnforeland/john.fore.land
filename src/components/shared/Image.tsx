@@ -6,15 +6,21 @@ import React from "react";
 export default async function Image(
   props: ImageProps & { style?: React.CSSProperties }
 ) {
-  if (props.src && typeof props.src === "string" && props.src.startsWith("/")) {
-    props.blurDataURL = await blurImage(props.src);
+  const imageProps = { ...props };
+
+  if (
+    imageProps.src &&
+    typeof imageProps.src === "string" &&
+    imageProps.src.startsWith("/")
+  ) {
+    imageProps.blurDataURL = await blurImage(imageProps.src);
   }
 
-  return <NextImage {...props} style={props.style} />;
+  return <NextImage {...imageProps} style={imageProps.style} />;
 }
 
 async function blurImage(src: string): Promise<string> {
-  const buffer = await fs.readFile(src);
+  const buffer = await fs.readFile("public/" + src);
   const { base64 } = await getPlaiceholder(buffer);
 
   return base64;

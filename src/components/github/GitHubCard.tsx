@@ -1,5 +1,4 @@
-// import Image from "@/components/shared/Image";
-import NextImage from "next/image";
+import Image from "@/components/shared/Image";
 import { GitHubCardProps } from "./GitHubProps";
 import { fetchGitHubRepo } from "./GitHubRepoFetcher";
 
@@ -10,7 +9,7 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
     <div className="card bg-base-100 w-96 shadow-sm">
       <figure>
         {repo.image && (
-          <NextImage
+          <Image
             src={repo.image}
             alt={`${repo.username}/${repo.repo}`}
             width={384}
