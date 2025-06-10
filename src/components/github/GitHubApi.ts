@@ -95,7 +95,7 @@ export async function queryGitHub<Response = GraphQlQueryResponseData>({
     repo,
     branch,
     headers: {
-      authorization: `token ${process.env.PAT_GITHUB_TOKEN}`,
+      authorization: `token ${process.env.GITHUB_TOKEN}`,
     },
   });
 }
