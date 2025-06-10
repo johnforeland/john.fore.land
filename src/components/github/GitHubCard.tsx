@@ -17,7 +17,7 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
     return (
       repo.image && (
         <NextImage
-          src={repoInfo.openGraphImageUrl}
+          src={repo.image}
           alt={`${repo.owner}/${repo.repo}`}
           width={384}
           height={216}
