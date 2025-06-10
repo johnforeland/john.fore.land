@@ -176,7 +176,7 @@ const github = {
       owner: "johnforeland",
       repo: "john.fore.land",
       branch: "main",
-      image: "/images/github/john.fore.land.png",
+      website: "/",
       tags: ["Next.js", "TypeScript", "Tailwind"],
     },
     {

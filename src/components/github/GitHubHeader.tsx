@@ -5,6 +5,22 @@ import { Video } from "../project";
 import { GitHubCardProps } from "./GitHubProps";
 
 export async function GitHubHeader({ repo }: GitHubCardProps) {
+  function getWebsite(): import("react").ReactNode {
+    return (
+      repo.website && (
+        <div className="w-full h-[360px] overflow-hidden">
+          <iframe
+            src={repo.website}
+            width="1280"
+            height="720"
+            className="scale-50 origin-top-left border-none"
+            title="Website Preview"
+          />
+        </div>
+      )
+    );
+  }
+
   function getImage(): import("react").ReactNode {
     return (
       repo.image && (
@@ -41,6 +57,7 @@ export async function GitHubHeader({ repo }: GitHubCardProps) {
 
   return (
     <>
+      <figure>{getWebsite()}</figure>
       <figure>{getImage()}</figure>
       <figure>{getVideo()}</figure>
       <figure>{getCode()}</figure>

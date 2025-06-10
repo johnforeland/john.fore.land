@@ -10,6 +10,7 @@ export interface GitHubRepo {
   repo: string;
   branch: string;
   image?: string;
+  website?: string;
   video?: string;
   code?: string;
   tags: string[];
