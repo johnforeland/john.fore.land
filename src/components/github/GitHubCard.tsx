@@ -64,7 +64,7 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
   }
 
   return (
-    <div className="card bg-base-100 w-96 shadow-sm">
+    <div className="card bg-base-100 shadow-sm">
       <figure>{getImage()}</figure>
       <figure>{getVideo()}</figure>
       <figure>{getCode()}</figure>
