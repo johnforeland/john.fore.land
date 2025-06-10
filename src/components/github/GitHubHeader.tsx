@@ -12,13 +12,13 @@ export async function GitHubHeader({ repo }: GitHubCardProps) {
           <div className="mockup-browser-toolbar">
             <div className="input">{repo.website}</div>
           </div>
-          <div className="grid place-content-center border-t border-base-300 h-90">
-            <div className="w-full h-[360px] overflow-hidden pointer-events-none">
+          <div className="grid place-content-center border-t border-base-300 h-58 md:h-90">
+            <div className="w-full overflow-hidden pointer-events-none">
               <iframe
                 src={repo.website}
                 width="1130"
                 height="720"
-                className="scale-50 origin-top-left border-none pointer-events-none"
+                className="scale-32 md:scale-50 origin-top-left border-none pointer-events-none"
                 title="Website Preview"
                 tabIndex={-1}
               />
