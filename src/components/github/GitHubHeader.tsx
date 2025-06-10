@@ -8,14 +8,22 @@ export async function GitHubHeader({ repo }: GitHubCardProps) {
   function getWebsite(): import("react").ReactNode {
     return (
       repo.website && (
-        <div className="w-full h-[360px] overflow-hidden">
-          <iframe
-            src={repo.website}
-            width="1280"
-            height="720"
-            className="scale-50 origin-top-left border-none"
-            title="Website Preview"
-          />
+        <div className="mockup-browser border-base-300 border w-full">
+          <div className="mockup-browser-toolbar">
+            <div className="input">{repo.website}</div>
+          </div>
+          <div className="grid place-content-center border-t border-base-300 h-90">
+            <div className="w-full h-[360px] overflow-hidden pointer-events-none">
+              <iframe
+                src={repo.website}
+                width="1130"
+                height="720"
+                className="scale-50 origin-top-left border-none pointer-events-none"
+                title="Website Preview"
+                tabIndex={-1}
+              />
+            </div>
+          </div>
         </div>
       )
     );
