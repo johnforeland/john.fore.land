@@ -1,6 +1,7 @@
 import NextImage from "next/image";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { Video } from "../project";
 import { fetchCommitAmount, fetchRepo } from "./GitHubApi";
 import { GitHubCardProps } from "./GitHubProps";
 
@@ -11,10 +12,6 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
     repo.repo,
     repo.branch
   );
-
-  function getHeader(): import("react").ReactNode {
-    return repo.image ? getImage() : getCode();
-  }
 
   function getImage(): import("react").ReactNode {
     return (
@@ -30,17 +27,23 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
     );
   }
 
+  function getVideo(): import("react").ReactNode {
+    return repo.video && <Video src={repo.video} />;
+  }
+
   function getCode(): import("react").ReactNode {
     return (
-      <div className="mockup-code w-full">
-        <SyntaxHighlighter
-          language="yml"
-          style={dark}
-          customStyle={{ background: "none" }}
-        >
-          {repo.code}
-        </SyntaxHighlighter>
-      </div>
+      repo.code && (
+        <div className="mockup-code w-full">
+          <SyntaxHighlighter
+            language="yml"
+            style={dark}
+            customStyle={{ background: "none" }}
+          >
+            {repo.code}
+          </SyntaxHighlighter>
+        </div>
+      )
     );
   }
 
@@ -62,7 +65,9 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
 
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
-      <figure>{getHeader()}</figure>
+      <figure>{getImage()}</figure>
+      <figure>{getVideo()}</figure>
+      <figure>{getCode()}</figure>
       <div className="card-body">
         <h2 className="card-title">{repoInfo.name}</h2>
         <h3>{repoInfo.organization}</h3>

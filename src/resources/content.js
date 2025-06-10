@@ -180,6 +180,14 @@ const github = {
       tags: ["Next.js", "TypeScript", "Tailwind"],
     },
     {
+      owner: "sopra-steria-salesforce",
+      repo: "ssdx-cli",
+      branch: "main",
+      video:
+        "https://s3.eu-north-1.amazonaws.com/media.fore.land/github-projects/ssdx.mp4",
+      tags: ["Salesforce", "TypeScript", "CLI"],
+    },
+    {
       owner: "johnforeland",
       repo: "truncate-tool",
       branch: "main",
