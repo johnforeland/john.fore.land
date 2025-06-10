@@ -34,6 +34,7 @@ export const Video: React.FC<VideoProps> = ({
         autoPlay={autoPlay}
         loop={loop}
         muted={muted}
+        playsInline
         width={width}
       >
         Your browser does not support the video tag.
