@@ -48,19 +48,14 @@ export async function GitHubCard({ repo }: GitHubCardProps) {
   }
 
   function getTags(): import("react").ReactNode {
-    if (!repo.tags || repo.tags.length == 0) {
-      return (
-        repoInfo.language && (
-          <div className="badge badge-outline">{repoInfo.language}</div>
-        )
-      );
-    }
-
-    return repo.tags.map((tag: string) => (
-      <div key={tag} className="badge badge-outline">
-        {tag}
-      </div>
-    ));
+    return (
+      repo.tags &&
+      repo.tags.map((tag: string) => (
+        <div key={tag} className="badge badge-outline">
+          {tag}
+        </div>
+      ))
+    );
   }
 
   return (
