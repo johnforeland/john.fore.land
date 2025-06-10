@@ -12,7 +12,7 @@ export interface GitHubRepo {
   image?: string;
   video?: string;
   code?: string;
-  tags?: string[];
+  tags: string[];
 }
 
 export interface GitHubCardProps {
