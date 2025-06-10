@@ -176,7 +176,14 @@ const github = {
       owner: "johnforeland",
       repo: "john.fore.land",
       branch: "main",
-      website: "/",
+      website: "https://john.fore.land",
+      tags: ["Next.js", "TypeScript", "Tailwind"],
+    },
+    {
+      owner: "boken-app",
+      repo: "bilboka-frontend",
+      branch: "main",
+      website: "https://bil.boken.app",
       tags: ["Next.js", "TypeScript", "Tailwind"],
     },
     {
