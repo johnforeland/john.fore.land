@@ -1,4 +1,4 @@
-import NextImage from "next/image";
+import Image from "@/components/shared/Image";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Video } from "../project";
@@ -8,7 +8,7 @@ export async function GitHubHeader({ repo }: GitHubCardProps) {
   function getImage(): import("react").ReactNode {
     return (
       repo.image && (
-        <NextImage
+        <Image
           src={repo.image}
           alt={`${repo.owner}/${repo.repo}`}
           width={384}
