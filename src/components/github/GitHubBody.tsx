@@ -77,7 +77,7 @@ export async function GitHubBody({ repo }: GitHubCardProps) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`btn  btn-sm ${btn}`}
+        className={`btn btn-sm ${btn}`}
       >
         {label}
       </a>
